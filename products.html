@@ -376,13 +376,13 @@
       <h1>OS NOSSOS PRODUTOS</h1>
       <p>DESCUBRA PRODUTOS TRADICIONAIS PORTUGUESES AUTÊNTICOS. CADA PRODUTO CONTA UMA HISTÓRIA DE TRADIÇÃO E QUALIDADE.</p>
       <div class="category-pills">
-        <button>Azeite</button>
-        <button>Vinho</button>
-        <button>Queijo</button>
-        <button>Mel</button>
-        <button>Fumeiro</button>
-        <button>Doçaria</button>
-        <button>Ervas Aromáticas</button>
+        <button onclick="scrollToCategory('Azeite')">Azeite</button>
+        <button onclick="scrollToCategory('Vinho')">Vinho</button>
+        <button onclick="scrollToCategory('Queijo')">Queijo</button>
+        <button onclick="scrollToCategory('Mel')">Mel</button>
+        <button onclick="scrollToCategory('Fumeiro')">Fumeiro</button>
+        <button onclick="scrollToCategory('Doçaria')">Doçaria</button>
+        <button onclick="scrollToCategory('Ervas Aromáticas')">Ervas Aromáticas</button>
       </div>
     </div>
     <div class="wave-divider" aria-hidden="true">
@@ -415,28 +415,40 @@
 
 <script>
   const featuredProducts = [
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg" },
-    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg" },
-    { name: "MEL DO BÔ", producer: "Produtor Rui Lorenço", price: "8,95€", image: "/assets/images/MEL.jpeg" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg" }
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" },
+    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo" },
+    { name: "MEL DO BÔ", producer: "Produtor Rui Lorenço", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel" },
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" }
   ];
 
   const catalogProducts = [
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg" },
-    { name: "QUEIJO DE CABRA", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg" },
-    { name: "MEL ARTESANAL", producer: "Produtor ..", price: "8,95€", image: "/assets/images/MEL.jpeg" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg" },
-    { name: "QUEIJO ARTESANAL", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg" }
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" },
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" },
+    { name: "QUEIJO DE CABRA", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo" },
+    { name: "MEL ARTESANAL", producer: "Produtor ..", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel" },
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" },
+    { name: "QUEIJO ARTESANAL", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo" },
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" },
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" }
   ];
+
+  function slugify(text) {
+    return (text || '')
+      .toString()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+  }
 
   function renderGrid(id, list) {
     const node = document.getElementById(id);
     if (!node) return;
-    node.innerHTML = list.map(item => `
-      <div class="product-card">
+    node.innerHTML = list.map(item => {
+      const catSlug = slugify(item.category || '');
+      return `
+      <div class="product-card" data-category="${catSlug}">
         <div class="product-image">
           <img src="http://localhost/AlmaNorte${item.image}" alt="${item.name}">
           <span class="icon-badge"><i class="far fa-heart"></i></span>
@@ -446,8 +458,18 @@
           <p class="producer">${item.producer}</p>
           <p class="price">${item.price}</p>
         </div>
-      </div>
-    `).join('');
+      </div>`;
+    }).join('');
+  }
+
+  function scrollToCategory(categoryName) {
+    const targetSlug = slugify(categoryName);
+    const grid = document.getElementById('catalog-grid');
+    if (!grid) return;
+    const target = grid.querySelector(`[data-category="${targetSlug}"]`);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   renderGrid('featured-grid', featuredProducts);
