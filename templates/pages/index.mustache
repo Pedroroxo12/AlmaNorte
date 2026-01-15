@@ -351,24 +351,31 @@
 
     const producers = [
         {
-            name: "João Ferreira",
-            description: "Produtor de vinho artesanal com mais de 20 anos de experiência. Utiliza técnicas tradicionais na produção, garantindo qualidade e autenticidade em cada garrafa.",
-            image: "/assets/images/young-farmer-taking-care-his-business 1.png"
+            title: "OS NOSSOS PRODUTORES",
+            subtitle: "DESCOBRE COMO SÃ TRATADOS OS NOSSOS PRODUTOS",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+            image: "/assets/images/young-farmer-taking-care-his-business 1.png",
+            buttonText: "Tudo sobre os nossos Produtores",
+            buttonLink: "/producers.html",
+            type: "producer"
         },
         {
-            name: "Maria Silva",
-            description: "Especialista em produtos orgânicos. Trabalha em harmonia com a natureza, produzindo frutas, legumes e mel de excelente qualidade, respeitando o meio ambiente.",
-            image: "/assets/images/young-farmer-taking-care-his-business 1.png"
+            title: "EVENTOS FUTUROS",
+            subtitle: "EXPLORA OS PRÓXIMOS EVENTOS",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            image: "/assets/images/Foto de capa.jpeg",
+            buttonText: "Descobre o nosso Blog",
+            buttonLink: "/blog/index.html",
+            type: "event"
         },
         {
-            name: "Carlos Mendes",
-            description: "Produtor de azeite extra virgem. Com plantações em terrenos privilegiados, consegue extrair o melhor azeite através de métodos ancestrais e cuidado rigoroso.",
-            image: "/assets/images/young-farmer-taking-care-his-business 1.png"
-        },
-        {
-            name: "Ana Costa",
-            description: "Produtora de queijos artesanais de leite de ovelha. Cada queijo é cuidadosamente elaborado seguindo receitas tradicionais, resultando em sabores únicos.",
-            image: "/assets/images/young-farmer-taking-care-his-business 1.png"
+            title: "OFERTAS ESPECIAIS",
+            subtitle: "DESCOBRE AS MELHORES OFERTAS",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            image: "/assets/images/Foto de capa.jpeg",
+            buttonText: "As melhores ofertas",
+            buttonLink: "/gallery-api-1.html",
+            type: "offer"
         }
     ];
 
@@ -397,11 +404,64 @@
 
     function showProducer(index) {
         const producer = producers[index];
-        const producerImage = document.getElementById('producer-image');
-        const producerText = document.getElementById('producer-text');
+        const producerContainer = document.getElementById('producer-container');
+        const mainCard = document.querySelector('.producer-main-card');
         
-        producerImage.innerHTML = `<img src="${producer.image}" alt="${producer.name}">`;
-        producerText.innerHTML = `<p>${producer.description}</p>`;
+        if (producer.type === 'offer') {
+            mainCard.style.border = '3px solid #4a90e2';
+            mainCard.style.borderRadius = '25px';
+            producerContainer.innerHTML = `
+                <div style="text-align: left; width: 100%;">
+                    <div style="display: flex; gap: 30px; align-items: center;">
+                        <div style="flex: 0 0 250px;">
+                            <img src="http://localhost/AlmaNorte${producer.image}" alt="${producer.subtitle}" style="width: 250px; height: 350px; object-fit: cover; border: 3px solid white;">
+                        </div>
+                        <div style="flex: 1;">
+                            <p style="font-size: 11px; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; color: white;">${producer.title}</p>
+                            <h3 style="font-size: 28px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 300; text-transform: uppercase; color: white;">${producer.subtitle}</h3>
+                            <p style="font-size: 13px; line-height: 1.8; margin-bottom: 30px; color: white;">${producer.description}</p>
+                            <a href="http://localhost/AlmaNorte${producer.buttonLink}" style="background-color: transparent; color: white; border: 2px solid white; padding: 12px 40px; text-decoration: none; display: inline-block; transition: all 0.3s; font-size: 14px;">${producer.buttonText}</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (producer.type === 'event') {
+            mainCard.style.border = 'none';
+            mainCard.style.borderRadius = '25px';
+            producerContainer.innerHTML = `
+                <div style="text-align: left; width: 100%;">
+                    <p style="font-size: 11px; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; color: white;">${producer.title}</p>
+                    <h3 style="font-size: 24px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 300; text-transform: uppercase; color: white;">${producer.subtitle}</h3>
+                    <div style="display: flex; gap: 30px; align-items: flex-start;">
+                        <div style="flex: 0 0 250px;">
+                            <img src="http://localhost/AlmaNorte${producer.image}" alt="${producer.subtitle}" style="width: 250px; height: 250px; object-fit: cover; border: 3px solid white;">
+                        </div>
+                        <div style="flex: 1;">
+                            <p style="font-size: 13px; line-height: 1.8; margin-bottom: 25px; color: white;">${producer.description}</p>
+                            <a href="http://localhost/AlmaNorte${producer.buttonLink}" style="background-color: transparent; color: white; border: 2px solid white; padding: 12px 40px; text-decoration: none; display: inline-block; transition: all 0.3s; font-size: 14px;">${producer.buttonText}</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            mainCard.style.border = 'none';
+            mainCard.style.borderRadius = '25px';
+            producerContainer.innerHTML = `
+                <div style="text-align: left; width: 100%;">
+                    <div style="display: flex; gap: 30px; align-items: flex-start;">
+                        <div style="flex: 0 0 250px;">
+                            <img src="http://localhost/AlmaNorte${producer.image}" alt="${producer.subtitle}" style="width: 250px; height: 250px; object-fit: cover; border: 3px solid white;">
+                        </div>
+                        <div style="flex: 1;">
+                            <p style="font-size: 13px; line-height: 1.8; margin-bottom: 25px; color: white;">${producer.description}</p>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="http://localhost/AlmaNorte${producer.buttonLink}" style="background-color: transparent; color: white; border: 2px solid white; padding: 12px 40px; text-decoration: none; display: inline-block; transition: all 0.3s; font-size: 14px;">${producer.buttonText}</a>
+                    </div>
+                </div>
+            `;
+        }
     }
 
     function nextTestimonial() {
@@ -455,10 +515,6 @@
                 <div class="producer-text" id="producer-text">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
                 </div>
-            </div>
-            
-            <div class="producers-button-container">
-                <a href="/producers.html" class="btn-producers">Tudo sobre os nossos Produtores</a>
             </div>
         </div>
         
