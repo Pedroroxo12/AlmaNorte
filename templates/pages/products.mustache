@@ -263,21 +263,21 @@
 
 <script>
   const featuredProducts = [
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" },
-    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo" },
-    { name: "MEL DO BÔ", producer: "Produtor Rui Lorenço", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" }
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
+    { name: "MEL DO BÔ", producer: "Produtor Rui Lorenço", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" }
   ];
 
   const catalogProducts = [
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" },
-    { name: "QUEIJO DE CABRA", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo" },
-    { name: "MEL ARTESANAL", producer: "Produtor ..", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" },
-    { name: "QUEIJO ARTESANAL", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho" }
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "QUEIJO DE CABRA", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
+    { name: "MEL ARTESANAL", producer: "Produtor ..", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "QUEIJO ARTESANAL", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" }
   ];
 
   function slugify(text) {
@@ -296,7 +296,7 @@
     node.innerHTML = list.map(item => {
       const catSlug = slugify(item.category || '');
       return `
-      <div class="product-card" data-category="${catSlug}">
+      <a class="product-card" data-category="${catSlug}" href="${item.link || '/products/product1.html'}">
         <div class="product-image">
           <img src="http://localhost/AlmaNorte${item.image}" alt="${item.name}">
           <span class="icon-badge"><i class="far fa-heart"></i></span>
@@ -306,7 +306,7 @@
           <p class="producer">${item.producer}</p>
           <p class="price">${item.price}</p>
         </div>
-      </div>`;
+      </a>`;
     }).join('');
   }
 

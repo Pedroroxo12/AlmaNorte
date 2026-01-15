@@ -1,5 +1,238 @@
-{{< products}}
-{{$product}}
-<h2>PRODUCT 1</h2>
-<p>Let's discuss your next project or collaboration opportunity</p>         
-{{/product}}
+{{< layout}}
+{{$main}}
+<style>
+	.product-detail {
+		padding: 120px 20px 80px;
+		max-width: 1200px;
+		margin: 0 auto;
+		color: #2b1c1c;
+	}
+	.product-hero {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 40px;
+		align-items: start;
+	}
+	.product-hero img {
+		width: 100%;
+		max-width: 360px;
+		object-fit: contain;
+		margin: 0 auto;
+		display: block;
+	}
+	.product-info h1 {
+		font-size: 26px;
+		letter-spacing: 0.5px;
+		margin-bottom: 10px;
+	}
+	.product-info .producer {
+		font-size: 13px;
+		color: #555;
+		margin-bottom: 14px;
+	}
+	.product-info .price {
+		font-size: 18px;
+		font-weight: 600;
+		margin-bottom: 16px;
+	}
+	.product-info .desc {
+		font-size: 13px;
+		line-height: 1.6;
+		margin-bottom: 16px;
+	}
+	.product-info .notes {
+		font-size: 12px;
+		line-height: 1.6;
+		color: #6b5555;
+		margin-bottom: 20px;
+	}
+	.size-options button,
+	.qty-box button,
+	.qty-box input {
+		border: 1px solid #c8baba;
+		background: #fff;
+		padding: 8px 12px;
+		font-size: 12px;
+		cursor: pointer;
+	}
+	.size-options {
+		display: flex;
+		gap: 10px;
+		margin: 10px 0 18px;
+	}
+	.qty-row {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin: 4px 0 20px;
+	}
+	.qty-box {
+		display: inline-flex;
+		align-items: center;
+		border: 1px solid #c8baba;
+	}
+	.qty-box input {
+		width: 40px;
+		text-align: center;
+		border: none;
+	}
+	.add-cart {
+		background: #593232;
+		color: #fff;
+		border: none;
+		padding: 10px 16px;
+		font-size: 12px;
+		letter-spacing: 0.3px;
+		cursor: pointer;
+		text-transform: uppercase;
+	}
+	.favorite-btn {
+		border: 1px solid #c8baba;
+		background: #fff;
+		padding: 9px 12px;
+		margin-left: 8px;
+		cursor: pointer;
+	}
+	.tabs {
+		margin-top: 40px;
+		border-top: 1px solid #c8baba;
+	}
+	.tabs-nav {
+		display: flex;
+		gap: 20px;
+		padding: 16px 0;
+		font-weight: 600;
+	}
+	.tabs-content {
+		font-size: 13px;
+		line-height: 1.7;
+		color: #533c3c;
+		padding-bottom: 30px;
+		border-bottom: 1px solid #c8baba;
+	}
+	.recommended {
+		padding: 60px 0 20px;
+	}
+	.recommended h2 {
+		text-align: center;
+		font-size: 28px;
+		margin-bottom: 30px;
+		letter-spacing: 0.5px;
+	}
+	.rec-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: 20px;
+		max-width: 1100px;
+		margin: 0 auto 20px;
+	}
+	.rec-card {
+		border: 1px solid #dcd4d4;
+		padding: 12px;
+		text-align: center;
+		background: #fff;
+	}
+	.rec-card img {
+		width: 100%;
+		max-height: 160px;
+		object-fit: contain;
+	}
+	.rec-card h4 { font-size: 14px; margin: 10px 0 6px; }
+	.rec-card p { font-size: 12px; margin: 0 0 6px; color: #6b5555; }
+	.rec-card .price { font-weight: 600; color: #2b1c1c; }
+	.cta-more {
+		display: inline-flex;
+		margin: 14px auto 0;
+		background: #f2eaea;
+		padding: 8px 16px;
+		color: #2b1c1c;
+		font-size: 12px;
+		border: 1px solid #d3c6c6;
+		text-decoration: none;
+	}
+	@media (max-width: 900px) {
+		.product-hero { grid-template-columns: 1fr; }
+	}
+</style>
+
+<div class="product-detail">
+	<div class="product-hero">
+		<div class="product-media">
+			<img src="/assets/images/MEL.jpeg" alt="Mel do Bô">
+		</div>
+		<div class="product-info">
+			<h1>MEL DO BÔ</h1>
+			<div class="producer">Produtor Rui Lorenço</div>
+			<div class="price">8,95€</div>
+			<div class="desc">
+				Mel artesanal produzido em Trás-os-Montes, recolhido de forma sustentável e sem adição de açúcares.
+			</div>
+			<div class="notes">
+				Sabor intenso e natural, ideal para consumo diário ou para acompanhar receitas tradicionais.
+			</div>
+
+			<div class="label">Tamanho</div>
+			<div class="size-options">
+				<button>250g</button>
+				<button>500g</button>
+				<button>1kg</button>
+			</div>
+
+			<div class="qty-row">
+				<span>Quantidade</span>
+				<div class="qty-box">
+					<button type="button">-</button>
+					<input type="text" value="1" aria-label="Quantidade">
+					<button type="button">+</button>
+				</div>
+			</div>
+
+			<div class="actions">
+				<button class="add-cart">ADICIONAR AO CARRINHO</button>
+				<button class="favorite-btn"><i class="far fa-heart"></i></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="tabs">
+		<div class="tabs-nav">
+			<span>Sobre o Produto</span>
+			<span>História</span>
+		</div>
+		<div class="tabs-content">
+			O Mel do Bô é um mel artesanal produzido em Trás-os-Montes, obtido a partir do néctar de flores silvestres da região.
+			Apresenta uma textura suave e um sabor equilibrado, com notas naturais que variam consoante a floração e a época de colheita.
+			Não é sujeito a processos industriais nem a aditivos, preservando todas as suas características naturais. Ideal para consumo diário, para adoçar bebidas,
+			acompanhar queijos, enriquecer receitas ou ser apreciado ao natural.
+		</div>
+	</div>
+
+	<div class="recommended">
+		<h2>PRODUTOS RECOMENDADOS</h2>
+		<div class="rec-grid">
+			<div class="rec-card">
+				<img src="/assets/images/vinhos.jpeg" alt="Vinho Trovisco">
+				<h4>VINHO TROVISCO</h4>
+				<p>Produtor António Barbosa</p>
+				<div class="price">45,95€</div>
+			</div>
+			<div class="rec-card">
+				<img src="/assets/images/MEL.jpeg" alt="Mel do Bô">
+				<h4>MEL DO BÔ</h4>
+				<p>Produtor Rui Lorenço</p>
+				<div class="price">8,95€</div>
+			</div>
+			<div class="rec-card">
+				<img src="/assets/images/vinhos.jpeg" alt="Vinho Trovisco">
+				<h4>VINHO TROVISCO</h4>
+				<p>Produtor Rui Lorenço</p>
+				<div class="price">8,95€</div>
+			</div>
+		</div>
+		<div style="text-align:center;">
+			<a class="cta-more" href="/products.html">Ver todos os Produtos</a>
+		</div>
+	</div>
+</div>
+{{/main}}
+{{/layout}}
