@@ -1,41 +1,122 @@
-<header class="header">
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <div class="container">
-    <a class="navbar-brand mx-auto" href="/index.html">Alma Norte</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/index.html">Início</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/gallery-api-1.html">Produtos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/producers.html">Produtores</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about/index.html">Sobre Nós</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/favorites.html"><i class="fas fa-heart"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge bg-light text-dark" style="display: none;">0</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/account.html"><i class="fas fa-user"></i></a>
-        </li>
-      </ul>
+<style>
+    .top-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        z-index: 1001;
+        padding: 15px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        width: 100%;
+    }
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 100%;
+        padding: 0 50px;
+    }
+    .brand-text {
+        font-weight: 300;
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: #333;
+    }
+    .logo-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .logo-center img {
+        height: 80px;
+    }
+    .header-icons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+    .header-icons a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .header-icons a:hover {
+        color: #593232;
+    }
+    .nav-menu {
+        position: fixed;
+        top: 110px;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+        z-index: 1000;
+        padding: 15px 0;
+        width: 100%;
+    }
+    .nav-menu .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .nav-menu ul {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-menu ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+    .nav-menu ul li a:hover {
+        color: #593232;
+    }
+    main {
+        margin-top: 170px;
+    }
+    @media (max-width: 768px) {
+        .nav-menu ul {
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    }
+</style>
+
+<div class="top-header">
+    <div class="header-content">
+        <div class="brand-text">ALMANORTE</div>
+        <div class="logo-center">
+            <a href="/index.html">
+                <img src="/assets/images/Logotipo.png" alt="AlmaNorte">
+            </a>
+        </div>
+        <div class="header-icons">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="/account.html"><i class="fas fa-user"></i></a>
+            <a href="/favorites.html"><i class="fas fa-heart"></i></a>
+            <a href="/cart.html"><i class="fas fa-shopping-cart"></i></a>
+        </div>
     </div>
-  </div>
-</nav>
-</header>
+</div>
+
+<div class="nav-menu">
+    <div class="container">
+        <ul>
+            <li><a href="/index.html">HOME</a></li>
+            <li><a href="/gallery-api-1.html">PRODUTOS</a></li>
+            <li><a href="/blog/index.html">BLOG</a></li>
+            <li><a href="/producers.html">PRODUTORES</a></li>
+            <li><a href="/about/index.html">SOBRE NÓS</a></li>
+        </ul>
+    </div>
+</div>
  

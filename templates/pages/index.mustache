@@ -1,58 +1,301 @@
-{{>header}}
-<main>
-<section class="hero">
-    <div class="hero-content">
-        <h1 class="hero-title">{{hero.title}}</h1>
-        <p class="hero-subtitle">{{hero.subtitle}}</p>
-        <div class="hero-buttons">
-            <a href="./gallery-api-1.html" class="btn btn-primary">{{hero.buttons.projects}}</a>
-            <a href="./contact.html" class="btn btn-secondary">{{hero.buttons.contact}}</a>
+{{<layout}}
+{{$main}}
+<style>
+    .featured-section {
+        padding: 60px 20px;
+        text-align: center;
+        background: white;
+    }
+    .section-title {
+        font-size: 28px;
+        font-weight: 300;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        color: #333;
+    }
+    .product-basket {
+        max-width: 600px;
+        margin: 0 auto 30px;
+    }
+    .product-basket img {
+        width: 100%;
+        height: auto;
+    }
+    .btn-explore {
+        background-color: #593232;
+        color: white;
+        border: none;
+        padding: 12px 50px;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s;
+    }
+    .btn-explore:hover {
+        background-color: #4a2625;
+        color: white;
+    }
+    .producers-section {
+        background-color: #593232;
+        color: white;
+        padding: 60px 20px;
+        position: relative;
+    }
+    .producers-section .section-title {
+        color: white;
+    }
+    .producers-subtitle {
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+    }
+    .producer-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        max-width: 900px;
+        margin: 40px auto;
+    }
+    .producer-image {
+        flex: 0 0 250px;
+    }
+    .producer-image img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border: 3px solid white;
+    }
+    .producer-text {
+        flex: 1;
+        text-align: left;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+    .btn-light-custom {
+        background-color: white;
+        color: #593232;
+        border: none;
+        padding: 12px 50px;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 30px;
+    }
+    .btn-light-custom:hover {
+        background-color: #f5f5f5;
+        color: #593232;
+    }
+    .testimonials-section {
+        background-color: #593232;
+        color: white;
+        padding: 60px 20px;
+        position: relative;
+        margin: 80px 0;
+    }
+    .testimonials-section::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #593232;
+        clip-path: polygon(0 0, 0% 40%, 5% 30%, 10% 35%, 15% 25%, 20% 35%, 25% 30%, 30% 40%, 35% 25%, 40% 35%, 45% 30%, 50% 40%, 55% 30%, 60% 35%, 65% 25%, 70% 35%, 75% 30%, 80% 40%, 85% 35%, 90% 25%, 95% 35%, 100% 30%, 100% 0);
+    }
+    .testimonials-section::after {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #593232;
+        clip-path: polygon(0 50%, 5% 60%, 10% 55%, 15% 65%, 20% 55%, 25% 60%, 30% 50%, 35% 65%, 40% 55%, 45% 60%, 50% 50%, 55% 60%, 60% 55%, 65% 65%, 70% 55%, 75% 60%, 80% 50%, 85% 55%, 90% 65%, 95% 55%, 100% 60%, 100% 100%, 0 100%);
+    }
+    .testimonials-section h2 {
+        color: white;
+    }
+    .testimonials-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .nav-btn {
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 2px solid white;
+        color: white;
+        font-size: 24px;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: all 0.3s;
+        flex-shrink: 0;
+    }
+    .nav-btn:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+    .testimonial-card {
+        max-width: 600px;
+        padding: 40px;
+        border: 3px solid white;
+        border-radius: 20px;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+    }
+    .testimonial-text {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+    .stars {
+        margin: 20px 0;
+    }
+    .stars i {
+        color: #ffd700;
+    }
+    .client-name {
+        font-weight: bold;
+        font-size: 13px;
+        letter-spacing: 1px;
+        margin-top: 15px;
+    }
+    .client-title {
+        font-size: 12px;
+        opacity: 0.9;
+    }
+    .newsletter-section {
+        padding: 60px 20px;
+        background: white;
+    }
+    .newsletter-box {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 40px;
+        border: 2px solid #333;
+        border-radius: 10px;
+    }
+    .newsletter-box h2 {
+        font-size: 24px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+    .newsletter-box p {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+    .newsletter-form {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+    .newsletter-form input {
+        max-width: 300px;
+        border: 1px solid #333;
+        padding: 10px 15px;
+    }
+    .newsletter-form button {
+        background-color: #593232;
+        color: white;
+        border: none;
+        padding: 10px 30px;
+    }
+    .newsletter-form button:hover {
+        background-color: #4a2625;
+    }
+    @media (max-width: 768px) {
+        .producer-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        .producer-text {
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    function nextTestimonial() {
+        // Placeholder for next testimonial functionality
+        console.log('Next testimonial');
+    }
+    
+    function previousTestimonial() {
+        // Placeholder for previous testimonial functionality
+        console.log('Previous testimonial');
+    }
+</script>
+
+<section class="featured-section">
+    <h2 class="section-title">PRODUTOS EM DESTAQUE</h2>
+    <div class="product-basket">
+        <img src="/assets/images/Foto de capa.jpeg" alt="Produtos em Destaque">
+    </div>
+    <a href="/gallery-api-1.html" class="btn-explore">Explora os nossos produtos</a>
+</section>
+
+<section class="producers-section">
+    <h2 class="section-title">OS NOSSOS PRODUTORES</h2>
+    <p class="producers-subtitle">DESCOBRE COMO SÃ TRATADOS OS NOSSOS PRODUTOS</p>
+    
+    <div class="producer-content">
+        <div class="producer-image">
+            <img src="/assets/images/young-farmer-taking-care-his-business 1.png" alt="Produtor">
+        </div>
+        <div class="producer-text">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
         </div>
     </div>
-    <div class="hero-image">
-        <img src="/assets/images/gallery/image (1).png" alt="Produtos Tradicionais">
+    
+    <div style="text-align: center;">
+        <a href="/producers.html" class="btn-light-custom">Tudo sobre os nossos Produtores</a>
     </div>
 </section>
 
-<section class="featured-products">
-    <div class="container">
-        <h2 class="section-title">Produtos em Destaque</h2>
-        <div class="products-grid">
-            {{#featured_products}}
-            <div class="product-card">
-                <img src="{{image}}" alt="{{name}}">
-                <h3>{{name}}</h3>
-                <p class="price">{{price}}</p>
-                <button class="btn btn-outline-primary favorite-btn"><i class="fas fa-heart"></i></button>
-                <button class="btn btn-primary add-to-cart-btn">Adicionar ao Carrinho</button>
+<section class="testimonials-section">
+    <h2 class="section-title">O QUE NOSSOS CLIENTES<br>DIZEM SOBRE NÓS</h2>
+    
+    <div class="testimonials-wrapper">
+        <button class="nav-btn prev" onclick="previousTestimonial()">&#10094;</button>
+        
+        <div class="testimonial-card" id="testimonial-1">
+            <div class="testimonial-icon">
+                <i class="fas fa-user-circle"></i>
             </div>
-            {{/featured_products}}
-        </div>
-    </div>
-</section>
-
-<section class="producers">
-    <div class="container">
-        <h2 class="section-title">Os Nossos Produtores</h2>
-        <div class="producers-grid">
-            {{#producers}}
-            <div class="producer-card">
-                <img src="{{image}}" alt="{{name}}">
-                <h3>{{name}}</h3>
-                <p>{{description}}</p>
-                <a href="/producer.html?id={{name}}" class="btn btn-secondary">Ver Produtor</a>
+            <p class="testimonial-text">Uma plataforma que transmite confiança desde o primeiro momento. A qualidade dos produtos é evidente e a forma como é construída esta rede de produtores locais é genuína e transparente. Recomendo a quem procura produtos autênticos.</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
             </div>
-            {{/producers}}
+            <p class="client-name">INÊS OLIVEIRA</p>
+            <p class="client-title">Designer Gráfica</p>
         </div>
+        
+        <button class="nav-btn next" onclick="nextTestimonial()">&#10095;</button>
     </div>
 </section>
 
-<section class="cta">
-    <div class="container">
-        <h2>{{cta.title}}</h2>
-        <p>{{cta.description}}</p>
-        <a href="./contact.html" class="btn btn-primary">{{cta.button}}</a>
+<section class="newsletter-section">
+    <div class="newsletter-box">
+        <h2>SUBSCREVA A NOSSA NEWSLETTER</h2>
+        <p>E receba ofertas frequentes semanalmente sobre as próximas novidades</p>
+        <form class="newsletter-form">
+            <input type="email" class="form-control" placeholder="Email" required>
+            <button type="submit" class="btn">Submeter</button>
+        </form>
     </div>
 </section>
-</main>
-{{>footer}}
+{{/main}}
+{{/layout}}
