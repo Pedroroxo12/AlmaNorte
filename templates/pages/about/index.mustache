@@ -1,40 +1,230 @@
 {{< layout}}
+
 {{$main}}
-<section class="page-header">
-    <div class="container">
-        <h1>{{title}}</h1>
-        <p>{{subtitle}}</p>
-    </div>
-</section>
+<style>
+    .about-hero {
+        background: #593232;
+        color: white;
+        padding: 60px 20px;
+        margin-top: 20px;
+        border-radius: 15px;
+    }
+    .about-hero-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .about-hero-image {
+        position: relative;
+    }
+    .about-hero-image img {
+        width: 100%;
+        height: auto;
+        border: 6px solid white;
+        border-radius: 15px;
+    }
+    .about-hero-text h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 48px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        margin: 0 0 30px 0;
+    }
+    .about-hero-text p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        line-height: 1.8;
+        color: #f0f0f0;
+    }
+    .quote-section {
+        max-width: 900px;
+        margin: 80px auto;
+        text-align: center;
+        padding: 0 20px;
+    }
+    .quote-text {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: #333;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+    .quote-author {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+        color: #666;
+        letter-spacing: 1px;
+    }
+    .timeline-section {
+        max-width: 1000px;
+        margin: 80px auto;
+        padding: 0 20px;
+    }
+    .timeline-container {
+        position: relative;
+        padding: 40px 0;
+        padding-left: 150px;
+    }
+    .timeline-container::before {
+        content: '';
+        position: absolute;
+        left: 166px;
+        top: -30px;
+        bottom: 0;
+        width: 3px;
+        background: #d0d0d0;
+        z-index: 5;
+    }
+    .timeline-logo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        margin-bottom: 0;
+    }
+    .timeline-logo img {
+        width: 120px;
+        height: 120px;
+    }
+    .timeline-item {
+        margin-bottom: 60px;
+        position: relative;
+        margin-left: 140px;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -131px;
+        top: 8px;
+        width: 18px;
+        height: 18px;
+        background: #593232;
+        border: 4px solid white;
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px #d0d0d0;
+        z-index: 6;
+    }
+    .timeline-icon {
+        position: absolute;
+        left: -2px;
+        top: 40px;
+        width: 80px;
+        height: 80px;
+        opacity: 0.9;
+    }
+    .timeline-item h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: #333;
+        margin: 0 0 10px 0;
+        text-transform: uppercase;
+    }
+    .timeline-item h4 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin: 0 0 15px 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .timeline-item p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+    .timeline-illustration {
+        position: absolute;
+        left: -110px;
+        top: 50px;
+        width: 80px;
+        height: 80px;
+        opacity: 0.8;
+    }
+    @media (max-width: 768px) {
+        .about-hero-content {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .timeline-container::before {
+            left: 20px;
+        }
+        .timeline-item {
+            margin-left: 80px;
+        }
+        .timeline-item::before {
+            left: -50px;
+        }
+        .timeline-illustration {
+            display: none;
+        }
+        .quote-text {
+            font-size: 18px;
+        }
+    }
+</style>
 
-<section class="about-content">
-    <div class="container">
-        <div class="about-grid">
-            <div class="about-text">
-                <h2>My Story</h2>
-                {{#story}}
-                <p>{{.}}</p>
-                {{/story}}
-                
-                {{> skills-section}}
-            </div>
-            <div class="about-image">
-                <div class="about-image-placeholder">
-                    <i class="fas fa-user"></i>
-                </div>
-            </div>
+<!-- Hero Section -->
+<div class="about-hero">
+    <div class="about-hero-content">
+        <div class="about-hero-image">
+            <img src="/assets/images/group-friends-posing-together 1.png" alt="Equipa AlmaNorte">
+        </div>
+        <div class="about-hero-text">
+            <h2>SOBRE NÓS</h2>
+            <p>A ALMANORTE é uma empresa dedicada à comercialização de produtos gastronómicos tradicionais da região de Trás-os-Montes. Através de parcerias com produtores locais, valorizando a cultura e a história dos produtores. O nosso objetivo apoia na autenticidade, qualidade e sustentabilidade, oferecendo aos clientes produtos com origem certificada.</p>
         </div>
     </div>
-</section>
+</div>
 
-<section class="experience">
-    <div class="container">
-        <h2 class="section-title">Experience & Education</h2>
-        <div class="timeline">
-            {{#experience}}
-            {{> timeline-item}}
-            {{/experience}}
+<!-- Quote Section -->
+<div class="quote-section">
+    <p class="quote-text">"CADA PRODUTO QUE SELECIONAMOS CARREGA CONSIGO UMA HISTÓRIA, E QUEREMOS QUE CADA CLIENTE A DESCUBRA E A VALORIZE CONNOSCO."</p>
+    <p class="quote-author">— Equipa AlmaNorte</p>
+</div>
+
+<!-- Timeline Section -->
+<div class="timeline-section">
+    <div class="timeline-container">
+        <div class="timeline-logo">
+            <img src="/assets/images/Logotipo.png" alt="AlmaNorte">
+        </div>
+        
+        <img src="/assets/images/40654 1.png" class="timeline-icon" style="top: 200px;" alt="Produtores">
+        <img src="/assets/images/bwink_ind_02_single_08 1.png" class="timeline-icon" style="top: 400px;" alt="Digital">
+        
+        <div class="timeline-item">
+            <h3>2023</h3>
+            <h4>O COMEÇO</h4>
+            <p>A marca foi oficialmente fundada com o objetivo de valorizar os produtos gastronómicos de Trás-os-Montes e contar as histórias dos produtores locais.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>2024</h3>
+            <h4>PRIMEIRO CONTACTO COM OS PRODUTORES</h4>
+            <p>Foram estabelecidas as primeiras parcerias com produtores da região, garantindo produtos autênticos, artesanais e certificados.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>2025</h3>
+            <h4>DESENVOLVIMENTO DO PROJECTO DIGITAL</h4>
+            <p>Foram criados os primeiros mockups da plataforma, organizadas categorias de produtos e iniciados os testes de usabilidade com potenciais clientes.</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>FINAIS DE 2025</h3>
+            <h4>ENTRADA DA MARCA NO MERCADO</h4>
+            <p>A marca lançou oficialmente a sua plataforma, disponibilizando produtos ao público e fortalecendo a sua presença digital, promovendo a cultura e a gastronomia de Trás-os-Montes.</p>
         </div>
     </div>
-</section>
+</div>
+
 {{/main}}
+
+{{/layout}}
