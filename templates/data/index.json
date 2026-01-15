@@ -1,33 +1,67 @@
 {
-  "title": "Home",
+  "title": "Início - Alma Norte",
   "hero": {
-    "title": "Welcome to My Portfolio",
-    "subtitle": "Full Stack Developer & Creative Problem Solver",
+    "title": "Bem-vindo à Alma Norte",
+    "subtitle": "Produtos Tradicionais de Trás-os-Montes",
     "buttons": {
-      "projects": "View My Work",
-      "contact": "Get In Touch"
+      "projects": "Ver Produtos",
+      "contact": "Contactar"
     }
   },
+  "featured_products": [
+    {
+      "image": "/assets/images/gallery/image (1).png",
+      "name": "Mel de Trás-os-Montes",
+      "price": "15.00€"
+    },
+    {
+      "image": "/assets/images/gallery/image (2).jpg.png",
+      "name": "Azeite Extra Virgem",
+      "price": "8.50€"
+    },
+    {
+      "image": "/assets/images/gallery/image (3).jpg.png",
+      "name": "Queijo Artesanal",
+      "price": "12.00€"
+    },
+    {
+      "image": "/assets/images/gallery/image (4).jpg.png",
+      "name": "Vinho Tinto Regional",
+      "price": "20.00€"
+    }
+  ],
+  "producers": [
+    {
+      "image": "/assets/images/gallery/image (1).png",
+      "name": "Produtor João Silva",
+      "description": "Produtor de mel e azeite há gerações."
+    },
+    {
+      "image": "/assets/images/gallery/image (2).jpg.png",
+      "name": "Produtora Maria Santos",
+      "description": "Especialista em queijos artesanais."
+    }
+  ],
   "features": [
     {
-      "icon": "fas fa-code",
-      "title": "Web Development",
-      "description": "Creating responsive and modern web applications using the latest technologies and best practices for optimal user experience."
+      "icon": "fas fa-leaf",
+      "title": "Produtos Autênticos",
+      "description": "Produtos tradicionais feitos com ingredientes locais e métodos ancestrais."
     },
     {
-      "icon": "fas fa-mobile-alt",
-      "title": "Mobile Development",
-      "description": "Building cross-platform mobile applications with React Native and Flutter for both iOS and Android platforms."
+      "icon": "fas fa-truck",
+      "title": "Entrega Nacional",
+      "description": "Enviamos para todo o território nacional com cuidado e rapidez."
     },
     {
-      "icon": "fas fa-database",
-      "title": "Backend Development",
-      "description": "Designing and implementing robust APIs, databases, and server-side solutions using modern technologies and best practices."
+      "icon": "fas fa-heart",
+      "title": "Qualidade Garantida",
+      "description": "Produtos de alta qualidade, frescos e feitos com amor pela nossa região."
     }
   ],
   "cta": {
-    "title": "Ready to Start a Project?",
-    "description": "Let's work together to bring your ideas to life",
-    "button": "Start Conversation"
+    "title": "Pronto para encomendar?",
+    "description": "Descubra os sabores únicos de Trás-os-Montes. Contacte-nos para fazer a sua encomenda.",
+    "button": "Encomendar Agora"
   }
 }

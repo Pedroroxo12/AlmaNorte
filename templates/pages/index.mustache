@@ -1,31 +1,48 @@
-{{<layout}}
-{{$main}}
+{{>header}}
+<main>
 <section class="hero">
     <div class="hero-content">
-        <div>
-            <h1 class="hero-title">{{hero.title}}</h1>
-            <p class="hero-subtitle">{{hero.subtitle}}</p>
-            <div class="hero-buttons">
-                <a href="./projects.html" class="btn btn-primary">{{hero.buttons.projects}}</a>
-                <a href="./contact.html" class="btn btn-secondary">{{hero.buttons.contact}}</a>
+        <h1 class="hero-title">{{hero.title}}</h1>
+        <p class="hero-subtitle">{{hero.subtitle}}</p>
+        <div class="hero-buttons">
+            <a href="./gallery-api-1.html" class="btn btn-primary">{{hero.buttons.projects}}</a>
+            <a href="./contact.html" class="btn btn-secondary">{{hero.buttons.contact}}</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="/assets/images/gallery/image (1).png" alt="Produtos Tradicionais">
+    </div>
+</section>
+
+<section class="featured-products">
+    <div class="container">
+        <h2 class="section-title">Produtos em Destaque</h2>
+        <div class="products-grid">
+            {{#featured_products}}
+            <div class="product-card">
+                <img src="{{image}}" alt="{{name}}">
+                <h3>{{name}}</h3>
+                <p class="price">{{price}}</p>
+                <button class="btn btn-outline-primary favorite-btn"><i class="fas fa-heart"></i></button>
+                <button class="btn btn-primary add-to-cart-btn">Adicionar ao Carrinho</button>
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="/assets/images/hero.png" alt="Hero Image">
-        </div>
-        <div class="profile-placeholder">
-            <i class="fas fa-user-circle"></i>
+            {{/featured_products}}
         </div>
     </div>
 </section>
 
-<section class="features">
+<section class="producers">
     <div class="container">
-        <h2 class="section-title">What I Do</h2>
-        <div class="features-grid">
-            {{#features}}
-            {{> feature-card}}
-            {{/features}}
+        <h2 class="section-title">Os Nossos Produtores</h2>
+        <div class="producers-grid">
+            {{#producers}}
+            <div class="producer-card">
+                <img src="{{image}}" alt="{{name}}">
+                <h3>{{name}}</h3>
+                <p>{{description}}</p>
+                <a href="/producer.html?id={{name}}" class="btn btn-secondary">Ver Produtor</a>
+            </div>
+            {{/producers}}
         </div>
     </div>
 </section>
@@ -37,5 +54,5 @@
         <a href="./contact.html" class="btn btn-primary">{{cta.button}}</a>
     </div>
 </section>
-{{/main}}
-{{/layout}}
+</main>
+{{>footer}}

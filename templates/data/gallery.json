@@ -1,49 +1,41 @@
 {
-  "title": "Image Gallery",
-  "meta_description": "Browse through a stunning image gallery showcasing our latest projects.",
-  "meta_keywords": "image gallery, projects, portfolio, slider",
-  "meta_author": "Arlindo Santos",
+  "title": "Galeria de Produtos - Alma Norte",
+  "meta_description": "Explore a nossa galeria de produtos tradicionais de Trás-os-Montes, feitos com ingredientes locais.",
+  "meta_keywords": "produtos tradicionais, Trás-os-Montes, galeria, compras online",
+  "meta_author": "Alma Norte",
   "meta_robots": "index,follow",
-  "meta_canonical": "https://yourdomain.com/gallery.html",
-  "meta_og_title": "Image Gallery",
-  "meta_og_description": "A stunning slider gallery featuring our top projects.",
-  "meta_og_image": "https://yourdomain.com/assets/images/project1.svg",
-  "meta_og_url": "https://yourdomain.com/gallery.html",
+  "meta_canonical": "http://localhost/AlmaNorte/gallery-api-1.html",
+  "meta_og_title": "Galeria de Produtos - Alma Norte",
+  "meta_og_description": "Descubra produtos tradicionais autênticos de Trás-os-Montes.",
+  "meta_og_image": "http://localhost/AlmaNorte/assets/images/gallery/image (1).png",
+  "meta_og_url": "http://localhost/AlmaNorte/gallery-api-1.html",
   "meta_og_type": "website",
   "meta_twitter_card": "summary_large_image",
-  "meta_twitter_title": "Image Gallery",
-  "meta_twitter_description": "Explore our portfolio with a dynamic image slider gallery.",
-  "meta_twitter_image": "https://yourdomain.com/assets/images/project1.svg",
+  "meta_twitter_title": "Galeria de Produtos - Alma Norte",
+  "meta_twitter_description": "Produtos tradicionais de Trás-os-Montes para o seu paladar.",
+  "meta_twitter_image": "http://localhost/AlmaNorte/assets/images/gallery/image (1).png",
    "styles": [
       "/assets/css/gallery-slider.css"
     ],
     "scripts": [
-      "/assets/js/gallery-slider.js"
+      "/assets/js/gallery-api-1.js"
     ],
   "images": [
     {
-      "url": "./assets/images/project1.svg",
-      "alt": "Project 1"
+      "url": "./assets/images/gallery/image (1).png",
+      "alt": "Produto Tradicional 1"
     },
     {
-      "url": "./assets/images/project2.svg",
-      "alt": "Project 2"
+      "url": "./assets/images/gallery/image (2).jpg.png",
+      "alt": "Produto Tradicional 2"
     },
     {
-      "url": "./assets/images/project3.svg",
-      "alt": "Project 3"
+      "url": "./assets/images/gallery/image (3).jpg.png",
+      "alt": "Produto Tradicional 3"
     },
     {
-      "url": "/assets/images/project4.svg",
-      "alt": "Project 4"
-    },
-    {
-      "url": "./assets/images/project5.svg",
-      "alt": "Project 5"
-    },
-    {
-      "url": "./assets/images/project6.svg",
-      "alt": "Project 6"
+      "url": "./assets/images/gallery/image (4).jpg.png",
+      "alt": "Produto Tradicional 4"
     }
   ]
 }

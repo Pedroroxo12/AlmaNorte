@@ -1,37 +1,37 @@
 {
   "site": {
-    "title": "Arlindo Santos",
-    "description": "Full Stack Developer & Creative Problem Solver",
-    "author": "Arlindo Santos"
+    "title": "Alma Norte - Produtos Tradicionais de Trás-os-Montes",
+    "description": "Loja online de produtos tradicionais autênticos da região de Trás-os-Montes, Portugal",
+    "author": "Alma Norte"
   },
   "hero": {
-    "title": "Hi, I'm Arlindo Santos",
-    "subtitle": "Full Stack Developer & Creative Problem Solver",
+    "title": "Bem-vindo à Alma Norte",
+    "subtitle": "Produtos Tradicionais de Trás-os-Montes",
     "buttons": {
-      "projects": "View My Work",
-      "contact": "Get In Touch"
+      "projects": "Ver Produtos",
+      "contact": "Contactar"
     }
   },
   "features": [
     {
-      "icon": "fas fa-code",
-      "title": "Web Development",
-      "description": "Building modern, responsive websites and web applications using the latest technologies."
+      "icon": "fas fa-leaf",
+      "title": "Produtos Autênticos",
+      "description": "Produtos tradicionais feitos com ingredientes locais e métodos ancestrais."
     },
     {
-      "icon": "fas fa-mobile-alt",
-      "title": "Mobile Apps",
-      "description": "Creating cross-platform mobile applications with native performance and user experience."
+      "icon": "fas fa-truck",
+      "title": "Entrega Nacional",
+      "description": "Enviamos para todo o território nacional com cuidado e rapidez."
     },
     {
-      "icon": "fas fa-server",
-      "title": "Backend Development",
-      "description": "Developing robust APIs and server-side applications with scalable architecture."
+      "icon": "fas fa-heart",
+      "title": "Qualidade Garantida",
+      "description": "Produtos de alta qualidade, frescos e feitos com amor pela nossa região."
     }
   ],
   "cta": {
-    "title": "Ready to Start Your Project?",
-    "description": "Let's work together to bring your ideas to life. Contact me today to discuss your next project.",
-    "button": "Start Project"
+    "title": "Pronto para encomendar?",
+    "description": "Descubra os sabores únicos de Trás-os-Montes. Contacte-nos para fazer a sua encomenda.",
+    "button": "Encomendar Agora"
   }
 }

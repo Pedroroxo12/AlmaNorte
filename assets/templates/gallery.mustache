@@ -1,8 +1,14 @@
-
-    {{#images}}
-    <div class="slide">
-        <img src="{{url}}" alt="{{caption}}" >
-        <p>{{caption}}</p>
+{{#images}}
+<div class="gallery-item">
+    <img src="{{url}}" alt="{{caption}}" data-url="{{url}}" data-caption="{{caption}}" class="gallery-img">
+    <div class="product-info">
+        <h5>{{caption}}</h5>
+        <p class="price">{{price}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <button class="btn btn-primary buy-btn">Adicionar ao Carrinho</button>
+            <i class="fas fa-heart favorite-icon" data-product="{{caption}}"></i>
+        </div>
     </div>
-    {{/images}}
+</div>
+{{/images}}
 

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rui Lourenço - Produtor - Alma Norte</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <div class="d-flex justify-content-start">
+                        <a href="#" class="icon-link"><i class="fas fa-search"></i></a>
+                        <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
+                        <a href="favorites.html" class="icon-link"><i class="fas fa-heart"></i></a>
+                        <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge bg-danger" style="display: none;">0</span></a>
+                    </div>
+                </div>
+                <div class="col-4 text-center">
+                    <a class="navbar-brand" href="index.html">Alma Norte</a>
+                </div>
+                <div class="col-4">
+                    <!-- Empty for balance -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-md-12 text-center mb-4">
+                <img src="assets/images/gallery/image (1).png" alt="Produtor" class="img-fluid rounded-circle producer-image" style="width: 200px; height: 200px; object-fit: cover;">
+                <h1 class="mt-3">Produtor</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>Sobre o Produtor</h2>
+                <p class="producer-description">Descrição do produtor.</p>
+                <p><strong>Localização:</strong> <span class="producer-location">Local</span></p>
+            </div>
+        </div>
+        <div class="row">
+            <h2 class="mb-3">Produtos do Produtor</h2>
+            <div class="gallery-grid" id="producer-products">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Apoio ao Cliente</h3>
+                <ul class="footer-links">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Envios</a></li>
+                    <li><a href="#">Devoluções</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Informação Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Termos e Condições</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contactos</h3>
+                <p>Email: info@almanorte.pt</p>
+                <p>Telefone: +351 123 456 789</p>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Alma Norte. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/mustache.min.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+        // Sample producers data
+        const producers = [
+            {
+                id: 'rui_lourenco',
+                name: 'Rui Lourenço',
+                image: 'assets/images/gallery/image (1).png',
+                description: 'Rui Lourenço é um produtor dedicado de produtos tradicionais de Trás-os-Montes. Com anos de experiência, ele produz azeites, vinhos e queijos de alta qualidade, utilizando métodos tradicionais e ingredientes locais.',
+                location: 'Vimioso',
+                products: ['Azeite', 'Vinho Tinto', 'Queijo']
+            },
+            {
+                id: 'maria_santos',
+                name: 'Maria Santos',
+                image: 'assets/images/gallery/image (2).jpg.png',
+                description: 'Maria Santos é uma mestre queixeira com décadas de experiência. Ela produz queijos artesanais premiados, mantendo as tradições seculares de Trás-os-Montes.',
+                location: 'Bragança',
+                products: ['Queijo Artesanal', 'Requeijão']
+            },
+            {
+                id: 'joao_silva',
+                name: 'João Silva',
+                image: 'assets/images/gallery/image (3).jpg.png',
+                description: 'João Silva é um apicultor apaixonado que produz mel puro de flores silvestres da região de Trás-os-Montes, seguindo métodos tradicionais e sustentáveis.',
+                location: 'Macedo de Cavaleiros',
+                products: ['Mel', 'Produtos de Abelha']
+            }
+        ];
+
+        function getProducerById(id) {
+            return producers.find(p => p.id === id);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const producerId = urlParams.get('id') || 'rui_lourenco';
+            const producer = getProducerById(producerId);
+
+            if (producer) {
+                document.querySelector('.producer-image').src = producer.image;
+                document.querySelector('.producer-image').alt = producer.name;
+                document.querySelector('h1').textContent = producer.name;
+                document.querySelector('.producer-description').textContent = producer.description;
+                document.querySelector('.producer-location').textContent = producer.location;
+            }
+
+            // Load products
+            $.getJSON('./api/gallery.php', function (data) {
+                $.get('./assets/templates/gallery.mustache', function (template) {
+                    const rendered = Mustache.render(template, data);
+                    $('#producer-products').html(rendered);
+
+                    $('.gallery-img').on('click', function() {
+                        const url = $(this).data('url');
+                        const caption = $(this).data('caption');
+                        $('#modalImage').attr('src', url);
+                        $('#modalImage').attr('alt', caption);
+                        $('#modalCaption').text(caption);
+                        $('#imageModal').modal('show');
+                    });
+
+                    $('.buy-btn').on('click', function() {
+                        const productCard = $(this).closest('.gallery-item');
+                        const product = {
+                            name: productCard.find('h5').text(),
+                            price: productCard.find('.price').text(),
+                            image: productCard.find('img').attr('src')
+                        };
+                        addToCart(product);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
