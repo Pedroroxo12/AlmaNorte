@@ -1,4 +1,5 @@
 {
+  "produtos": true,
   "title": "Image Gallery API",
   "meta_description": "Browse through a stunning image gallery showcasing our latest projects.",
   "meta_keywords": "image gallery, projects, portfolio, slider",

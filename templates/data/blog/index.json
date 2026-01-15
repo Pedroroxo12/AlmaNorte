@@ -1,4 +1,5 @@
 {
+  "blog": true,
   "title": "Blog",
   "blog": {
     "title": "Latest Articles",
