@@ -24,26 +24,130 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-4">
-                    <div class="d-flex justify-content-start">
-                        <a href="#" class="icon-link"><i class="fas fa-search"></i></a>
-                        <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
-                        <a href="favorites.html" class="icon-link"><i class="fas fa-heart"></i></a>
-                        <a href="#" class="icon-link" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas"><i class="fas fa-shopping-cart"></i></a>
-                    </div>
-                </div>
-                <div class="col-4 text-center">
-                    <a class="navbar-brand" href="index.html">Alma Norte</a>
-                </div>
-                <div class="col-4">
-                    <!-- Empty for balance -->
-                </div>
+    <style>
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 1001;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 100%;
+            padding: 0 50px;
+        }
+        .brand-text {
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #333;
+        }
+        .logo-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .logo-center img {
+            height: 80px;
+        }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .header-icons a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .header-icons a:hover {
+            color: #593232;
+        }
+        .nav-menu {
+            position: fixed;
+            top: 110px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 1000;
+            padding: 15px 0;
+            width: 100%;
+        }
+        .nav-menu .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-menu ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        .nav-menu ul li a:hover {
+            color: #593232;
+        }
+        .nav-menu ul li a.active {
+            font-weight: 700;
+        }
+        main {
+            margin-top: 170px;
+        }
+        @media (max-width: 768px) {
+            .nav-menu ul {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+    </style>
+    
+    <div class="top-header">
+        <div class="header-content">
+            <div class="brand-text">ALMANORTE</div>
+            <div class="logo-center">
+                <a href="http://localhost/AlmaNorte/index.html">
+                    <img src="http://localhost/AlmaNorte/assets/images/Logotipo.png" alt="AlmaNorte">
+                </a>
+            </div>
+            <div class="header-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="http://localhost/AlmaNorte/account.html"><i class="fas fa-user"></i></a>
+                <a href="http://localhost/AlmaNorte/favorites.html"><i class="fas fa-heart"></i></a>
+                <a href="#" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </div>
-    </header>
+    </div>
+    
+    <div class="nav-menu">
+        <div class="container">
+            <ul>
+                <li><a href="http://localhost/AlmaNorte/index.html" class="">HOME</a></li>
+                <li><a href="http://localhost/AlmaNorte/products.html" class="">PRODUTOS</a></li>
+                <li><a href="http://localhost/AlmaNorte/blog/index.html" class="">BLOG</a></li>
+                <li><a href="http://localhost/AlmaNorte/producers.html" class="">PRODUTORES</a></li>
+                <li><a href="http://localhost/AlmaNorte/about/index.html" class="">SOBRE NÓS</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Cart Offcanvas -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" style="width: 400px;">
@@ -142,7 +246,7 @@
     <script>
         // Function to render cart items in offcanvas
         function renderCartOffcanvas() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cart = JSON.parse(localStorage.getItem('almaNorteCart')) || [];
             const cartItemsContainer = document.getElementById('cart-items-offcanvas');
             const cartCountOffcanvas = document.getElementById('cart-count-offcanvas');
             const cartTotalOffcanvas = document.getElementById('cart-total-offcanvas');
@@ -159,7 +263,8 @@
             let html = '';
             
             cart.forEach((item, index) => {
-                const itemTotal = parseFloat(item.price) * (item.quantity || 1);
+                const priceValue = parseFloat(item.price.replace('€', '').replace(',', '.').trim());
+                const itemTotal = priceValue * (item.quantity || 1);
                 total += itemTotal;
                 
                 html += `
@@ -192,30 +297,30 @@
         
         // Function to remove item from cart
         function removeFromCart(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cart = JSON.parse(localStorage.getItem('almaNorteCart')) || [];
             cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('almaNorteCart', JSON.stringify(cart));
             renderCartOffcanvas();
             if (typeof renderCart === 'function') renderCart();
         }
         
         // Function to increase quantity
         function increaseQuantity(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cart = JSON.parse(localStorage.getItem('almaNorteCart')) || [];
             if (!cart[index].quantity) cart[index].quantity = 1;
             cart[index].quantity++;
-            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('almaNorteCart', JSON.stringify(cart));
             renderCartOffcanvas();
             if (typeof renderCart === 'function') renderCart();
         }
         
         // Function to decrease quantity
         function decreaseQuantity(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cart = JSON.parse(localStorage.getItem('almaNorteCart')) || [];
             if (!cart[index].quantity) cart[index].quantity = 1;
             if (cart[index].quantity > 1) {
                 cart[index].quantity--;
-                localStorage.setItem('cart', JSON.stringify(cart));
+                localStorage.setItem('almaNorteCart', JSON.stringify(cart));
                 renderCartOffcanvas();
                 if (typeof renderCart === 'function') renderCart();
             }
