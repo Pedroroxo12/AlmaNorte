@@ -316,6 +316,79 @@
         .btn-finalize:disabled {
             cursor: not-allowed;
         }
+        
+        .success-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .success-overlay.active {
+            display: flex;
+        }
+        
+        .success-card {
+            background: #593232;
+            color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 600px;
+            margin: 20px;
+        }
+        
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .success-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .success-message {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-success {
+            background: white;
+            color: #593232;
+            border: 2px solid white;
+            padding: 12px 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .btn-success:hover {
+            background: transparent;
+            color: white;
+        }
     </style>
     
     <div class="top-header">
@@ -381,7 +454,9 @@
                             <label for="credit-card">
                                 Credit Card
                                 <span class="payment-icons">
-                                    <span style="font-size: 14px;">💳</span>
+                                    <span style="font-weight: 600; font-size: 11px; color: #1a1f71;">VISA</span>
+                                    <img src="http://localhost/AlmaNorte/assets/images/card_11378185 1.png" alt="Mastercard" style="height: 16px;">
+                                    <span style="font-weight: 600; font-size: 11px; color: #003087;">PayPal</span>
                                 </span>
                             </label>
                         </div>
@@ -418,6 +493,22 @@
             </form>
         </div>
     </main>
+
+    <!-- Success Overlay -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-card">
+            <div class="success-icon">
+                <img src="http://localhost/AlmaNorte/assets/images/solar_verified-check-bold.png" alt="Verified" style="width: 120px; height: 120px;">
+            </div>
+            <h1 class="success-title">OBRIGADO!</h1>
+            <p class="success-message">
+                O SEU PEDIDO JÁ FOI RECEBIDO. A FATURA FOI ENVIADA PARA O SEU EMAIL<br><br>
+                ESTAMOS AGORA A PROCESSAR O SEU PEDIDO E ENVIAREMOS O<br>
+                MAIS RÁPIDO POSSÍVEL
+            </p>
+            <button class="btn-success" onclick="window.location.href='index.html'">VOLTAR À PÁGINA INICIAL</button>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="footer-content">
@@ -520,11 +611,12 @@
         document.getElementById('payment-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Simulate payment processing
-            alert('Encomenda confirmada! Obrigado pela compra.');
+            // Show success overlay
+            document.getElementById('successOverlay').classList.add('active');
+            
+            // Clear data after showing success
             localStorage.removeItem('almaNorteCart');
             localStorage.removeItem('shippingData');
-            window.location.href = 'index.html';
         });
         
         // Load on page load
