@@ -32,7 +32,7 @@
                         <a href="#" class="icon-link"><i class="fas fa-search"></i></a>
                         <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
                         <a href="favorites.html" class="icon-link"><i class="fas fa-heart"></i></a>
-                        <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i></a>
+                        <a href="#" class="icon-link" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas"><i class="fas fa-shopping-cart"></i></a>
                     </div>
                 </div>
                 <div class="col-4 text-center">
@@ -44,6 +44,26 @@
             </div>
         </div>
     </header>
+
+    <!-- Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" style="width: 400px;">
+        <div class="offcanvas-header" style="background: white; border-bottom: 1px solid #ddd; padding: 20px;">
+            <h5 class="offcanvas-title" style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: 1px;">CARRINHO (<span id="cart-count-offcanvas">0</span>)</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" style="padding: 0; display: flex; flex-direction: column;">
+            <div id="cart-items-offcanvas" style="flex: 1; overflow-y: auto; padding: 20px;">
+                <!-- Cart items will be rendered here -->
+            </div>
+            <div style="border-top: 1px solid #ddd; padding: 20px; background: white;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600;">
+                    <span>SUBTOTAL</span>
+                    <span id="cart-total-offcanvas">0,00€</span>
+                </div>
+                <button class="btn w-100" onclick="window.location.href='checkout.html'" style="background: #593232; color: white; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; padding: 12px; letter-spacing: 0.5px;">IR PARA O CHECKOUT</button>
+            </div>
+        </div>
+    </div>
 
     <main>
         <div class="container">
@@ -119,5 +139,98 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.0/mustache.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/cart.js"></script>
+    <script>
+        // Function to render cart items in offcanvas
+        function renderCartOffcanvas() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items-offcanvas');
+            const cartCountOffcanvas = document.getElementById('cart-count-offcanvas');
+            const cartTotalOffcanvas = document.getElementById('cart-total-offcanvas');
+            
+            cartCountOffcanvas.textContent = cart.length;
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center; color: #666; font-family: Montserrat, sans-serif; font-size: 14px; padding: 20px;">Carrinho vazio</p>';
+                cartTotalOffcanvas.textContent = '0,00€';
+                return;
+            }
+            
+            let total = 0;
+            let html = '';
+            
+            cart.forEach((item, index) => {
+                const itemTotal = parseFloat(item.price) * (item.quantity || 1);
+                total += itemTotal;
+                
+                html += `
+                    <div style="display: flex; gap: 15px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                        <img src="${item.image}" alt="${item.name}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                                <div>
+                                    <h6 style="font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; margin: 0; text-transform: uppercase;">${item.name}</h6>
+                                    <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; color: #666; margin: 5px 0 0 0;">Produtor ...</p>
+                                </div>
+                                <button onclick="removeFromCart(${index})" style="border: none; background: none; color: #666; cursor: pointer; font-size: 16px;">×</button>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <button onclick="decreaseQuantity(${index})" style="border: 1px solid #ddd; background: white; width: 25px; height: 25px; border-radius: 3px; cursor: pointer; font-size: 14px;">-</button>
+                                    <span style="font-family: 'Montserrat', sans-serif; font-size: 12px;">${item.quantity || 1}</span>
+                                    <button onclick="increaseQuantity(${index})" style="border: 1px solid #ddd; background: white; width: 25px; height: 25px; border-radius: 3px; cursor: pointer; font-size: 14px;">+</button>
+                                </div>
+                                <span style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600;">${itemTotal.toFixed(2).replace('.', ',')}€</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsContainer.innerHTML = html;
+            cartTotalOffcanvas.textContent = total.toFixed(2).replace('.', ',') + '€';
+        }
+        
+        // Function to remove item from cart
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCartOffcanvas();
+            if (typeof renderCart === 'function') renderCart();
+        }
+        
+        // Function to increase quantity
+        function increaseQuantity(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (!cart[index].quantity) cart[index].quantity = 1;
+            cart[index].quantity++;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCartOffcanvas();
+            if (typeof renderCart === 'function') renderCart();
+        }
+        
+        // Function to decrease quantity
+        function decreaseQuantity(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (!cart[index].quantity) cart[index].quantity = 1;
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCartOffcanvas();
+                if (typeof renderCart === 'function') renderCart();
+            }
+        }
+        
+        // Render on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCartOffcanvas();
+            
+            // Re-render when offcanvas is shown
+            var cartOffcanvas = document.getElementById('cartOffcanvas');
+            cartOffcanvas.addEventListener('show.bs.offcanvas', function () {
+                renderCartOffcanvas();
+            });
+        });
+    </script>
 </body>
 </html>
