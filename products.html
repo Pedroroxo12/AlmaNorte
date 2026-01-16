@@ -239,6 +239,10 @@
     padding: 60px 0 40px;
     background: #ffffff;
   }
+  
+  .products-section:last-of-type {
+    padding-bottom: 150px;
+  }
 
   .section-heading {
     font-family: 'Playfair Display', serif;
@@ -415,21 +419,21 @@
 
 <script>
   const featuredProducts = [
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
-    { name: "MEL DO BÔ", producer: "Produtor Rui Lorenço", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" }
+    { name: "VINHO TROVISCO", producer: "Produtor António Barbosa", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "product-details.html?id=vinho-trovisco" },
+    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "product-details.html?id=queijo-cabra" },
+    { name: "MEL DO BÔ", producer: "Produtor Rui Lorenço", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "product-details.html?id=mel-do-bo" },
+    { name: "VINHO TROVISCO", producer: "Produtor António Barbosa", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "product-details.html?id=vinho-trovisco" }
   ];
 
   const catalogProducts = [
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "QUEIJO DE CABRA", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
-    { name: "MEL ARTESANAL", producer: "Produtor ..", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "QUEIJO ARTESANAL", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" }
+    { name: "VINHO TROVISCO", producer: "Produtor António Barbosa", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "product-details.html?id=vinho-trovisco" },
+    { name: "VINHO TROVISCO", producer: "Produtor António Barbosa", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "product-details.html?id=vinho-trovisco" },
+    { name: "QUEIJO DE CABRA", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "product-details.html?id=queijo-cabra" },
+    { name: "MEL ARTESANAL", producer: "Produtor Rui Lorenço", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "product-details.html?id=mel-do-bo" },
+    { name: "VINHO TROVISCO", producer: "Produtor António Barbosa", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "product-details.html?id=vinho-trovisco" },
+    { name: "QUEIJO ARTESANAL", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "product-details.html?id=queijo-cabra" },
+    { name: "VINHO TROVISCO", producer: "Produtor António Barbosa", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "product-details.html?id=vinho-trovisco" },
+    { name: "VINHO TROVISCO", producer: "Produtor António Barbosa", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "product-details.html?id=vinho-trovisco" }
   ];
 
   function slugify(text) {
@@ -448,7 +452,7 @@
     node.innerHTML = list.map(item => {
       const catSlug = slugify(item.category || '');
       return `
-      <a class="product-card" data-category="${catSlug}" href="${item.link || '/products/product1.html'}">
+      <a class="product-card" data-category="${catSlug}" href="${item.link || 'product-details.html?id=produto'}">
         <div class="product-image">
           <img src="http://localhost/AlmaNorte${item.image}" alt="${item.name}">
           <span class="icon-badge"><i class="far fa-heart"></i></span>
