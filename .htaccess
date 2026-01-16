@@ -1,0 +1,8 @@
+# Redirect 404 errors to custom 404 page
+ErrorDocument 404 /AlmaNorte/404.html
+
+# Enable mod_rewrite
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /AlmaNorte/
+</IfModule>
