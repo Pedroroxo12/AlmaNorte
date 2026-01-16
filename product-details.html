@@ -26,7 +26,7 @@
                     <div class="d-flex justify-content-end gap-3">
                         <a href="#" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-search"></i></a>
                         <a href="account.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-user"></i></a>
-                        <a href="favorites.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-heart"></i></a>
+                        <a href="#" class="icon-link" style="color: #333; font-size: 18px;" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas"><i class="fas fa-heart"></i></a>
                         <a href="cart.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-shopping-cart"></i></a>
                     </div>
                 </div>
@@ -128,6 +128,19 @@
             </div>
         </div>
     </main>
+
+    <!-- Favorites Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas" style="width: 400px;">
+        <div class="offcanvas-header" style="background: white; border-bottom: 1px solid #ddd; padding: 20px;">
+            <h5 class="offcanvas-title" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">FAVORITOS (<span id="favorites-count-offcanvas">0</span>)</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" style="padding: 0;">
+            <div id="favorites-items-offcanvas" style="padding: 20px;">
+                <!-- Favorites items will be rendered here -->
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="footer-content">
@@ -284,23 +297,24 @@
                 icon.style.color = '#8B6F6F';
                 
                 // Add to favorites in localStorage
-                let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                let favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
                 favorites.push({
                     id: productId,
                     name: currentProduct.name,
                     price: currentProduct.price,
-                    image: currentProduct.image
+                    image: currentProduct.image,
+                    producer: currentProduct.producer
                 });
-                localStorage.setItem('favorites', JSON.stringify(favorites));
+                localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
             } else {
                 icon.classList.remove('fas');
                 icon.classList.add('far');
                 icon.style.color = '#333';
                 
                 // Remove from favorites
-                let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                let favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
                 favorites = favorites.filter(f => f.id !== productId);
-                localStorage.setItem('favorites', JSON.stringify(favorites));
+                localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
             }
         });
 
@@ -340,6 +354,72 @@
         // Initialize
         loadProductDetails();
         loadRecommendedProducts();
+        
+        // Favorites offcanvas functions
+        function renderFavoritesOffcanvas() {
+            const favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
+            const favoritesItemsContainer = document.getElementById('favorites-items-offcanvas');
+            const favoritesCountOffcanvas = document.getElementById('favorites-count-offcanvas');
+            
+            favoritesCountOffcanvas.textContent = favorites.length;
+            
+            if (favorites.length === 0) {
+                favoritesItemsContainer.innerHTML = '<p style="text-align: center; color: #666; font-family: Montserrat, sans-serif; font-size: 14px; padding: 20px;">Sem favoritos</p>';
+                return;
+            }
+            
+            let html = '';
+            
+            favorites.forEach((item, index) => {
+                html += `
+                    <div style="display: flex; gap: 15px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; position: relative;">
+                        <button onclick="removeFromFavorites(${index})" style="position: absolute; top: 0; right: 0; border: none; background: none; color: #666; cursor: pointer; font-size: 18px;">×</button>
+                        <img src="${item.image}" alt="${item.name}" style="width: 80px; height: 80px; object-fit: contain; border: 1px solid #e0e0e0; padding: 5px;">
+                        <div style="flex: 1;">
+                            <h6 style="font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.5px;">${item.name}</h6>
+                            <p style="font-family: 'Montserrat', sans-serif; font-size: 10px; color: #666; margin: 0 0 8px 0;">${item.producer || 'Produtor Rui Lorenço'}</p>
+                            <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; margin: 0 0 12px 0;">${item.price}</p>
+                            <button onclick="addFavoriteToCart('${item.id}')" style="width: 100%; background: #593232; color: white; border: none; padding: 8px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; cursor: pointer; letter-spacing: 0.5px;">ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            favoritesItemsContainer.innerHTML = html;
+        }
+        
+        function removeFromFavorites(index) {
+            let favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
+            favorites.splice(index, 1);
+            localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
+            renderFavoritesOffcanvas();
+        }
+        
+        function addFavoriteToCart(productId) {
+            const favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
+            const item = favorites.find(fav => fav.id === productId);
+            
+            if (item) {
+                let cart = JSON.parse(localStorage.getItem('almaNorteCart')) || [];
+                const existingIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+                
+                if (existingIndex > -1) {
+                    cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + 1;
+                } else {
+                    cart.push({ ...item, quantity: 1 });
+                }
+                
+                localStorage.setItem('almaNorteCart', JSON.stringify(cart));
+                alert('Produto adicionado ao carrinho!');
+            }
+        }
+        
+        var favoritesOffcanvas = document.getElementById('favoritesOffcanvas');
+        if (favoritesOffcanvas) {
+            favoritesOffcanvas.addEventListener('show.bs.offcanvas', function () {
+                renderFavoritesOffcanvas();
+            });
+        }
     </script>
 </body>
 </html>
