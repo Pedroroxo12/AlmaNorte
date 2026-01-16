@@ -302,7 +302,7 @@
                     id: productId,
                     name: currentProduct.name,
                     price: currentProduct.price,
-                    image: currentProduct.image,
+                    image: 'http://localhost/AlmaNorte/' + currentProduct.image,
                     producer: currentProduct.producer
                 });
                 localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
