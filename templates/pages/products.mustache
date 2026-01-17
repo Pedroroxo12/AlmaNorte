@@ -165,6 +165,21 @@
     color: #2d1c1c;
   }
 
+  /* Visual pill to match screenshot; no JS behavior */
+  .add-cart-pill {
+    display: block;
+    width: 100%;
+    background: #f5f0f0;
+    color: #2d1c1c;
+    border: 1px solid #e1d8d8;
+    padding: 8px 14px;
+    font-size: 12px;
+    border-radius: 18px;
+    text-align: center;
+    margin: 6px 0 2px;
+  }
+
+
   .filter-bar {
     background: #ffffff;
     border-top: 1px solid #e5dddd;
@@ -263,21 +278,21 @@
 
 <script>
   const featuredProducts = [
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
-    { name: "MEL DO BÔ", producer: "Produtor Rui Lorenço", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" }
+    { name: "VINHO TROVISCO", producer: "Produtor António Barbosa", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor Casa da Prisca", price: "15,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
+    { name: "MEL DO BÔ", producer: "Produtor Rui Lourenço", price: "4,95€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
+    { name: "AZEITE EXTRA VIRGEM", producer: "Produtor Gotinha Dourada", price: "9,95€", image: "/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" }
   ];
 
   const catalogProducts = [
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "QUEIJO DE CABRA", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
-    { name: "MEL ARTESANAL", producer: "Produtor ..", price: "8,95€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "QUEIJO ARTESANAL", producer: "Produtor ..", price: "9,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "VINHO TROVISCO", producer: "Produtor ..", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" }
+    { name: "VINHO TINTO MONT'ALEGRE", producer: "Produtor Superior", price: "14,90€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "AZEITE PORCA DE MURÇA", producer: "Produtor Cobrançosa", price: "6,78€", image: "/assets/images/azeite-removebg-preview 1.png", category: "Azeite", link: "/products/product1.html" },
+    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor Coalho", price: "25,65€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
+    { name: "MEL DA TERRA QUENTE", producer: "Produtor Tradições Gourmet", price: "6,00€", image: "/assets/images/mel-foto1_thumb-removebg-preview 1.png", category: "Mel", link: "/products/product1.html" },
+    { name: "CHOURIÇA DE BÍSARO", producer: "Produtor Gimonde", price: "3,40€", image: "/assets/images/chouriça-removebg-preview 1.png", category: "Fumeiro", link: "/products/product1.html" },
+    { name: "COMPOTA DE FIGO", producer: "Produtor Rui Lourenço", price: "5,00€", image: "/assets/images/FIGO-6-removebg-preview 1.png", category: "Doçaria", link: "/products/product1.html" },
+    { name: "ROSMANINHO", producer: "Produtor Casa Pestana", price: "6,00€", image: "/assets/images/6b6eeb9-140619-rosmaninho 1.png", category: "Ervas Aromáticas", link: "/products/product1.html" },
+    { name: "AZEITE EXTRA VIRGEM", producer: "Produtor Gotinha Dourada", price: "9,95€", image: "/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" }
   ];
 
   function slugify(text) {
@@ -301,6 +316,7 @@
           <img src="http://localhost/AlmaNorte${item.image}" alt="${item.name}">
           <span class="icon-badge"><i class="far fa-heart"></i></span>
         </div>
+        <div class="add-cart-pill">Adicionar ao Carrinho</div>
         <div class="product-info">
           <h3>${item.name}</h3>
           <p class="producer">${item.producer}</p>
