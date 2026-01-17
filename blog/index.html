@@ -132,7 +132,7 @@
             <div class="header-icons">
                 <a href="http://localhost/AlmaNorte/products.html"><i class="fas fa-search"></i></a>
                 <a href="http://localhost/AlmaNorte/account.html"><i class="fas fa-user"></i></a>
-                <a href="#" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas"><i class="fas fa-heart"></i></a>
+                <a href="http://localhost/AlmaNorte/favorites.html"><i class="fas fa-heart"></i></a>
                 <a href="http://localhost/AlmaNorte/cart.html"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </div>
@@ -207,6 +207,38 @@
         font-size: 13px;
         line-height: 1.6;
         opacity: 0.95;
+    }
+    /* Card image blocks */
+    .card-image {
+        width: 100%;
+        height: 180px;
+        background: #4a2a2a;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .thumb {
+        width: 100%;
+        height: 90px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #4a2a2a;
+        margin-bottom: 10px;
+    }
+    .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
     .blog-about {
         background: #f8f4f4;
@@ -375,6 +407,9 @@
             <h1>O Blog da Mesa Transmontana</h1>
             <div class="featured-grid">
                 <div class="featured-card">
+                    <div class="card-image">
+                        <img src="http://localhost/AlmaNorte/assets/images/yjmagocs 1.png" alt="Queijos tradicionais">
+                    </div>
                     <div class="tags">
                         <span class="tag">Artigo</span>
                         <span class="tag">Produtos Locais</span>
@@ -383,6 +418,9 @@
                     <p>Uma visita ao quotidiano de um produtor transmontano, onde tradução, trabalho manual e respeito pela terra se unem para dar origem a produtos autênticos.</p>
                 </div>
                 <div class="featured-card">
+                    <div class="card-image">
+                        <img src="http://localhost/AlmaNorte/assets/images/pao-caseiro-simples 1.png" alt="Pão tradicional">
+                    </div>
                     <div class="tags">
                         <span class="tag">Cultura</span>
                     </div>
@@ -417,12 +455,18 @@
         <h2>Mais Popular</h2>
         <div class="posts-grid">
             <div class="main-post">
+                <div class="card-image" style="height: 220px;">
+                    <img src="http://localhost/AlmaNorte/assets/images/animaisnocampo 1.png" alt="Paisagem rural">
+                </div>
                 <h3>PRODUZIR COM IDENTIDADE: O DIA A DIA DE UM PRODUTOR LOCAL</h3>
                 <p>Uma visita ao quotidiano de um produtor transmontano, onde tradução, trabalho manual e respeito pela terra se unem para dar origem a produtos autênticos.</p>
                 <a href="http://localhost/AlmaNorte/blog/article.html" class="read-link">Ler Artigo →</a>
             </div>
             <div class="side-posts">
                 <div class="side-post">
+                    <div class="thumb">
+                        <img src="http://localhost/AlmaNorte/assets/images/mel-foto1_thumb-removebg-preview 1.png" alt="Mel artesanal">
+                    </div>
                     <div>
                         <h4>SELEÇÃO DE MEL PRODUTOS DE NATAL</h4>
                         <div class="meta">Publicado em 15, Dezembro, 2025</div>
@@ -430,6 +474,9 @@
                     <a href="http://localhost/AlmaNorte/blog/article.html" class="read-link">Ler Artigo →</a>
                 </div>
                 <div class="side-post">
+                    <div class="thumb">
+                        <img src="http://localhost/AlmaNorte/assets/images/FIGO-6-removebg-preview 1.png" alt="Compota de figo">
+                    </div>
                     <div>
                         <h4>5 RAZÕES DE NATAL PARA...</h4>
                         <div class="meta">Publicado em 14, Dezembro, 2025</div>
@@ -437,6 +484,9 @@
                     <a href="http://localhost/AlmaNorte/blog/article.html" class="read-link">Ler Artigo →</a>
                 </div>
                 <div class="side-post">
+                    <div class="thumb">
+                        <img src="http://localhost/AlmaNorte/assets/images/6b6eeb9-140619-rosmaninho 1.png" alt="Ervas aromáticas">
+                    </div>
                     <div>
                         <h4>A GASTRONOMIA COMO PARTE DA CULTURA</h4>
                         <div class="meta">Agosto 20, 2025</div>
@@ -557,84 +607,11 @@
             </div>
         </div>
     </footer>
-
-    <!-- Favorites Offcanvas -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas" style="width: 400px;">
-        <div class="offcanvas-header" style="background: white; border-bottom: 1px solid #ddd; padding: 20px;">
-            <h5 class="offcanvas-title" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">FAVORITOS (<span id="favorites-count-offcanvas">0</span>)</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body" style="padding: 0;">
-            <div id="favorites-items-offcanvas" style="padding: 20px;"></div>
-        </div>
-    </div>
-
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.0/mustache.min.js"></script>
     <script src="http://localhost/AlmaNorte/assets/js/main.js"></script>
-    <script>
-        function renderFavoritesOffcanvas() {
-            const favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
-            const favoritesItemsContainer = document.getElementById('favorites-items-offcanvas');
-            const favoritesCountOffcanvas = document.getElementById('favorites-count-offcanvas');
-            
-            favoritesCountOffcanvas.textContent = favorites.length;
-            
-            if (favorites.length === 0) {
-                favoritesItemsContainer.innerHTML = '<p style="text-align: center; color: #666; font-family: Montserrat, sans-serif; font-size: 14px; padding: 20px;">Sem favoritos</p>';
-                return;
-            }
-            
-            let html = '';
-            favorites.forEach((item, index) => {
-                html += `<div style="display: flex; gap: 15px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; position: relative;">
-                    <button onclick="removeFromFavorites(${index})" style="position: absolute; top: 0; right: 0; border: none; background: none; color: #666; cursor: pointer; font-size: 18px;">×</button>
-                    <img src="${item.image}" style="width: 80px; height: 80px; object-fit: contain; border: 1px solid #e0e0e0; padding: 5px;">
-                    <div style="flex: 1;">
-                        <h6 style="font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; margin: 0 0 4px 0; text-transform: uppercase;">${item.name}</h6>
-                        <p style="font-family: 'Montserrat', sans-serif; font-size: 10px; color: #666; margin: 0 0 8px 0;">${item.producer || 'Produtor'}</p>
-                        <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; margin: 0 0 12px 0;">${item.price}</p>
-                        <button onclick="addFavoriteToCart('${item.id}')" style="width: 100%; background: #593232; color: white; border: none; padding: 8px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; cursor: pointer;">ADICIONAR AO CARRINHO</button>
-                    </div>
-                </div>`;
-            });
-            favoritesItemsContainer.innerHTML = html;
-        }
-        
-        function removeFromFavorites(index) {
-            let favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
-            favorites.splice(index, 1);
-            localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
-            renderFavoritesOffcanvas();
-        }
-        
-        function addFavoriteToCart(productId) {
-            const favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
-            const item = favorites.find(fav => fav.id === productId);
-            if (item) {
-                let cart = JSON.parse(localStorage.getItem('almaNorteCart')) || [];
-                const existingIndex = cart.findIndex(cartItem => cartItem.id === item.id);
-                if (existingIndex > -1) {
-                    cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + 1;
-                } else {
-                    cart.push({...item, quantity: 1});
-                }
-                localStorage.setItem('almaNorteCart', JSON.stringify(cart));
-                alert('Produto adicionado ao carrinho!');
-            }
-        }
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            var favoritesOffcanvas = document.getElementById('favoritesOffcanvas');
-            if (favoritesOffcanvas) {
-                favoritesOffcanvas.addEventListener('show.bs.offcanvas', function () {
-                    renderFavoritesOffcanvas();
-                });
-            }
-        });
-    </script>
        
       
    </body>
