@@ -132,7 +132,7 @@
             <div class="header-icons">
                 <a href="http://localhost/AlmaNorte/products.html"><i class="fas fa-search"></i></a>
                 <a href="http://localhost/AlmaNorte/account.html"><i class="fas fa-user"></i></a>
-                <a href="http://localhost/AlmaNorte/favorites.html"><i class="fas fa-heart"></i></a>
+                <a href="#" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" aria-controls="favoritesOffcanvas"><i class="fas fa-heart"></i></a>
                 <a href="http://localhost/AlmaNorte/cart.html"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </div>
@@ -260,6 +260,157 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Offcanvas Favoritos -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas" aria-labelledby="favoritesLabel">
+        <div class="offcanvas-header">
+            <h5 id="favoritesLabel">FAVORITOS (<span id="favorites-count">0</span>)</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" id="favorites-container">
+            <!-- Favoritos carregados aqui -->
+        </div>
+    </div>
+    
+    <style>
+        .offcanvas {
+            width: 350px !important;
+        }
+        .offcanvas-header {
+            background: #593232;
+            color: white;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .offcanvas-header h5 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .offcanvas-header .btn-close {
+            filter: brightness(0) invert(1);
+        }
+        .favorite-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            border-bottom: 1px solid #e0e0e0;
+            align-items: flex-start;
+        }
+        .favorite-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+        .favorite-item-info {
+            flex: 1;
+        }
+        .favorite-item-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2d1c1c;
+            margin-bottom: 4px;
+        }
+        .favorite-item-producer {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .favorite-item-price {
+            font-size: 12px;
+            font-weight: 600;
+            color: #593232;
+            margin-bottom: 10px;
+        }
+        .favorite-item-button {
+            width: 100%;
+            padding: 8px;
+            background: #8b6f6f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .favorite-item-button:hover {
+            background: #765d5d;
+        }
+        .favorite-item-close {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 0;
+            align-self: flex-start;
+        }
+        .favorite-item-close:hover {
+            color: #333;
+        }
+        .favorites-empty {
+            padding: 40px 20px;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+        }
+    </style>
+    
+    <script>
+        function loadFavoritesOffcanvas() {
+            const favoritesStr = localStorage.getItem('almaNorteFavorites');
+            const favorites = favoritesStr ? JSON.parse(favoritesStr) : [];
+            const container = document.getElementById('favorites-container');
+            const countEl = document.getElementById('favorites-count');
+            
+            countEl.textContent = favorites.length;
+            
+            if (favorites.length === 0) {
+                container.innerHTML = '<div class="favorites-empty">Nenhum favorito adicionado</div>';
+                return;
+            }
+            
+            container.innerHTML = favorites.map(item => `
+                <div class="favorite-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="favorite-item-info">
+                        <div class="favorite-item-name">${item.name}</div>
+                        <div class="favorite-item-producer">${item.producer}</div>
+                        <div class="favorite-item-price">${item.price}</div>
+                        <button class="favorite-item-button" onclick="addToCart('${item.name}', '${item.price}', '${item.image}')">Adicionar ao Carrinho</button>
+                    </div>
+                    <button class="favorite-item-close" onclick="removeFavorite('${item.name}')">&times;</button>
+                </div>
+            `).join('');
+        }
+        
+        function removeFavorite(productName) {
+            const favoritesStr = localStorage.getItem('almaNorteFavorites');
+            let favorites = favoritesStr ? JSON.parse(favoritesStr) : [];
+            favorites = favorites.filter(item => item.name !== productName);
+            localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
+            loadFavoritesOffcanvas();
+        }
+        
+        function addToCart(name, price, image) {
+            const cartStr = localStorage.getItem('almaNorteCart');
+            let cart = cartStr ? JSON.parse(cartStr) : [];
+            cart.push({ name, price, image, quantity: 1 });
+            localStorage.setItem('almaNorteCart', JSON.stringify(cart));
+            alert('Produto adicionado ao carrinho!');
+        }
+        
+        // Carregar favoritos quando o offcanvas abre
+        document.addEventListener('DOMContentLoaded', function() {
+            const favoritesOffcanvas = document.getElementById('favoritesOffcanvas');
+            if (favoritesOffcanvas) {
+                favoritesOffcanvas.addEventListener('show.bs.offcanvas', loadFavoritesOffcanvas);
+            }
+        });
+    </script>
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
