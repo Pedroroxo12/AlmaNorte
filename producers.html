@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery API</title>
-        <meta name="description" content="Browse through a stunning image gallery showcasing our latest projects.">
-        <meta name="keywords" content="image gallery, projects, portfolio, slider">
-        <meta name="author" content="Arlindo Santos">
-        <meta name="robots" content="index,follow">
-        <link rel="canonical" href="https://yourdomain.com/gallery.html">
-        <meta property="og:title" content="Image Gallery">
-        <meta property="og:description" content="A stunning slider gallery featuring our top projects.">
-        <meta property="og:image" content="https://yourdomain.com/assets/images/project1.svg">
-        <meta property="og:url" content="https://yourdomain.com/gallery.html">
-        <meta property="og:type" content="website">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Image Gallery">
-        <meta name="twitter:description" content="Explore our portfolio with a dynamic image slider gallery.">
-        <meta name="twitter:image" content="https://yourdomain.com/assets/images/project1.svg">
+    <title>Produtores - Alma Norte</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="robots" content="">
+        <link rel="canonical" href="">
+        <meta property="og:title" content="">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="">
+        <meta property="og:url" content="">
+        <meta property="og:type" content="">
+        <meta name="twitter:card" content="">
+        <meta name="twitter:title" content="">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="">
     <!-- Latest compiled and minified CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    
     <link rel="stylesheet" href="http://localhost/AlmaNorte/assets/css/styles.css">
     
-     <link rel="stylesheet" href="http://localhost/AlmaNorte/assets/css/gallery-slider.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
 <body>
@@ -143,9 +142,9 @@
         <div class="container">
             <ul>
                 <li><a href="http://localhost/AlmaNorte/index.html" class="">HOME</a></li>
-                <li><a href="http://localhost/AlmaNorte/products.html" class="active">PRODUTOS</a></li>
+                <li><a href="http://localhost/AlmaNorte/products.html" class="">PRODUTOS</a></li>
                 <li><a href="http://localhost/AlmaNorte/blog/index.html" class="">BLOG</a></li>
-                <li><a href="http://localhost/AlmaNorte/producers.html" class="">PRODUTORES</a></li>
+                <li><a href="http://localhost/AlmaNorte/producers.html" class="active">PRODUTORES</a></li>
                 <li><a href="http://localhost/AlmaNorte/about/index.html" class="">SOBRE NÓS</a></li>
             </ul>
         </div>
@@ -153,12 +152,313 @@
          
     <main>
         
-<div class="slider-container">
-  <div id="slider">
-  </div>
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+<style>
+    .producers-hero {
+        background: #593232;
+        color: white;
+        padding: 80px 0 60px;
+        text-align: center;
+        position: relative;
+    }
+    .producers-hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 48px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        margin: 0;
+    }
+    .wave-divider {
+        margin-top: -1px;
+    }
+    .producer-section {
+        background: #593232;
+        color: white;
+        padding: 80px 0;
+    }
+    .producer-section:nth-child(even) {
+        background: #4a2625;
+    }
+    .producer-content {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 60px;
+        align-items: start;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    .producer-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    .producer-info h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 36px;
+        font-weight: 400;
+        letter-spacing: 3px;
+        margin: 0 0 30px 0;
+    }
+    .producer-description {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 40px;
+        color: #f0f0f0;
+    }
+    .best-selling-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        text-align: center;
+        margin: 60px 0 40px;
+    }
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto 40px;
+    }
+    .product-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        text-align: center;
+        padding: 20px;
+        color: #333;
+    }
+    .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        margin-bottom: 15px;
+    }
+    .product-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #593232;
+    }
+    .product-producer {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    .product-price {
+        font-size: 18px;
+        font-weight: 600;
+        color: #593232;
+    }
+    .view-all-btn {
+        background: #8b6f6f;
+        color: white;
+        border: none;
+        padding: 12px 40px;
+        border-radius: 25px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+    .view-all-btn:hover {
+        background: #7d5454;
+        color: white;
+    }
+    .collaboration-section {
+        background: white;
+        padding: 80px 20px;
+    }
+    .collaboration-box {
+        background: #593232;
+        color: white;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 50px;
+        border-radius: 15px;
+    }
+    .collaboration-box h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+    }
+    .collaboration-box p {
+        text-align: center;
+        font-size: 13px;
+        margin-bottom: 30px;
+        color: #f0f0f0;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+    .submit-btn {
+        background: #8b6f6f;
+        color: white;
+        border: none;
+        padding: 12px 40px;
+        border-radius: 25px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+        transition: background 0.3s;
+    }
+    .submit-btn:hover {
+        background: #7d5454;
+    }
+    @media (max-width: 768px) {
+        .producer-content {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .products-grid {
+            grid-template-columns: 1fr;
+        }
+        .producers-hero h1 {
+            font-size: 32px;
+        }
+    }
+</style>
+
+<div class="producers-hero">
+    <h1>OS NOSSOS PRODUTORES</h1>
 </div>
+
+<svg class="wave-divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+    <path fill="#593232" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+</svg>
+
+<!-- Rui Lourenço -->
+<div class="producer-section">
+    <div class="producer-content">
+        <div>
+            <img src="http://localhost/AlmaNorte/assets/images/apicultor.jpg" alt="Rui Lourenço" class="producer-image">
+        </div>
+        <div class="producer-info">
+            <h2>RUI LOURENÇO</h2>
+            <div class="producer-description">
+                <p>Rui Lourenço é um apicultor dedicado da região de Trás-os-Montes, com mais de 30 anos de experiência na produção de mel. A sua família cultiva mel de forma tradicional, seguindo os métodos ancestrais da região, garantindo a mais alta qualidade e pureza em cada frasco.</p>
+                
+                <p>Originalmente criado como alimento, o mel é cultivado em colmeias lócais que prosperam nas flores silvestres das montanhas de Trás-os-Montes. Rui dedica-se a preservar as tradições apícolas e a produzir mel de excelência que reflete a riqueza natural da região. A sua paixão pelo mel e o cuidado meticuloso com cada lote fazem dos seus produtos uma verdadeira expressão do terroir transmontano.</p>
+            </div>
+            
+            <h3 class="best-selling-title">PRODUTOS MAIS VENDIDOS</h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="http://localhost/AlmaNorte/assets/images/MEL.jpeg" alt="Mel do Bô">
+                    <div class="product-name">MEL DO BÔ</div>
+                    <div class="product-producer">Produtor Rui Lourenço</div>
+                    <div class="product-price">8,95€</div>
+                </div>
+                <div class="product-card">
+                    <img src="http://localhost/AlmaNorte/assets/images/MEL.jpeg" alt="Mel do Bô">
+                    <div class="product-name">MEL DO BÔ</div>
+                    <div class="product-producer">Produtor Rui Lourenço</div>
+                    <div class="product-price">8,95€</div>
+                </div>
+                <div class="product-card">
+                    <img src="http://localhost/AlmaNorte/assets/images/MEL.jpeg" alt="Mel do Bô">
+                    <div class="product-name">MEL DO BÔ</div>
+                    <div class="product-producer">Produtor Rui Lourenço</div>
+                    <div class="product-price">8,95€</div>
+                </div>
+            </div>
+            <a href="http://localhost/AlmaNorte/products.html" class="view-all-btn">Ver todos os Produtos</a>
+        </div>
+    </div>
+</div>
+
+<svg class="wave-divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+    <path fill="#593232" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+</svg>
+
+<!-- António Barbosa -->
+<div class="producer-section">
+    <div class="producer-content">
+        <div>
+            <img src="http://localhost/AlmaNorte/assets/images/produtores vinho.jpg" alt="António Barbosa" class="producer-image">
+        </div>
+        <div class="producer-info">
+            <h2>ANTÓNIO BARBOSA</h2>
+            <div class="producer-description">
+                <p>António Barbosa é produtor de vinhos Trás-os-Montes, com grande dedicação nas vinhas familiares que remontam a várias gerações. Os seus vinhos refletem a tradição vinícola da região, combinando métodos ancestrais com técnicas modernas de vinificação.</p>
+                
+                <p>As vinhas de António estão situadas nas encostas dos vales transmontanos, beneficiando do clima único e dos solos graníticos que conferem aos seus vinhos características distintivas. Cada garrafa conta a história da terra, do clima e da paixão de várias gerações de viticultores.</p>
+                
+                <p>A ligação de António com a terra e o seu comprometimento com a qualidade fazem dos seus vinhos uma autêntica expressão do terroir transmontano, celebrando a riqueza e a diversidade desta região vinícola única.</p>
+            </div>
+            
+            <h3 class="best-selling-title">PRODUTOS MAIS VENDIDOS</h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="http://localhost/AlmaNorte/assets/images/vinhos.jpeg" alt="Vinho Trovisco">
+                    <div class="product-name">VINHO TROVISCO</div>
+                    <div class="product-producer">Produtor António Barbosa</div>
+                    <div class="product-price">45,90€</div>
+                </div>
+                <div class="product-card">
+                    <img src="http://localhost/AlmaNorte/assets/images/vinhos.jpeg" alt="Vinho Trovisco">
+                    <div class="product-name">VINHO TROVISCO</div>
+                    <div class="product-producer">Produtor António Barbosa</div>
+                    <div class="product-price">45,90€</div>
+                </div>
+                <div class="product-card">
+                    <img src="http://localhost/AlmaNorte/assets/images/vinhos.jpeg" alt="Vinho Trovisco">
+                    <div class="product-name">VINHO TROVISCO</div>
+                    <div class="product-producer">Produtor António Barbosa</div>
+                    <div class="product-price">45,90€</div>
+                </div>
+            </div>
+            <a href="http://localhost/AlmaNorte/products.html" class="view-all-btn">Ver todos os Produtos</a>
+        </div>
+    </div>
+</div>
+
+<svg class="wave-divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+    <path fill="#4a2625" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+</svg>
+
+<!-- Collaboration Section -->
+<div class="collaboration-section">
+    <div class="collaboration-box">
+        <h2>DESEJA COLABORAR CONNOSCO?</h2>
+        <p>Entre em contacto para se tornar parte do nosso catálogo como produtor!</p>
+        
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="NOME *" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="E-MAIL *" required>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="MENSAGEM *" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">SUBMETER</button>
+        </form>
+    </div>
+</div>
+
 
     </main>
     
@@ -409,7 +709,6 @@
     <!-- Latest compiled and minified JavaScript -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.0/mustache.min.js"></script>
     <script src="http://localhost/AlmaNorte/assets/js/main.js"></script>
-     <script src="http://localhost/AlmaNorte/assets/js/gallery-api-1.js" crossorigin="anonymous"></script>
        
       
    </body>

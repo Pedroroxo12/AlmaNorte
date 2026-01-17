@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta - Alma Norte</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container-fluid">
+            <!-- Top header with logo and icons -->
+            <div class="row align-items-center py-3" style="border-bottom: 1px solid #ddd;">
+                <div class="col-4">
+                    <a href="index.html" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: #333; text-decoration: none; letter-spacing: 2px;">ALMANORTE</a>
+                </div>
+                <div class="col-4 text-center">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="http://localhost/AlmaNorte/assets/images/Logotipo.png" alt="AlmaNorte" style="height: 60px;">
+                    </a>
+                </div>
+                <div class="col-4">
+                    <div class="d-flex justify-content-end gap-3">
+                        <a href="http://localhost/AlmaNorte/products.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-search"></i></a>
+                        <a href="account.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-user"></i></a>
+                        <a href="#" class="icon-link" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" style="color: #333; font-size: 18px;"><i class="fas fa-heart"></i></a>
+                        <a href="cart.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge bg-danger" style="display: none;">0</span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation menu -->
+            <nav class="row align-items-center py-3" style="border-bottom: 1px solid #ddd;">
+                <div class="col-12 text-center">
+                    <div style="display: flex; justify-content: center; gap: 40px; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1px;">
+                        <a href="index.html" style="color: #333; text-decoration: none;">HOME</a>
+                        <a href="products.html" style="color: #333; text-decoration: none;">PRODUTOS</a>
+                        <a href="blog/index.html" style="color: #333; text-decoration: none;">BLOG</a>
+                        <a href="producers.html" style="color: #333; text-decoration: none;">PRODUTORES</a>
+                        <a href="about/index.html" style="color: #333; text-decoration: none;">SOBRE NÓS</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container my-5" style="margin-bottom: 100px;">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <!-- LOGIN FORM -->
+                <div id="loginSection">
+                    <h2 class="text-center mb-5" style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; color: #333;">INICIAR SESSÃO</h2>
+                    <div style="background: #593232; color: white; border-radius: 15px; padding: 40px;">
+                        <form id="loginForm">
+                            <div class="mb-4">
+                                <label for="loginEmail" class="form-label" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">NOME DE UTILIZADOR OU EMAIL</label>
+                                <input type="text" class="form-control" id="loginEmail" placeholder="NOME DE UTILIZADOR OU EMAIL" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="loginPassword" class="form-label" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">PASSWORD</label>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="PASSWORD" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                            </div>
+                            <button type="submit" class="btn w-100 mb-3" style="background: #593232; color: white; border: 1px solid white; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; padding: 10px; letter-spacing: 0.5px;">INICIAR SESSÃO</button>
+                            <div class="text-center mb-2">
+                                <small style="font-family: 'Montserrat', sans-serif; font-size: 11px;">
+                                    <a href="#" style="color: white; text-decoration: none;">ESQUECI A DA PASSWORD</a>
+                                </small>
+                            </div>
+                            <div class="text-center">
+                                <small style="font-family: 'Montserrat', sans-serif; font-size: 11px;">
+                                    <a href="#" id="switchToRegister" style="color: white; text-decoration: underline;">Ainda não tem conta de utilizador?</a>
+                                </small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- REGISTER FORM -->
+                <div id="registerSection" style="display: none;">
+                    <h2 class="text-center mb-5" style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; color: #333;">CRIAR UMA CONTA</h2>
+                    <div style="background: #593232; color: white; border-radius: 15px; padding: 40px;">
+                        <form id="registerForm">
+                            <div class="mb-4">
+                                <label for="firstName" class="form-label" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">PRIMEIRO NOME *</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="PRIMEIRO NOME" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="lastName" class="form-label" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">SOBRENOME *</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="SOBRENOME" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="country" class="form-label" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">PAÍS / REGIÃO *</label>
+                                <select class="form-control" id="country" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                                    <option value="">PAÍS / REGIÃO</option>
+                                    <option value="pt">Portugal</option>
+                                    <option value="es">Espanha</option>
+                                    <option value="fr">França</option>
+                                    <option value="br">Brasil</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">DATA DE NASCIMENTO *</label>
+                                <div class="d-flex gap-2">
+                                    <select class="form-control" id="month" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                                        <option value="">MÊS</option>
+                                        <option value="01">Janeiro</option>
+                                        <option value="02">Fevereiro</option>
+                                        <option value="03">Março</option>
+                                        <option value="04">Abril</option>
+                                        <option value="05">Maio</option>
+                                        <option value="06">Junho</option>
+                                        <option value="07">Julho</option>
+                                        <option value="08">Agosto</option>
+                                        <option value="09">Setembro</option>
+                                        <option value="10">Outubro</option>
+                                        <option value="11">Novembro</option>
+                                        <option value="12">Dezembro</option>
+                                    </select>
+                                    <select class="form-control" id="day" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                                        <option value="">DIA</option>
+                                    </select>
+                                    <select class="form-control" id="year" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                                        <option value="">ANO</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">TELEMÓVEL *</label>
+                                <div class="d-flex gap-2">
+                                    <select style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666; width: 80px;">
+                                        <option>+351</option>
+                                    </select>
+                                    <input type="tel" class="form-control" id="phone" placeholder="TELEMÓVEL" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="registerEmail" class="form-label" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">EMAIL *</label>
+                                <input type="email" class="form-control" id="registerEmail" placeholder="EMAIL" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="registerPassword" class="form-label" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">PASSWORD *</label>
+                                <input type="password" class="form-control" id="registerPassword" placeholder="PASSWORD" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="confirmPassword" class="form-label" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">CONFIRMAR PASSWORD *</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="PASSWORD" style="background: white; border: none; padding: 10px 15px; font-size: 13px; color: #666;" required>
+                            </div>
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="termsAccept" style="accent-color: white;" required>
+                                    <label class="form-check-label" for="termsAccept" style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: white;">
+                                        Aceito os Termos e Condições
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn w-100 mb-3" style="background: #593232; color: white; border: 1px solid white; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; padding: 10px; letter-spacing: 0.5px;">CRIAR CONTA</button>
+                            <div class="text-center">
+                                <small style="font-family: 'Montserrat', sans-serif; font-size: 11px;">
+                                    <a href="#" id="switchToLogin" style="color: white; text-decoration: underline;">Voltar para Iniciar Sessão</a>
+                                </small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Apoio ao Cliente</h3>
+                <ul class="footer-links">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Envios</a></li>
+                    <li><a href="#">Devoluções</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Informação Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Termos e Condições</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contactos</h3>
+                <p>Email: info@almanorte.pt</p>
+                <p>Telefone: +351 123 456 789</p>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Alma Norte. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Favorites Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas" style="width: 400px;">
+        <div class="offcanvas-header" style="background: white; border-bottom: 1px solid #ddd; padding: 20px;">
+            <h5 class="offcanvas-title" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">FAVORITOS (<span id="favorites-count-offcanvas">0</span>)</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" style="padding: 0;">
+            <div id="favorites-items-offcanvas" style="padding: 20px;"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+        // Populate days dropdown
+        function populateDays() {
+            const daySelect = document.getElementById('day');
+            for (let i = 1; i <= 31; i++) {
+                const option = document.createElement('option');
+                option.value = String(i).padStart(2, '0');
+                option.textContent = String(i).padStart(2, '0');
+                daySelect.appendChild(option);
+            }
+        }
+
+        // Populate years dropdown
+        function populateYears() {
+            const yearSelect = document.getElementById('year');
+            const currentYear = new Date().getFullYear();
+            for (let i = currentYear; i >= currentYear - 100; i--) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                yearSelect.appendChild(option);
+            }
+        }
+
+        // Initialize dropdowns
+        populateDays();
+        populateYears();
+
+        // Switch to register form
+        document.getElementById('switchToRegister').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('registerSection').style.display = 'block';
+        });
+
+        // Switch to login form
+        document.getElementById('switchToLogin').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('registerSection').style.display = 'none';
+            document.getElementById('loginSection').style.display = 'block';
+        });
+
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (email && password) {
+                window.location.href = 'index.html';
+            }
+        });
+
+        // Register form submission
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('As passwords não coincidem!');
+                return;
+            }
+            
+            // If all validations pass, redirect to home
+            window.location.href = 'index.html';
+        });
+
+        function renderFavoritesOffcanvas() {
+            const favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
+            const favoritesItemsContainer = document.getElementById('favorites-items-offcanvas');
+            const favoritesCountOffcanvas = document.getElementById('favorites-count-offcanvas');
+            
+            favoritesCountOffcanvas.textContent = favorites.length;
+            
+            if (favorites.length === 0) {
+                favoritesItemsContainer.innerHTML = '<p style="text-align: center; color: #666; font-family: Montserrat, sans-serif; font-size: 14px; padding: 20px;">Sem favoritos</p>';
+                return;
+            }
+            
+            let html = '';
+            favorites.forEach((item, index) => {
+                html += `<div style="display: flex; gap: 15px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; position: relative;">
+                    <button onclick="removeFromFavorites(${index})" style="position: absolute; top: 0; right: 0; border: none; background: none; color: #666; cursor: pointer; font-size: 18px;">×</button>
+                    <img src="${item.image}" style="width: 80px; height: 80px; object-fit: contain; border: 1px solid #e0e0e0; padding: 5px;">
+                    <div style="flex: 1;">
+                        <h6 style="font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; margin: 0 0 4px 0; text-transform: uppercase;">${item.name}</h6>
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 10px; color: #666; margin: 0 0 8px 0;">${item.producer || 'Produtor'}</p>
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; margin: 0 0 12px 0;">${item.price}</p>
+                        <button onclick="addFavoriteToCart('${item.id}')" style="width: 100%; background: #593232; color: white; border: none; padding: 8px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; cursor: pointer;">ADICIONAR AO CARRINHO</button>
+                    </div>
+                </div>`;
+            });
+            favoritesItemsContainer.innerHTML = html;
+        }
+        
+        function removeFromFavorites(index) {
+            let favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
+            favorites.splice(index, 1);
+            localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
+            renderFavoritesOffcanvas();
+        }
+        
+        function addFavoriteToCart(productId) {
+            const favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
+            const item = favorites.find(fav => fav.id === productId);
+            if (item) {
+                let cart = JSON.parse(localStorage.getItem('almaNorteCart')) || [];
+                const existingIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+                if (existingIndex > -1) {
+                    cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + 1;
+                } else {
+                    cart.push({...item, quantity: 1});
+                }
+                localStorage.setItem('almaNorteCart', JSON.stringify(cart));
+                alert('Produto adicionado ao carrinho!');
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var favoritesOffcanvas = document.getElementById('favoritesOffcanvas');
+            if (favoritesOffcanvas) {
+                favoritesOffcanvas.addEventListener('show.bs.offcanvas', function () {
+                    renderFavoritesOffcanvas();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

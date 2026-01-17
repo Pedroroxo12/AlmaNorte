@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Início - Alma Norte</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="author" content="">
@@ -20,150 +20,946 @@
         <meta name="twitter:image" content="">
     <!-- Latest compiled and minified CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    
-    <link rel="stylesheet" href="http://localhost/Mustache-website/assets/css/styles.css">
+    <link rel="stylesheet" href="http://localhost/AlmaNorte/assets/css/styles.css">
     
-       
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
 <body>
-    <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="http://localhost/Mustache-website/index.html">Arlindo Santos</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="http://localhost/Mustache-website/index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost/Mustache-website/projects.html">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost/Mustache-website/about/index.html">About</a>
-            </li>
+    <style>
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 1001;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 100%;
+            padding: 0 50px;
+        }
+        .brand-text {
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #333;
+        }
+        .logo-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .logo-center img {
+            height: 80px;
+        }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .header-icons a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .header-icons a:hover {
+            color: #593232;
+        }
+        .nav-menu {
+            position: fixed;
+            top: 110px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 1000;
+            padding: 15px 0;
+            width: 100%;
+        }
+        .nav-menu .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-menu ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        .nav-menu ul li a:hover {
+            color: #593232;
+        }
+        .nav-menu ul li a.active {
+            font-weight: 700;
+        }
+        main {
+            margin-top: 170px;
+        }
+        @media (max-width: 768px) {
+            .nav-menu ul {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+    </style>
     
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost/Mustache-website/gallery.html">Gallery</a>
-            </li>
-       
-       <li class="nav-item">
-              <a class="nav-link" href="http://localhost/Mustache-website/products.html">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost/Mustache-website/clients/insert.html">Clients</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-        
+    <div class="top-header">
+        <div class="header-content">
+            <div class="brand-text">ALMANORTE</div>
+            <div class="logo-center">
+                <a href="http://localhost/AlmaNorte/index.html">
+                    <img src="http://localhost/AlmaNorte/assets/images/Logotipo.png" alt="AlmaNorte">
+                </a>
+            </div>
+            <div class="header-icons">
+                <a href="http://localhost/AlmaNorte/products.html"><i class="fas fa-search"></i></a>
+                <a href="http://localhost/AlmaNorte/account.html"><i class="fas fa-user"></i></a>
+                <a href="#" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" aria-controls="favoritesOffcanvas"><i class="fas fa-heart"></i></a>
+                <a href="http://localhost/AlmaNorte/cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
         </div>
-      </div>
-    </nav>
+    </div>
     
-    </header>
+    <div class="nav-menu">
+        <div class="container">
+            <ul>
+                <li><a href="http://localhost/AlmaNorte/index.html" class="active">HOME</a></li>
+                <li><a href="http://localhost/AlmaNorte/products.html" class="">PRODUTOS</a></li>
+                <li><a href="http://localhost/AlmaNorte/blog/index.html" class="">BLOG</a></li>
+                <li><a href="http://localhost/AlmaNorte/producers.html" class="">PRODUTORES</a></li>
+                <li><a href="http://localhost/AlmaNorte/about/index.html" class="">SOBRE NÓS</a></li>
+            </ul>
+        </div>
+    </div>
          
     <main>
         
-<section class="hero">
-    <div class="hero-content">
-        <div>
-            <h1 class="hero-title">Welcome to My Portfolio</h1>
-            <p class="hero-subtitle">Full Stack Developer & Creative Problem Solver</p>
-            <div class="hero-buttons">
-                <a href="http://localhost/Mustache-website/projects.html" class="btn btn-primary">View My Work</a>
-                <a href="http://localhost/Mustache-website/contact.html" class="btn btn-secondary">Get In Touch</a>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+    .featured-section {
+        padding: 80px 20px 100px;
+        text-align: center;
+        background: white;
+    }
+    .section-title {
+        font-size: 32px;
+        font-weight: 300;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        color: #000;
+    }
+    .product-basket {
+        max-width: 700px;
+        margin: 0 auto 40px;
+    }
+    .product-basket img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .btn-explore {
+        background-color: #8b6f6f;
+        color: white;
+        border: none;
+        padding: 15px 60px;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s;
+        text-transform: none;
+    }
+    .btn-explore:hover {
+        background-color: #765d5d;
+        color: white;
+    }
+    .producers-section {
+        background-color: #593232;
+        color: white;
+        padding: 60px 20px;
+        position: relative;
+    }
+    .producers-section .section-title {
+        color: white;
+        margin-bottom: 20px;
+    }
+    .producers-subtitle {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin: 0 auto 40px;
+        font-family: 'Aboreto', cursive;
+        text-align: center;
+        color: white;
+        border: 2px solid #4a90e2;
+        display: inline-block;
+        padding: 8px 20px;
+        max-width: fit-content;
+    }
+    .producers-subtitle-container {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .producer-wrapper {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .producer-main-card {
+        background-color: rgba(80, 60, 60, 0.8);
+        border-radius: 25px;
+        padding: 50px;
+        position: relative;
+    }
+    .producer-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+    .producer-image {
+        flex: 0 0 200px;
+    }
+    .producer-image img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border: 3px solid white;
+    }
+    .producer-text {
+        flex: 1;
+        text-align: left;
+        font-size: 13px;
+        line-height: 1.8;
+        color: white;
+    }
+    .producer-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(80, 60, 60, 0.9);
+        border: none;
+        color: white;
+        font-size: 32px;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: all 0.3s;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .producer-nav:hover {
+        background-color: rgba(80, 60, 60, 1);
+    }
+    .producer-nav.prev {
+        left: -80px;
+    }
+    .producer-nav.next {
+        right: -80px;
+    }
+    .btn-producers {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        padding: 12px 40px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+        text-align: center;
+        font-size: 14px;
+    }
+    .btn-producers:hover {
+        background-color: white;
+        color: #593232;
+    }
+    .producers-button-container {
+        text-align: center;
+    }
+    .producer-image img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border: 3px solid white;
+    }
+    .producer-text {
+        flex: 1;
+        text-align: left;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+    .btn-light-custom {
+        background-color: white;
+        color: #593232;
+        border: none;
+        padding: 12px 50px;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 30px;
+    }
+    .btn-light-custom:hover {
+        background-color: #f5f5f5;
+        color: #593232;
+    }
+    .testimonials-section {
+        background-color: #593232;
+        color: white;
+        padding: 60px 20px;
+        position: relative;
+        margin: 80px 0;
+    }
+    .testimonials-section::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #593232;
+        clip-path: polygon(0 0, 0% 40%, 5% 30%, 10% 35%, 15% 25%, 20% 35%, 25% 30%, 30% 40%, 35% 25%, 40% 35%, 45% 30%, 50% 40%, 55% 30%, 60% 35%, 65% 25%, 70% 35%, 75% 30%, 80% 40%, 85% 35%, 90% 25%, 95% 35%, 100% 30%, 100% 0);
+    }
+    .testimonials-section::after {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #593232;
+        clip-path: polygon(0 50%, 5% 60%, 10% 55%, 15% 65%, 20% 55%, 25% 60%, 30% 50%, 35% 65%, 40% 55%, 45% 60%, 50% 50%, 55% 60%, 60% 55%, 65% 65%, 70% 55%, 75% 60%, 80% 50%, 85% 55%, 90% 65%, 95% 55%, 100% 60%, 100% 100%, 0 100%);
+    }
+    .testimonials-section h2 {
+        color: white;
+    }
+    .testimonials-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .nav-btn {
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 2px solid white;
+        color: white;
+        font-size: 24px;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: all 0.3s;
+        flex-shrink: 0;
+    }
+    .nav-btn:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+    .testimonial-card {
+        max-width: 650px;
+        padding: 50px 60px;
+        border: 4px solid white;
+        border-radius: 25px;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+    }
+    .testimonial-icon {
+        font-size: 80px;
+        margin-bottom: 25px;
+    }
+    .testimonial-icon i {
+        color: white;
+    }
+    .testimonial-text {
+        font-size: 13px;
+        line-height: 1.9;
+        margin-bottom: 25px;
+        font-style: italic;
+    }
+    .stars {
+        margin: 25px 0;
+        font-size: 20px;
+    }
+    .stars i {
+        color: #ffd700;
+        margin: 0 3px;
+    }
+    .client-name {
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 1.5px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    .client-title {
+        font-size: 12px;
+        opacity: 0.9;
+        font-weight: 300;
+    }
+    .newsletter-section {
+        padding: 60px 20px;
+        background: white;
+    }
+    .newsletter-box {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 40px;
+        border: 2px solid #333;
+        border-radius: 10px;
+    }
+    .newsletter-box h2 {
+        font-size: 24px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+    .newsletter-box p {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+    .newsletter-form {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+    .newsletter-form input {
+        max-width: 300px;
+        border: 1px solid #333;
+        padding: 10px 15px;
+    }
+    .newsletter-form button {
+        background-color: #593232;
+        color: white;
+        border: none;
+        padding: 10px 30px;
+    }
+    .newsletter-form button:hover {
+        background-color: #4a2625;
+    }
+    @media (max-width: 768px) {
+        .producer-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        .producer-text {
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    let currentTestimonial = 0;
+    let currentProducer = 0;
+
+    const testimonials = [
+        {
+            text: "Uma plataforma que transmite confiança desde o primeiro momento. A qualidade dos produtos é evidente e a forma como é construída esta rede de produtores locais é genuína e transparente. Recomendo a quem procura produtos autênticos.",
+            name: "INÊS OLIVEIRA",
+            title: "Designer Gráfica",
+            stars: 4
+        },
+        {
+            text: "Excelente qualidade nos produtos! A entrega foi rápida e o atendimento ao cliente foi impecável. Voltarei a comprar com certeza. Muito satisfeito com a experiência.",
+            name: "JOÃO SILVA",
+            title: "Empresário",
+            stars: 5
+        },
+        {
+            text: "Adorei a variedade de produtos oferecidos. Todos são de excelente qualidade e têm um preço justo. A plataforma é fácil de usar e muito intuitiva.",
+            name: "MARIA SANTOS",
+            title: "Consultora",
+            stars: 5
+        },
+        {
+            text: "Recomendo fortemente! Os produtores são confiáveis e os produtos são sempre frescos. Fantástica iniciativa que apoia a agricultura local.",
+            name: "CARLOS MENDES",
+            title: "Agricultor",
+            stars: 4
+        }
+    ];
+
+    const producers = [
+        {
+            title: "OS NOSSOS PRODUTORES",
+            subtitle: "DESCOBRE COMO SÃ TRATADOS OS NOSSOS PRODUTOS",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+            image: "/assets/images/young-farmer-taking-care-his-business 1.png",
+            buttonText: "Tudo sobre os nossos Produtores",
+            buttonLink: "/producers.html",
+            type: "producer"
+        },
+        {
+            title: "EVENTOS FUTUROS",
+            subtitle: "EXPLORA OS PRÓXIMOS EVENTOS",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            image: "/assets/images/Foto de capa.jpeg",
+            buttonText: "Descobre o nosso Blog",
+            buttonLink: "/blog/index.html",
+            type: "event"
+        },
+        {
+            title: "OFERTAS ESPECIAIS",
+            subtitle: "DESCOBRE AS MELHORES OFERTAS",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            image: "/assets/images/Foto de capa.jpeg",
+            buttonText: "As melhores ofertas",
+            buttonLink: "/gallery-api-1.html",
+            type: "offer"
+        }
+    ];
+
+    function showTestimonial(index) {
+        const testimonial = testimonials[index];
+        let starsHTML = '';
+        for (let i = 0; i < 5; i++) {
+            if (i < testimonial.stars) {
+                starsHTML += '<i class="fas fa-star"></i>';
+            } else {
+                starsHTML += '<i class="far fa-star"></i>';
+            }
+        }
+        
+        const card = document.getElementById('testimonial-1');
+        card.innerHTML = `
+            <div class="testimonial-icon">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <p class="testimonial-text">${testimonial.text}</p>
+            <div class="stars">${starsHTML}</div>
+            <p class="client-name">${testimonial.name}</p>
+            <p class="client-title">${testimonial.title}</p>
+        `;
+    }
+
+    function showProducer(index) {
+        const producer = producers[index];
+        const producerContainer = document.getElementById('producer-container');
+        const mainCard = document.querySelector('.producer-main-card');
+        
+        if (producer.type === 'offer') {
+            mainCard.style.border = '3px solid #4a90e2';
+            mainCard.style.borderRadius = '25px';
+            producerContainer.innerHTML = `
+                <div style="text-align: left; width: 100%;">
+                    <div style="display: flex; gap: 30px; align-items: center;">
+                        <div style="flex: 0 0 250px;">
+                            <img src="http://localhost/AlmaNorte${producer.image}" alt="${producer.subtitle}" style="width: 250px; height: 350px; object-fit: cover; border: 3px solid white;">
+                        </div>
+                        <div style="flex: 1;">
+                            <p style="font-size: 11px; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; color: white;">${producer.title}</p>
+                            <h3 style="font-size: 28px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 300; text-transform: uppercase; color: white;">${producer.subtitle}</h3>
+                            <p style="font-size: 13px; line-height: 1.8; margin-bottom: 30px; color: white;">${producer.description}</p>
+                            <a href="http://localhost/AlmaNorte${producer.buttonLink}" style="background-color: transparent; color: white; border: 2px solid white; padding: 12px 40px; text-decoration: none; display: inline-block; transition: all 0.3s; font-size: 14px;">${producer.buttonText}</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (producer.type === 'event') {
+            mainCard.style.border = 'none';
+            mainCard.style.borderRadius = '25px';
+            producerContainer.innerHTML = `
+                <div style="text-align: left; width: 100%;">
+                    <p style="font-size: 11px; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; color: white;">${producer.title}</p>
+                    <h3 style="font-size: 24px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 300; text-transform: uppercase; color: white;">${producer.subtitle}</h3>
+                    <div style="display: flex; gap: 30px; align-items: flex-start;">
+                        <div style="flex: 0 0 250px;">
+                            <img src="http://localhost/AlmaNorte${producer.image}" alt="${producer.subtitle}" style="width: 250px; height: 250px; object-fit: cover; border: 3px solid white;">
+                        </div>
+                        <div style="flex: 1;">
+                            <p style="font-size: 13px; line-height: 1.8; margin-bottom: 25px; color: white;">${producer.description}</p>
+                            <a href="http://localhost/AlmaNorte${producer.buttonLink}" style="background-color: transparent; color: white; border: 2px solid white; padding: 12px 40px; text-decoration: none; display: inline-block; transition: all 0.3s; font-size: 14px;">${producer.buttonText}</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            mainCard.style.border = 'none';
+            mainCard.style.borderRadius = '25px';
+            producerContainer.innerHTML = `
+                <div style="text-align: left; width: 100%;">
+                    <div style="display: flex; gap: 30px; align-items: flex-start;">
+                        <div style="flex: 0 0 250px;">
+                            <img src="http://localhost/AlmaNorte${producer.image}" alt="${producer.subtitle}" style="width: 250px; height: 250px; object-fit: cover; border: 3px solid white;">
+                        </div>
+                        <div style="flex: 1;">
+                            <p style="font-size: 13px; line-height: 1.8; margin-bottom: 25px; color: white;">${producer.description}</p>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="http://localhost/AlmaNorte${producer.buttonLink}" style="background-color: transparent; color: white; border: 2px solid white; padding: 12px 40px; text-decoration: none; display: inline-block; transition: all 0.3s; font-size: 14px;">${producer.buttonText}</a>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function nextTestimonial() {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        showTestimonial(currentTestimonial);
+    }
+    
+    function previousTestimonial() {
+        currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(currentTestimonial);
+    }
+
+    function nextProducer() {
+        currentProducer = (currentProducer + 1) % producers.length;
+        showProducer(currentProducer);
+    }
+
+    function previousProducer() {
+        currentProducer = (currentProducer - 1 + producers.length) % producers.length;
+        showProducer(currentProducer);
+    }
+
+    // Inicializar
+    showTestimonial(0);
+    showProducer(0);
+</script>
+
+<section class="featured-section">
+    <h2 class="section-title">PRODUTOS EM DESTAQUE</h2>
+    <div class="product-basket">
+        <img src="http://localhost/AlmaNorte/assets/images/Foto de capa.jpeg" alt="Produtos em Destaque">
+    </div>
+    <a href="http://localhost/AlmaNorte/products.html" class="btn-explore">Explora os nossos produtos</a>
+</section>
+
+<section class="producers-section">
+    <h2 class="section-title">OS NOSSOS PRODUTORES</h2>
+    
+    <div class="producers-subtitle-container">
+        <span class="producers-subtitle">DESCOBRE COMO SÃ TRATADOS OS NOSSOS PRODUTOS</span>
+    </div>
+    
+    <div class="producer-wrapper">
+        <button class="producer-nav prev" onclick="previousProducer()">&#10094;</button>
+        
+        <div class="producer-main-card">
+            <div class="producer-content" id="producer-container">
+                <div class="producer-image" id="producer-image">
+                    <img src="http://localhost/AlmaNorte/assets/images/young-farmer-taking-care-his-business 1.png" alt="Produtor">
+                </div>
+                <div class="producer-text" id="producer-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                </div>
             </div>
         </div>
-        <div class="hero-image">
-            <img src="http://localhost/Mustache-website/assets/images/hero.png" alt="Hero Image">
-        </div>
-        <div class="profile-placeholder">
-            <i class="fas fa-user-circle"></i>
-        </div>
+        
+        <button class="producer-nav next" onclick="nextProducer()">&#10095;</button>
     </div>
 </section>
 
-<section class="features">
-    <div class="container">
-        <h2 class="section-title">What I Do</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3 class="feature-title">Web Development</h3>
-                <p class="feature-description">Creating responsive and modern web applications using the latest technologies and best practices for optimal user experience.</p>
+<section class="testimonials-section">
+    <h2 class="section-title">O QUE NOSSOS CLIENTES<br>DIZEM SOBRE NÓS</h2>
+    
+    <div class="testimonials-wrapper">
+        <button class="nav-btn prev" onclick="previousTestimonial()">&#10094;</button>
+        
+        <div class="testimonial-card" id="testimonial-1">
+            <div class="testimonial-icon">
+                <i class="fas fa-user-circle"></i>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h3 class="feature-title">Mobile Development</h3>
-                <p class="feature-description">Building cross-platform mobile applications with React Native and Flutter for both iOS and Android platforms.</p>
+            <p class="testimonial-text">Uma plataforma que transmite confiança desde o primeiro momento. A qualidade dos produtos é evidente e a forma como é construída esta rede de produtores locais é genuína e transparente. Recomendo a quem procura produtos autênticos.</p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-database"></i>
-                </div>
-                <h3 class="feature-title">Backend Development</h3>
-                <p class="feature-description">Designing and implementing robust APIs, databases, and server-side solutions using modern technologies and best practices.</p>
-            </div>
+            <p class="client-name">INÊS OLIVEIRA</p>
+            <p class="client-title">Designer Gráfica</p>
         </div>
+        
+        <button class="nav-btn next" onclick="nextTestimonial()">&#10095;</button>
     </div>
 </section>
 
-<section class="cta">
-    <div class="container">
-        <h2>Ready to Start a Project?</h2>
-        <p>Let's work together to bring your ideas to life</p>
-        <a href="http://localhost/Mustache-website/contact.html" class="btn btn-primary">Start Conversation</a>
+<section class="newsletter-section">
+    <div class="newsletter-box">
+        <h2>SUBSCREVA A NOSSA NEWSLETTER</h2>
+        <p>E receba ofertas frequentes semanalmente sobre as próximas novidades</p>
+        <form class="newsletter-form">
+            <input type="email" class="form-control" placeholder="Email" required>
+            <button type="submit" class="btn">Submeter</button>
+        </form>
     </div>
 </section>
 
     </main>
     
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Connect With Me</h3>
-                <div class="social-links">
-                    <a href="#" class="social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+    <style>
+        footer {
+            background-color: #593232;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-section a:hover {
+            opacity: 0.8;
+        }
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .footer-social a {
+            color: white;
+            font-size: 20px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.3);
+            margin-top: 40px;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-section">
+                    <h3>APOIO AO CLIENTE</h3>
+                    <ul>
+                        <li><a href="#">Ajuda</a></li>
+                        <li><a href="#">Entregas</a></li>
+                        <li><a href="#">Devoluções</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-section">
+                    <h3>INFORMAÇÃO LEGAL</h3>
+                    <ul>
+                        <li><a href="#">Política de Envio</a></li>
+                        <li><a href="#">Política de Devolução</a></li>
+                        <li><a href="#">Certificados</a></li>
+                        <li><a href="#">Termos de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-section">
+                    <h3>CONTACTE-NOS</h3>
+                    <p>+351 919 191 919</p>
+                    <p>almanorte@gmail.com</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="http://localhost/Mustache-website/index.html">Home</a></li>
-                    <li><a href="http://localhost/Mustache-website/about/index.html">About</a></li>
-                    <li><a href="http://localhost/Mustache-website/projects.html">Projectos</a></li>
-                    <li><a href="http://localhost/Mustache-website/contact.html">Contactos</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <div>Copyright © 2025. Projeto Web. All right reserved.</div>
+                <div><a href="#" style="color: white; text-decoration: none;">Termos de Uso</a></div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Portfolio. All rights reserved.</p>
-        </div>
     </footer>
+    
+    <!-- Offcanvas Favoritos -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas" aria-labelledby="favoritesLabel">
+        <div class="offcanvas-header">
+            <h5 id="favoritesLabel">FAVORITOS (<span id="favorites-count">0</span>)</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" id="favorites-container">
+            <!-- Favoritos carregados aqui -->
+        </div>
+    </div>
+    
+    <style>
+        .offcanvas {
+            width: 350px !important;
+        }
+        .offcanvas-header {
+            background: #593232;
+            color: white;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .offcanvas-header h5 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .offcanvas-header .btn-close {
+            filter: brightness(0) invert(1);
+        }
+        .favorite-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            border-bottom: 1px solid #e0e0e0;
+            align-items: flex-start;
+        }
+        .favorite-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+        .favorite-item-info {
+            flex: 1;
+        }
+        .favorite-item-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2d1c1c;
+            margin-bottom: 4px;
+        }
+        .favorite-item-producer {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .favorite-item-price {
+            font-size: 12px;
+            font-weight: 600;
+            color: #593232;
+            margin-bottom: 10px;
+        }
+        .favorite-item-button {
+            width: 100%;
+            padding: 8px;
+            background: #8b6f6f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .favorite-item-button:hover {
+            background: #765d5d;
+        }
+        .favorite-item-close {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 0;
+            align-self: flex-start;
+        }
+        .favorite-item-close:hover {
+            color: #333;
+        }
+        .favorites-empty {
+            padding: 40px 20px;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+        }
+    </style>
+    
+    <script>
+        function loadFavoritesOffcanvas() {
+            const favoritesStr = localStorage.getItem('almaNorteFavorites');
+            const favorites = favoritesStr ? JSON.parse(favoritesStr) : [];
+            const container = document.getElementById('favorites-container');
+            const countEl = document.getElementById('favorites-count');
+            
+            countEl.textContent = favorites.length;
+            
+            if (favorites.length === 0) {
+                container.innerHTML = '<div class="favorites-empty">Nenhum favorito adicionado</div>';
+                return;
+            }
+            
+            container.innerHTML = favorites.map(item => `
+                <div class="favorite-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="favorite-item-info">
+                        <div class="favorite-item-name">${item.name}</div>
+                        <div class="favorite-item-producer">${item.producer}</div>
+                        <div class="favorite-item-price">${item.price}</div>
+                        <button class="favorite-item-button" onclick="addToCart('${item.name}', '${item.price}', '${item.image}')">Adicionar ao Carrinho</button>
+                    </div>
+                    <button class="favorite-item-close" onclick="removeFavorite('${item.name}')">&times;</button>
+                </div>
+            `).join('');
+        }
+        
+        function removeFavorite(productName) {
+            const favoritesStr = localStorage.getItem('almaNorteFavorites');
+            let favorites = favoritesStr ? JSON.parse(favoritesStr) : [];
+            favorites = favorites.filter(item => item.name !== productName);
+            localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
+            loadFavoritesOffcanvas();
+        }
+        
+        function addToCart(name, price, image) {
+            const cartStr = localStorage.getItem('almaNorteCart');
+            let cart = cartStr ? JSON.parse(cartStr) : [];
+            cart.push({ name, price, image, quantity: 1 });
+            localStorage.setItem('almaNorteCart', JSON.stringify(cart));
+            alert('Produto adicionado ao carrinho!');
+        }
+        
+        // Carregar favoritos quando o offcanvas abre
+        document.addEventListener('DOMContentLoaded', function() {
+            const favoritesOffcanvas = document.getElementById('favoritesOffcanvas');
+            if (favoritesOffcanvas) {
+                favoritesOffcanvas.addEventListener('show.bs.offcanvas', loadFavoritesOffcanvas);
+            }
+        });
+    </script>
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.0/mustache.min.js"></script>
-    <script src="http://localhost/Mustache-website/assets/js/main.js"></script>
+    <script src="http://localhost/AlmaNorte/assets/js/main.js"></script>
        
       
    </body>

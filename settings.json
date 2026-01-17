@@ -1,5 +1,5 @@
 {
-  "siteUrl": "http://localhost/Mustache-website/",
+  "siteUrl": "http://localhost/AlmaNorte/",
   "mustache.compiler": {
     "templates": "templates/pages",
     "layouts": "templates/layouts",

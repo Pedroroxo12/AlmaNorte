@@ -2,15 +2,10 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"name": "CinemaCity",
-			"path": "../CinemaCity"
-		},
-		{
-			"name": "AlmaNorte",
-			"path": "../AlmaNorte"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"sftp.debug": true,
+		"sftp.printDebugLog": true
+	}
 }
