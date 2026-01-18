@@ -7,131 +7,169 @@
         color: #2d1c1c;
     }
     .blog-hero {
-        padding: 40px 20px;
+        padding: 60px 20px 40px;
         max-width: 1200px;
         margin: 0 auto;
     }
     .blog-hero h1 {
-        font-size: 32px;
-        letter-spacing: 0.5px;
-        margin-bottom: 40px;
+        font-size: 28px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
         text-transform: uppercase;
+        color: #000;
+    }
+    .filter-tags {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+    }
+    .filter-tag {
+        background: #3d3d3d;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 18px;
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .filter-tag:hover {
+        background: #2d2d2d;
+        transform: translateY(-2px);
     }
     .featured-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: 1fr 1fr;
         gap: 30px;
         margin-bottom: 60px;
     }
     .featured-card {
-        background: #593232;
-        border-radius: 12px;
+        background: white;
+        border-radius: 20px;
         overflow: hidden;
-        min-height: 250px;
+        height: 400px;
         display: flex;
         flex-direction: column;
         position: relative;
-        padding: 20px;
-        color: white;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    .featured-card .card-image {
+        position: relative;
+        width: 100%;
+        height: 65%;
+        overflow: hidden;
+    }
+    .featured-card .card-content {
+        padding: 25px 20px 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
     .featured-card .tags {
         display: flex;
-        gap: 8px;
-        margin-bottom: 12px;
+        gap: 10px;
+        margin-bottom: 0;
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        z-index: 2;
     }
     .featured-card .tag {
-        background: #7d5454;
-        padding: 4px 10px;
-        border-radius: 12px;
+        background: rgba(61, 61, 61, 0.9);
+        padding: 8px 14px;
+        border-radius: 18px;
         font-size: 10px;
         text-transform: uppercase;
+        color: white;
+        font-weight: 600;
+        letter-spacing: 0.5px;
     }
     .featured-card h3 {
-        font-size: 18px;
+        font-size: 15px;
+        font-weight: 700;
         margin-bottom: 12px;
         line-height: 1.3;
+        text-transform: uppercase;
+        color: #000;
+        letter-spacing: 0.3px;
     }
     .featured-card p {
-        font-size: 13px;
+        font-size: 12px;
         line-height: 1.6;
-        opacity: 0.95;
+        color: #666;
+        margin: 0;
     }
     /* Card image blocks */
-    .card-image {
-        width: 100%;
-        height: 180px;
-        background: #4a2a2a;
-        border-radius: 8px;
-        overflow: hidden;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
     .card-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
     }
-    .thumb {
-        width: 100%;
-        height: 90px;
-        border-radius: 8px;
-        overflow: hidden;
-        background: #4a2a2a;
-        margin-bottom: 10px;
-    }
-    .thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
     .blog-about {
-        background: #f8f4f4;
-        padding: 50px 20px;
+        background: white;
+        padding: 60px 20px;
     }
     .blog-about .container {
         max-width: 1200px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 60px;
         align-items: start;
     }
     .blog-about h2 {
-        font-size: 26px;
-        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 25px;
         text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #000;
     }
     .blog-about p {
-        font-size: 13px;
-        line-height: 1.7;
-        margin-bottom: 20px;
+        font-size: 12px;
+        line-height: 1.8;
+        margin-bottom: 15px;
+        color: #333;
+        text-align: justify;
     }
     .blog-about .btn {
         background: #593232;
         color: white;
         border: none;
-        padding: 10px 20px;
-        font-size: 12px;
+        padding: 12px 24px;
+        font-size: 11px;
         text-transform: uppercase;
         cursor: pointer;
+        border-radius: 4px;
+        margin-top: 10px;
     }
     .blog-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 15px;
+        align-content: flex-start;
     }
     .blog-tags .tag-btn {
         background: #593232;
         color: white;
         border: none;
-        padding: 10px 18px;
-        border-radius: 20px;
-        font-size: 12px;
+        padding: 12px 22px;
+        border-radius: 25px;
+        font-size: 11px;
         cursor: pointer;
+        font-weight: 400;
+        transition: all 0.3s;
+    }
+    .blog-tags .tag-btn:hover {
+        background: #4a2626;
+        transform: translateY(-2px);
     }
     .blog-section {
         padding: 60px 20px;
@@ -139,105 +177,166 @@
         margin: 0 auto;
     }
     .blog-section h2 {
-        font-size: 26px;
-        margin-bottom: 30px;
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 35px;
         text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #000;
     }
     .posts-grid {
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1.5fr 1fr;
         gap: 30px;
     }
     .main-post {
-        background: #593232;
-        border-radius: 12px;
-        min-height: 300px;
-        padding: 20px;
-        color: white;
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+    }
+    .main-post .post-image {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+    }
+    .main-post .post-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .main-post .post-content {
+        padding: 20px 25px;
     }
     .main-post h3 {
-        font-size: 20px;
-        margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        color: #000;
+        line-height: 1.4;
     }
     .main-post p {
-        font-size: 13px;
-        opacity: 0.9;
+        font-size: 11px;
+        color: #666;
         margin-bottom: 15px;
+        line-height: 1.6;
     }
     .main-post .read-link {
-        color: white;
-        font-size: 12px;
+        color: #000;
+        font-size: 11px;
         text-decoration: none;
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        font-weight: 500;
     }
     .side-posts {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
     }
     .side-post {
-        background: #593232;
-        border-radius: 12px;
-        padding: 16px;
-        color: white;
-        min-height: 140px;
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 15px;
+        gap: 15px;
+    }
+    .side-post .post-thumb {
+        width: 110px;
+        height: 90px;
+        border-radius: 10px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+    .side-post .post-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .side-post .post-info {
+        flex: 1;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        gap: 8px;
     }
     .side-post h4 {
-        font-size: 14px;
-        margin-bottom: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        margin: 0;
+        text-transform: uppercase;
+        color: #000;
+        line-height: 1.3;
     }
     .side-post .meta {
-        font-size: 11px;
-        opacity: 0.8;
-        margin-bottom: 10px;
+        font-size: 10px;
+        color: #999;
+        margin: 0;
     }
     .side-post .read-link {
-        color: white;
-        font-size: 11px;
+        color: #000;
+        font-size: 10px;
         text-decoration: none;
         display: inline-flex;
         align-items: center;
         gap: 6px;
+        font-weight: 500;
     }
     .recent-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: 1fr 1fr;
         gap: 30px;
     }
     .recent-card {
-        background: #593232;
-        border-radius: 12px;
-        min-height: 200px;
-        padding: 20px;
-        color: white;
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+    }
+    .recent-card .card-image {
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+    }
+    .recent-card .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .recent-card .card-content {
+        padding: 20px 25px;
     }
     .recent-card h3 {
-        font-size: 16px;
-        margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        color: #000;
+        line-height: 1.4;
     }
     .recent-card p {
-        font-size: 12px;
-        opacity: 0.9;
-        margin-bottom: 12px;
+        font-size: 11px;
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.6;
     }
     .recent-card .read-link {
-        color: white;
+        color: #000;
         font-size: 11px;
         text-decoration: none;
         display: inline-flex;
         align-items: center;
         gap: 6px;
+        font-weight: 500;
     }
     @media (max-width: 900px) {
         .blog-about .container {
@@ -252,28 +351,31 @@
 <div class="blog-page">
     <section class="blog-hero">
         <div class="container">
-            <h1>O Blog da Mesa Transmontana</h1>
+            <h1>O BLOG DA MESA TRANSMONTANA</h1>
+            
+            <div class="filter-tags">
+                <button class="filter-tag">Artigo</button>
+                <button class="filter-tag">Produtos Locais</button>
+            </div>
+            
             <div class="featured-grid">
                 <div class="featured-card">
                     <div class="card-image">
                         <img src="http://localhost/AlmaNorte/assets/images/yjmagocs 1.png" alt="Queijos tradicionais">
                     </div>
-                    <div class="tags">
-                        <span class="tag">Artigo</span>
-                        <span class="tag">Produtos Locais</span>
+                    <div class="card-content">
+                        <h3>PRODUZIR COM IDENTIDADE: O DIA A DIA DE UM PRODUTOR LOCAL</h3>
+                        <p>Uma visita ao quotidiano de um produtor transmontano, onde tradução, trabalho manual e respeito pela terra se unem para dar origem a produtos autênticos.</p>
                     </div>
-                    <h3>PRODUZIR COM IDENTIDADE: O DIA A DIA DE UM PRODUTOR LOCAL</h3>
-                    <p>Uma visita ao quotidiano de um produtor transmontano, onde tradução, trabalho manual e respeito pela terra se unem para dar origem a produtos autênticos.</p>
                 </div>
                 <div class="featured-card">
                     <div class="card-image">
-                        <img src="http://localhost/AlmaNorte/assets/images/pao-caseiro-simples 1.png" alt="Pão tradicional">
+                        <img src="http://localhost/AlmaNorte/assets/images/animaisnocampo 1.png" alt="Campo com animais">
                     </div>
-                    <div class="tags">
-                        <span class="tag">Cultura</span>
+                    <div class="card-content">
+                        <h3>PRODUZIR COM IDENTIDADE: O DIA A DIA DE UM PRODUTOR LOCAL</h3>
+                        <p>Uma visita ao quotidiano de um produtor transmontano, onde tradução, trabalho manual e respeito pela terra se unem para dar origem a produtos autênticos.</p>
                     </div>
-                    <h3>A GASTRONOMIA COMO PARTE DA CULTURA</h3>
-                    <p>Descobrir a importância da gastronomia tradicional portuguesa e como ela reflete a identidade cultural de cada região.</p>
                 </div>
             </div>
         </div>
@@ -282,17 +384,15 @@
     <section class="blog-about">
         <div class="container">
             <div>
-                <h2>Sobre o Blog</h2>
+                <h2>SOBRE O BLOG</h2>
                 <p>O Blog da Mesa Transmontana nasce como um espaço de partilha e valorização do território de Trás-os-Montes, dando destaque às suas tradições, aos seus produtores e aos produtos que fazem parte da identidade da região. Aqui, cada artigo procura contar uma história ligada à origem, ao processo e às pessoas por detrás de que chega à mesa.</p>
                 <p>Acreditamos que conhecer a origem do que consumimos é fundamental para valorizar o trabalho artesanal, apoiar a economia local e preservar saberes tradicionais, cultura gastronómica e curiosidades regionais, criando um ponto de encontro supra-natural e experiências autênticas da produção local ao contexto atual.</p>
                 <button class="btn">Ver todos os Artigos</button>
             </div>
             <div class="blog-tags">
                 <button class="tag-btn">Produtos & História</button>
-                <button class="tag-btn">Tradições</button>
                 <button class="tag-btn">Cultura & Gastronomia</button>
                 <button class="tag-btn">Eventos e Experiências</button>
-                <button class="tag-btn">Receitas</button>
                 <button class="tag-btn">Ofertas e Promoções</button>
                 <button class="tag-btn">Produtores Locais</button>
             </div>
@@ -300,63 +400,75 @@
     </section>
 
     <section class="blog-section">
-        <h2>Mais Popular</h2>
+        <h2>MAIS POPULAR</h2>
         <div class="posts-grid">
             <div class="main-post">
-                <div class="card-image" style="height: 220px;">
+                <div class="post-image">
                     <img src="http://localhost/AlmaNorte/assets/images/animaisnocampo 1.png" alt="Paisagem rural">
                 </div>
-                <h3>PRODUZIR COM IDENTIDADE: O DIA A DIA DE UM PRODUTOR LOCAL</h3>
-                <p>Uma visita ao quotidiano de um produtor transmontano, onde tradução, trabalho manual e respeito pela terra se unem para dar origem a produtos autênticos.</p>
-                <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
+                <div class="post-content">
+                    <h3>PRODUZIR COM IDENTIDADE: O DIA A DIA DE UM PRODUTOR LOCAL</h3>
+                    <p>Uma visita ao quotidiano de um produtor transmontano, onde tradução, trabalho manual e respeito pela terra se unem para dar origem a produtos autênticos.</p>
+                    <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
+                </div>
             </div>
             <div class="side-posts">
                 <div class="side-post">
-                    <div class="thumb">
-                        <img src="http://localhost/AlmaNorte/assets/images/mel-foto1_thumb-removebg-preview 1.png" alt="Mel artesanal">
+                    <div class="post-thumb">
+                        <img src="http://localhost/AlmaNorte/assets/images/yjmagocs 1.png" alt="Queijo">
                     </div>
-                    <div>
+                    <div class="post-info">
                         <h4>SELEÇÃO DE MEL PRODUTOS DE NATAL</h4>
-                        <div class="meta">Publicado em 15, Dezembro, 2025</div>
+                        <div class="meta">Dezembro 04, 2025</div>
+                        <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
                     </div>
-                    <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
                 </div>
                 <div class="side-post">
-                    <div class="thumb">
-                        <img src="http://localhost/AlmaNorte/assets/images/FIGO-6-removebg-preview 1.png" alt="Compota de figo">
+                    <div class="post-thumb">
+                        <img src="http://localhost/AlmaNorte/assets/images/pao-caseiro-simples 1.png" alt="Pão">
                     </div>
-                    <div>
+                    <div class="post-info">
                         <h4>5 RAZÕES DE NATAL PARA...</h4>
                         <div class="meta">Publicado em 14, Dezembro, 2025</div>
+                        <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
                     </div>
-                    <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
                 </div>
                 <div class="side-post">
-                    <div class="thumb">
-                        <img src="http://localhost/AlmaNorte/assets/images/6b6eeb9-140619-rosmaninho 1.png" alt="Ervas aromáticas">
+                    <div class="post-thumb">
+                        <img src="http://localhost/AlmaNorte/assets/images/ChatGPT Image 17_01_2026, 01_14_00 1.png" alt="Gastronomia">
                     </div>
-                    <div>
+                    <div class="post-info">
                         <h4>A GASTRONOMIA COMO PARTE DA CULTURA</h4>
                         <div class="meta">Agosto 20, 2025</div>
+                        <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
                     </div>
-                    <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="blog-section">
-        <h2>Adicionado Recentemente</h2>
+        <h2>ADICIONADO RECENTEMENTE</h2>
         <div class="recent-grid">
             <div class="recent-card">
-                <h3>PRODUZIR COM IDENTIDADE: O DIA A DIA DE UM PRODUTOR LOCAL</h3>
-                <p>Uma visita ao quotidiano de um produtor transmontano, onde tradução, trabalho manual e respeito pela terra se unem para dar origem a produtos autênticos.</p>
-                <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
+                <div class="card-image">
+                    <img src="http://localhost/AlmaNorte/assets/images/animaisnocampo 1.png" alt="Campo">
+                </div>
+                <div class="card-content">
+                    <h3>PRODUZIR COM IDENTIDADE: O DIA A DIA DE UM PRODUTOR LOCAL</h3>
+                    <p>Uma visita ao quotidiano de um produtor transmontano, onde tradução, trabalho manual e respeito pela terra se unem para dar origem a produtos autênticos.</p>
+                    <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
+                </div>
             </div>
             <div class="recent-card">
-                <h3>COMO O TERRITÓRIO INFLUENCIA O SABOR DOS PRODUTOS</h3>
-                <p>A qualidade e o sabor dos produtos de Trás-os-Montes estão diretamente ligados ao território onde são produzidos. Solo, clima, tradição e métodos de cultivo fazem parte das características únicas de cada artigo a...</p>
-                <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
+                <div class="card-image">
+                    <img src="http://localhost/AlmaNorte/assets/images/young-farmer-taking-care-his-business 1.png" alt="Apicultor">
+                </div>
+                <div class="card-content">
+                    <h3>COMO O TERRITÓRIO INFLUENCIA O SABOR DOS PRODUTOS</h3>
+                    <p>A qualidade e o sabor dos produtos de Trás-os-Montes estão diretamente ligados ao território onde são produzidos. Solo, clima, tradição e métodos de cultivo fazem parte das características únicas de cada artigo a...</p>
+                    <a href="/blog/article.html" class="read-link">Ler Artigo →</a>
+                </div>
             </div>
         </div>
     </section>
