@@ -52,7 +52,127 @@
         </div>
     </header>
 
-    <main class="container my-5" style="margin-bottom: 100px;">
+    <main class="container my-5" style="margin-top: 180px; margin-bottom: 100px; padding-top: 20px;">
+        <!-- ACCOUNT DASHBOARD (Hidden by default, shown when logged in) -->
+        <div id="accountDashboard" style="display: none;">
+            <div style="background: #593232; color: white; padding: 60px 40px; margin-bottom: 40px; border-radius: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h1 id="welcomeMessage" style="font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 400; margin: 0;">OLÁ PAULA</h1>
+                    <button onclick="logout()" class="btn" style="background: white; color: #593232; border: 2px solid white; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; padding: 10px 25px; letter-spacing: 0.5px;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 14px; margin-top: 10px;">Aqui está a atividade da sua conta</p>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div style="background: white; border: 2px solid #593232; border-radius: 15px; padding: 25px; text-align: left; cursor: pointer;" onclick="window.location.href='#pedidos'">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="background: #593232; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-box" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; color: #666; margin: 0; text-transform: uppercase;">Pedidos Recentes</p>
+                                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; color: #593232; margin: 5px 0 0 0;">2 Pedidos em Trânsito</h3>
+                            </div>
+                            <i class="fas fa-chevron-right" style="color: #593232;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div style="background: white; border: 2px solid #593232; border-radius: 15px; padding: 25px; text-align: left; cursor: pointer;" onclick="document.querySelector('[data-bs-target=&quot;#favoritesOffcanvas&quot;]').click()">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="background: #593232; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-heart" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; color: #666; margin: 0; text-transform: uppercase;">Meus Favoritos</p>
+                                <h3 id="favoritesCount" style="font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; color: #593232; margin: 5px 0 0 0;">0 produtos salvos</h3>
+                            </div>
+                            <i class="fas fa-chevron-right" style="color: #593232;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div style="background: white; border: 2px solid #593232; border-radius: 15px; padding: 25px; text-align: left; cursor: pointer;" onclick="window.location.href='cart.html'">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="background: #593232; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-shopping-cart" style="color: white; font-size: 24px;"></i>
+                            </div>
+                            <div style="flex: 1;">
+                                <p style="font-family: 'Montserrat', sans-serif; font-size: 11px; color: #666; margin: 0; text-transform: uppercase;">Meu Carrinho</p>
+                                <h3 id="cartCount" style="font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; color: #593232; margin: 5px 0 0 0;">0 produtos no carrinho</h3>
+                            </div>
+                            <i class="fas fa-chevron-right" style="color: #593232;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Sections -->
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div style="background: #593232; color: white; border-radius: 15px; padding: 30px; min-height: 200px;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                            <i class="fas fa-clipboard-list" style="font-size: 32px;"></i>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Os meus Pedidos</h3>
+                        </div>
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; margin-bottom: 20px;">Acompanhe os seus pedidos</p>
+                        <div style="margin-bottom: 10px;">
+                            <p style="font-size: 12px; margin: 5px 0;"><strong>Pedido #12946</strong></p>
+                            <p style="font-size: 11px; margin: 5px 0;">Enviado - Chegada: 20 Janeiro</p>
+                        </div>
+                        <button class="btn w-100 mt-3" style="background: transparent; color: white; border: 1px solid white; font-size: 11px; padding: 8px;">Ver todos os Pedidos</button>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div style="background: #593232; color: white; border-radius: 15px; padding: 30px; min-height: 200px;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                            <i class="fas fa-map-marker-alt" style="font-size: 32px;"></i>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Morada de Envio</h3>
+                        </div>
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; margin-bottom: 10px;">Gerir morada de envio</p>
+                        <div id="shippingAddress" style="font-size: 12px; line-height: 1.6;">
+                            <p style="margin: 5px 0;">Rua Basto</p>
+                            <p style="margin: 5px 0;">Porto, Portugal - 4180-013</p>
+                        </div>
+                        <button class="btn w-100 mt-3" style="background: transparent; color: white; border: 1px solid white; font-size: 11px; padding: 8px;">Editar Morada de Envio</button>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div style="background: #593232; color: white; border-radius: 15px; padding: 30px; min-height: 200px;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                            <i class="fas fa-exchange-alt" style="font-size: 32px;"></i>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Trocas e Devoluções</h3>
+                        </div>
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; margin-bottom: 20px;">Gerir devoluções</p>
+                        <p style="font-size: 12px; margin-bottom: 20px;">Sem Devoluções Pendentes</p>
+                        <p style="font-size: 11px;">Todos os seus pedidos estão em ótimo estado</p>
+                        <button class="btn w-100 mt-3" style="background: transparent; color: white; border: 1px solid white; font-size: 11px; padding: 8px;">Política de Devoluções</button>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div style="background: #593232; color: white; border-radius: 15px; padding: 30px; min-height: 200px;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                            <i class="fas fa-cog" style="font-size: 32px;"></i>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Perfil e Configurações</h3>
+                        </div>
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; margin-bottom: 15px;">Configurações do Perfil</p>
+                        <div style="font-size: 12px; line-height: 1.8;">
+                            <p style="margin: 5px 0;"><strong>Nome:</strong> <span id="userName">Paula Rocha</span></p>
+                            <p style="margin: 5px 0;"><strong>Email:</strong> <span id="userEmail">0000@gmail.com</span></p>
+                            <p style="margin: 5px 0;"><strong>Telemóvel:</strong> +351 999 999 999</p>
+                        </div>
+                        <button class="btn w-100 mt-3" style="background: transparent; color: white; border: 1px solid white; font-size: 11px; padding: 8px;">Editar Perfil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOGIN/REGISTER FORMS (Hidden when logged in) -->
+        <div id="authForms">
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <!-- LOGIN FORM -->
@@ -172,6 +292,7 @@
                 </div>
             </div>
         </div>
+        </div>
     </main>
 
     <footer class="footer" style="background-color: #593232 !important;">
@@ -270,9 +391,20 @@
             e.preventDefault();
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
+            const firstName = document.getElementById('loginEmail').value.split('@')[0] || 'Utilizador';
             
             if (email && password) {
-                window.location.href = 'index.html';
+                // Save user data to localStorage
+                const userData = {
+                    email: email,
+                    firstName: firstName.charAt(0).toUpperCase() + firstName.slice(1),
+                    loggedIn: true,
+                    loginDate: new Date().toISOString()
+                };
+                localStorage.setItem('almaNorteUser', JSON.stringify(userData));
+                
+                // Show dashboard
+                showDashboard(userData);
             }
         });
 
@@ -281,14 +413,66 @@
             e.preventDefault();
             const password = document.getElementById('registerPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('registerEmail').value;
             
             if (password !== confirmPassword) {
                 alert('As passwords não coincidem!');
                 return;
             }
             
-            // If all validations pass, redirect to home
-            window.location.href = 'index.html';
+            // Save user data to localStorage
+            const userData = {
+                email: email,
+                firstName: firstName,
+                lastName: lastName,
+                loggedIn: true,
+                loginDate: new Date().toISOString()
+            };
+            localStorage.setItem('almaNorteUser', JSON.stringify(userData));
+            
+            // Show dashboard
+            showDashboard(userData);
+        });
+
+        // Function to show dashboard
+        function showDashboard(userData) {
+            document.getElementById('authForms').style.display = 'none';
+            document.getElementById('accountDashboard').style.display = 'block';
+            
+            // Update user info
+            document.getElementById('welcomeMessage').textContent = `OLÁ ${userData.firstName.toUpperCase()}`;
+            document.getElementById('userName').textContent = `${userData.firstName} ${userData.lastName || ''}`;
+            document.getElementById('userEmail').textContent = userData.email;
+            
+            // Update counts
+            updateDashboardCounts();
+        }
+
+        // Function to update dashboard counts
+        function updateDashboardCounts() {
+            const favorites = JSON.parse(localStorage.getItem('almaNorteFavorites')) || [];
+            const cart = JSON.parse(localStorage.getItem('almaNorteCart')) || [];
+            
+            document.getElementById('favoritesCount').textContent = `${favorites.length} produtos salvos`;
+            document.getElementById('cartCount').textContent = `${cart.length} produtos no carrinho`;
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('almaNorteUser');
+            document.getElementById('accountDashboard').style.display = 'none';
+            document.getElementById('authForms').style.display = 'block';
+            document.getElementById('loginForm').reset();
+        }
+
+        // Check if user is already logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            const userData = JSON.parse(localStorage.getItem('almaNorteUser'));
+            if (userData && userData.loggedIn) {
+                showDashboard(userData);
+            }
         });
 
         function renderFavoritesOffcanvas() {
