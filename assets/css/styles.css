@@ -728,9 +728,6 @@ main {
     background: #F5F5DC;
     color: #800000;
 }
-    margin: 0 auto;
-    width: fit-content;
-}
 
 /* Category-specific placeholder colors */
 .project-card[data-category="web"] .project-placeholder {
