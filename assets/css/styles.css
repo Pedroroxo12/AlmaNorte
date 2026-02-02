@@ -173,19 +173,202 @@ main {
     color: #F5F5DC;
 }
 
-/* Responsive */
+/* Responsive - Mobile First */
 @media (max-width: 768px) {
+    /* Header e Navegação */
+    .header {
+        position: fixed;
+        width: 100%;
+    }
+    
+    .top-header {
+        padding: 10px 15px !important;
+    }
+    
+    .top-header .col-4:first-child a {
+        font-size: 11px !important;
+    }
+    
+    .top-header .navbar-brand img {
+        height: 40px !important;
+    }
+    
+    .icon-link {
+        font-size: 16px !important;
+        margin: 0 5px !important;
+    }
+    
+    .nav-menu {
+        position: fixed !important;
+        top: 80px !important;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 10px 0 !important;
+        flex-direction: column;
+        gap: 15px !important;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .nav-menu a {
+        font-size: 11px !important;
+    }
+    
+    main {
+        margin-top: 140px !important;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 4rem 1rem;
+        min-height: 50vh;
+    }
+    
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem !important;
     }
+    
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1rem !important;
+        margin-bottom: 2rem !important;
     }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero-buttons .btn {
+        margin: 5px 0 !important;
+        padding: 12px 25px !important;
+        font-size: 0.9rem !important;
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .hero-buttons .btn-main {
+        font-size: 1rem !important;
+        padding: 14px 30px !important;
+    }
+    
+    /* Títulos de Seção */
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem !important;
+        padding: 0 15px;
     }
+    
+    /* Grids */
     .products-grid, .categories-grid, .producers-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        padding: 0 15px;
+    }
+    
+    /* Cards */
+    .product-card, .category-card, .producer-card {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    
+    .product-card img {
+        height: 180px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 2rem 0 1rem !important;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        text-align: center;
+    }
+    
+    .footer-section {
+        padding: 0 20px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* Container */
+    .container, .container-fluid {
+        padding: 0 15px !important;
+    }
+    
+    /* Sections */
+    .featured-products, .categories, .cta {
+        padding: 2rem 0 !important;
+    }
+    
+    /* CTA */
+    .cta h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    .cta p {
+        font-size: 1rem !important;
+        padding: 0 20px;
+    }
+    
+    /* Page Header */
+    .page-header {
+        padding: 2rem 1rem !important;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem !important;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .products-grid, .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .producers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-buttons .btn {
+        font-size: 0.8rem !important;
+        padding: 10px 20px !important;
+    }
+    
+    .top-header .navbar-brand img {
+        height: 35px !important;
+    }
+    
+    .icon-link {
+        font-size: 14px !important;
+        margin: 0 3px !important;
     }
 }
 

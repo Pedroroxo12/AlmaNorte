@@ -111,22 +111,24 @@ function renderCart() {
 
     cartItems.innerHTML = '';
     if (cart.length === 0) {
-        cartItems.innerHTML = '<tr><td colspan="5">Carrinho vazio</td></tr>';
+        cartItems.innerHTML = '<tr><td colspan="6">Carrinho vazio</td></tr>';
         cartTotal.textContent = '0.00€';
         return;
     }
 
     cart.forEach((item, index) => {
         const row = document.createElement('tr');
+        const itemPrice = parseFloat(item.price.replace('€', '').replace(',', '.'));
+        const itemTotal = (itemPrice * item.quantity).toFixed(2);
         row.innerHTML = `
-            <td><img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;"></td>
-            <td>${item.name}</td>
-            <td>${item.price}</td>
-            <td>
-                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+            <td data-label="Imagem"><img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;"></td>
+            <td data-label="Nome">${item.name}</td>
+            <td data-label="Preço">${item.price}</td>
+            <td data-label="Quantidade">
+                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)" style="width: 60px;">
             </td>
-            <td>${(parseFloat(item.price.replace('€', '').replace(',', '.')) * item.quantity).toFixed(2)}€</td>
-            <td><button onclick="removeFromCart(${index})" class="btn btn-danger btn-sm">Remover</button></td>
+            <td data-label="Total">${itemTotal}€</td>
+            <td data-label="Ação"><button onclick="removeFromCart(${index})" class="btn btn-danger btn-sm">Remover</button></td>
         `;
         cartItems.appendChild(row);
     });
