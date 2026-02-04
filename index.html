@@ -300,6 +300,8 @@
     .split-section {
         display: flex;
         min-height: 600px;
+        position: relative;
+        background: linear-gradient(to right, #f5f0e8 50%, #593232 50%);
     }
     .split-left {
         flex: 1;
@@ -308,6 +310,17 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        position: relative;
+    }
+    .split-left::after {
+        content: '';
+        position: absolute;
+        right: -40px;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        background: #f5f0e8;
+        clip-path: ellipse(100% 100% at 0% 50%);
     }
     .split-right {
         flex: 1;
@@ -317,6 +330,17 @@
         flex-direction: column;
         justify-content: center;
         color: white;
+        position: relative;
+    }
+    .split-right::before {
+        content: '';
+        position: absolute;
+        left: -40px;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        background: #593232;
+        clip-path: ellipse(100% 100% at 100% 50%);
     }
     .split-subtitle {
         font-size: 12px;
@@ -385,6 +409,8 @@
     .producers-partners-section {
         display: flex;
         min-height: 500px;
+        position: relative;
+        background: linear-gradient(to right, #f5f0e8 50%, #765d5d 50%);
     }
     .producer-block {
         flex: 1;
@@ -392,13 +418,34 @@
         display: flex;
         align-items: center;
         gap: 40px;
+        position: relative;
     }
     .producer-block.light {
         background: #f5f0e8;
     }
+    .producer-block.light::after {
+        content: '';
+        position: absolute;
+        right: -40px;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        background: #f5f0e8;
+        clip-path: ellipse(100% 100% at 0% 50%);
+    }
     .producer-block.dark {
         background: #765d5d;
         color: white;
+    }
+    .producer-block.dark::before {
+        content: '';
+        position: absolute;
+        left: -40px;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        background: #765d5d;
+        clip-path: ellipse(100% 100% at 100% 50%);
     }
     .producer-image-container {
         flex: 0 0 300px;
@@ -460,8 +507,25 @@
     /* Values Section */
     .values-section {
         background: #e8e8e8;
-        padding: 80px 20px;
+        padding: 0;
         text-align: center;
+        position: relative;
+    }
+    .wave-top {
+        width: 100%;
+        height: 60px;
+        background: white;
+        position: relative;
+    }
+    .wave-top svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+    }
+    .values-content {
+        padding: 60px 20px;
     }
     .values-title {
         font-size: 36px;
@@ -470,37 +534,68 @@
         text-transform: uppercase;
         color: #593232;
         margin-bottom: 60px;
+        font-family: 'Playfair Display', serif;
     }
     .values-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        max-width: 1100px;
+        margin: 0 auto 60px;
+        position: relative;
+        z-index: 1;
     }
     .value-card {
         background: white;
-        padding: 40px 30px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 30px 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .value-card:hover {
+        transform: translateY(-5px);
     }
     .value-icon {
-        font-size: 48px;
+        font-size: 40px;
         color: #593232;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     .value-title {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 2px;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
         color: #593232;
     }
     .value-text {
-        font-size: 13px;
-        line-height: 1.6;
+        font-size: 12px;
+        line-height: 1.5;
         color: #666;
+    }
+    .wave-bottom {
+        width: 100%;
+        height: 60px;
+        background: #e8e8e8;
+        position: relative;
+    }
+    .wave-bottom svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+    }
+    @media (max-width: 768px) {
+        .values-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+    @media (max-width: 480px) {
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
     }
     
     /* Testimonials Section */
@@ -676,6 +771,11 @@
 </section>
 
 <!-- Split Section: História + Certificações -->
+<div class="wave-divider" style="background: white;">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,30 Q300,0 600,30 T1200,30 L1200,60 L0,60 Z" fill="white"/>
+    </svg>
+</div>
 <section class="split-section">
     <div class="split-left">
         <p class="split-subtitle">TRADIÇÃO DESDE</p>
@@ -700,8 +800,18 @@
         </p>
     </div>
 </section>
+<div class="wave-divider" style="background: #593232; transform: scaleY(-1);">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,30 Q300,0 600,30 T1200,30 L1200,60 L0,60 Z" fill="#593232"/>
+    </svg>
+</div>
 
 <!-- Producers & Partners Section -->
+<div class="wave-divider" style="background: white;">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,30 Q300,0 600,30 T1200,30 L1200,60 L0,60 Z" fill="white"/>
+    </svg>
+</div>
 <section class="producers-partners-section">
     <div class="producer-block light">
         <div class="producer-image-container">
@@ -730,47 +840,84 @@
         </div>
     </div>
 </section>
+<div class="wave-divider" style="background: #765d5d; transform: scaleY(-1);">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,30 Q300,0 600,30 T1200,30 L1200,60 L0,60 Z" fill="#765d5d"/>
+    </svg>
+</div>
 
 <!-- Values Section -->
 <section class="values-section">
-    <h2 class="values-title">AQUILO EM QUE ACREDITAMOS</h2>
-    <div class="values-grid">
-        <div class="value-card">
-            <div class="value-icon">
-                <i class="fas fa-leaf"></i>
+    <div class="wave-top">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,30 Q300,0 600,30 T1200,30 L1200,60 L0,60 Z" fill="#e8e8e8"/>
+        </svg>
+    </div>
+    
+    <div class="values-content">
+        <h2 class="values-title">AQUILO EM QUE ACREDITAMOS</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h4 class="value-title">Valorizamos Produtores</h4>
+                <p class="value-text">
+                    Valorizamos produtores com história, identificação direta ao território de Trás-os-Montes.
+                </p>
             </div>
-            <h4 class="value-title">Sustentabilidade</h4>
-            <p class="value-text">
-                Promovemos práticas agrícolas sustentáveis que respeitam a natureza e preservam o ambiente para as próximas gerações.
-            </p>
-        </div>
-        <div class="value-card">
-            <div class="value-icon">
-                <i class="fas fa-heart"></i>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-people-arrows"></i>
+                </div>
+                <h4 class="value-title">Acreditamos na Relação</h4>
+                <p class="value-text">
+                    Acreditamos na relação entre quem produz e quem consome.
+                </p>
             </div>
-            <h4 class="value-title">Autenticidade</h4>
-            <p class="value-text">
-                Garantimos a origem e autenticidade de cada produto, mantendo vivas as tradições da nossa região.
-            </p>
-        </div>
-        <div class="value-card">
-            <div class="value-icon">
-                <i class="fas fa-users"></i>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h4 class="value-title">Respeitamos Métodos</h4>
+                <p class="value-text">
+                    Respeitamos produtores que respeitam os métodos tradicionais e o saber local.
+                </p>
             </div>
-            <h4 class="value-title">Comunidade</h4>
-            <p class="value-text">
-                Fortalecemos a economia local apoiando pequenos produtores e criando laços duradouros com a comunidade.
-            </p>
-        </div>
-        <div class="value-card">
-            <div class="value-icon">
-                <i class="fas fa-star"></i>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h4 class="value-title">Colocamos no Centro</h4>
+                <p class="value-text">
+                    Colocamos as pessoas no centro - produtores, famílias e comunidades locais.
+                </p>
             </div>
-            <h4 class="value-title">Qualidade</h4>
-            <p class="value-text">
-                Comprometemo-nos com a excelência em cada produto, desde a produção até à entrega final ao cliente.
-            </p>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h4 class="value-title">Trabalhamos com Cuidado</h4>
+                <p class="value-text">
+                    Trabalhamos com produtores que cuidam da terra e respeitam os ciclos naturais.
+                </p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h4 class="value-title">Cada Produto</h4>
+                <p class="value-text">
+                    Cada produto tem um rosto, uma história e uma origem clara.
+                </p>
+            </div>
         </div>
+    </div>
+    
+    <div class="wave-bottom">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,0 Q300,30 600,0 T1200,0 L1200,0 L0,0 Z" fill="#593232"/>
+        </svg>
     </div>
 </section>
 
