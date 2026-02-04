@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
@@ -224,7 +224,7 @@
                 <li><a href="products.html">PRODUTOS</a></li>
                 <li><a href="blog/index.html">BLOG</a></li>
                 <li><a href="producers.html">PRODUTORES</a></li>
-                <li><a href="about/index.html">SOBRE NÓS</a></li>
+                <li><a href="about/index.html">SOBRE NÃ“S</a></li>
             </ul>
         </div>
     </nav>
@@ -253,7 +253,7 @@
                                 <input type="text" class="form-control" required>
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label class="form-label">Endereço</label>
+                                <label class="form-label">EndereÃ§o</label>
                                 <input type="text" class="form-control" required>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -261,11 +261,11 @@
                                 <input type="text" class="form-control" required>
                             </div>
                             <div class="col-md-3 mb-3">
-                                <label class="form-label">Código Postal</label>
+                                <label class="form-label">CÃ³digo Postal</label>
                                 <input type="text" class="form-control" required>
                             </div>
                             <div class="col-md-3 mb-3">
-                                <label class="form-label">País</label>
+                                <label class="form-label">PaÃ­s</label>
                                 <input type="text" class="form-control" required>
                             </div>
                             <div class="col-md-12 mb-3">
@@ -284,16 +284,16 @@
                         <hr>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                             <span>Subtotal</span>
-                            <span id="checkout-subtotal">0.00€</span>
+                            <span id="checkout-subtotal">0.00â‚¬</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
                             <span>Envio</span>
-                            <span>Grátis</span>
+                            <span>GrÃ¡tis</span>
                         </div>
                         <hr>
                         <div style="display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 20px;">
                             <span>Total</span>
-                            <span id="checkout-total">0.00€</span>
+                            <span id="checkout-total">0.00â‚¬</span>
                         </div>
                         <button class="btn w-100" style="background: #593232; color: white; font-weight: 600;" onclick="window.location.href='payment.html'">PAGAR</button>
                     </div>
@@ -309,14 +309,14 @@
                 <ul class="footer-links">
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">Envios</a></li>
-                    <li><a href="#">Devoluções</a></li>
+                    <li><a href="#">DevoluÃ§Ãµes</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Informação Legal</h3>
+                <h3>InformaÃ§Ã£o Legal</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Termos e Condições</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos e CondiÃ§Ãµes</a></li>
+                    <li><a href="#">PolÃ­tica de Privacidade</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -361,8 +361,8 @@
 
             if (cart.length === 0) {
                 checkoutItems.innerHTML = '<p style="text-align: center; color: #666;">Carrinho vazio</p>';
-                subtotalElement.textContent = '0.00€';
-                totalElement.textContent = '0.00€';
+                subtotalElement.textContent = '0.00â‚¬';
+                totalElement.textContent = '0.00â‚¬';
                 return;
             }
 
@@ -370,7 +370,7 @@
             let html = '';
 
             cart.forEach(item => {
-                const price = parseFloat(item.price.replace('€', '').replace(',', '.')) || 0;
+                const price = parseFloat(item.price.replace('â‚¬', '').replace(',', '.')) || 0;
                 const quantity = item.quantity || 1;
                 const itemTotal = price * quantity;
                 subtotal += itemTotal;
@@ -378,14 +378,14 @@
                 html += `
                     <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 13px;">
                         <span>${item.name} x ${quantity}</span>
-                        <span>${itemTotal.toFixed(2)}€</span>
+                        <span>${itemTotal.toFixed(2)}â‚¬</span>
                     </div>
                 `;
             });
 
             checkoutItems.innerHTML = html;
-            subtotalElement.textContent = `${subtotal.toFixed(2)}€`;
-            totalElement.textContent = `${subtotal.toFixed(2)}€`;
+            subtotalElement.textContent = `${subtotal.toFixed(2)}â‚¬`;
+            totalElement.textContent = `${subtotal.toFixed(2)}â‚¬`;
         }
 
         document.addEventListener('DOMContentLoaded', loadCheckoutSummary);
@@ -401,3 +401,4 @@
     </script>
 </body>
 </html>
+
