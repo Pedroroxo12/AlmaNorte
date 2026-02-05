@@ -1,5 +1,5 @@
 {
-  "siteUrl": "http://localhost/AlmaNorte/",
+  "siteUrl": "https://almanorte.infinityfreeapp.com",
   "mustache.compiler": {
     "templates": "templates/pages",
     "layouts": "templates/layouts",
