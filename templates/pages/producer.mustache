@@ -3,169 +3,700 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rui LourenÃ§o - Produtor - Alma Norte</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Produtor - Alma Norte</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://localhost/AlmaNorte/assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-4">
-                    <div class="d-flex justify-content-start">
-                        <a href="http://localhost/AlmaNorte/products.html" class="icon-link"><i class="fas fa-search"></i></a>
-                        <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
-                        <a href="favorites.html" class="icon-link"><i class="fas fa-heart"></i></a>
-                        <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge bg-danger" style="display: none;">0</span></a>
+    <style>
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 1001;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 100%;
+            padding: 0 50px;
+        }
+        .brand-text {
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #333;
+        }
+        .logo-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .logo-center img {
+            height: 80px;
+        }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .header-icons a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .header-icons a:hover {
+            color: #593232;
+        }
+        .nav-menu {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 1000;
+            padding: 10px 0;
+            width: 100%;
+        }
+        .nav-menu .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-menu ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        .nav-menu ul li a:hover {
+            color: #593232;
+        }
+        .nav-menu ul li a.active {
+            font-weight: 700;
+        }
+        main {
+            margin-top: 160px;
+        }
+    </style>
+
+    <div class="top-header">
+        <div class="header-content">
+            <div class="brand-text">ALMANORTE</div>
+            <div class="logo-center">
+                <a href="http://localhost/AlmaNorte/index.html">
+                    <img src="http://localhost/AlmaNorte/assets/images/Logotipo.png" alt="AlmaNorte">
+                </a>
+            </div>
+            <div class="header-icons">
+                <a href="http://localhost/AlmaNorte/products.html"><i class="fas fa-search"></i></a>
+                <a href="http://localhost/AlmaNorte/account.html"><i class="fas fa-user"></i></a>
+                <a href="#" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" aria-controls="favoritesOffcanvas"><i class="fas fa-heart"></i></a>
+                <a href="http://localhost/AlmaNorte/cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-menu">
+        <div class="container">
+            <ul>
+                <li><a href="http://localhost/AlmaNorte/index.html" class="">HOME</a></li>
+                <li><a href="http://localhost/AlmaNorte/products.html" class="">PRODUTOS</a></li>
+                <li><a href="http://localhost/AlmaNorte/blog/index.html" class="">BLOG</a></li>
+                <li><a href="http://localhost/AlmaNorte/producers.html" class="active">PRODUTORES</a></li>
+                <li><a href="http://localhost/AlmaNorte/about/index.html" class="">SOBRE NÓS</a></li>
+            </ul>
+        </div>
+    </div>
+         
+    <main>
+        <style>
+            /* Hero Section */
+            .producer-hero {
+                position: relative;
+                height: 400px;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-align: center;
+            }
+            
+            .producer-hero::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.4);
+            }
+            
+            .producer-hero-content {
+                position: relative;
+                z-index: 1;
+            }
+            
+            .producer-hero h1 {
+                font-family: 'Playfair Display', serif;
+                font-size: 56px;
+                font-weight: 400;
+                letter-spacing: 3px;
+                margin: 0;
+                text-transform: uppercase;
+            }
+            
+            .producer-hero-subtitle {
+                font-size: 16px;
+                letter-spacing: 2px;
+                margin-top: 10px;
+                text-transform: uppercase;
+            }
+            
+            .producer-hero-btn {
+                background: #8b6f6f;
+                color: white;
+                border: none;
+                padding: 12px 30px;
+                border-radius: 25px;
+                font-size: 12px;
+                letter-spacing: 1px;
+                cursor: pointer;
+                margin-top: 30px;
+                text-transform: uppercase;
+                font-weight: 600;
+                text-decoration: none;
+                display: inline-block;
+            }
+            
+            .producer-hero-btn:hover {
+                background: #7d5454;
+                color: white;
+            }
+
+            /* Info Sections */
+            .producer-info-section {
+                padding: 80px 20px;
+            }
+            
+            .producer-info-section.white {
+                background: white;
+            }
+            
+            .producer-info-section.brown {
+                background: #593232;
+                color: white;
+            }
+            
+            .producer-info-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                align-items: center;
+            }
+            
+            .producer-info-text {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .producer-info-icon {
+                font-size: 48px;
+                margin-bottom: 15px;
+                color: #593232;
+            }
+            
+            .producer-info-section.brown .producer-info-icon {
+                color: white;
+            }
+            
+            .producer-info-title {
+                font-family: 'Playfair Display', serif;
+                font-size: 28px;
+                font-weight: 400;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+            
+            .producer-info-description {
+                font-size: 14px;
+                line-height: 1.8;
+                color: #666;
+            }
+            
+            .producer-info-section.brown .producer-info-description {
+                color: #f0f0f0;
+            }
+            
+            .producer-info-images {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .producer-info-image {
+                width: 100%;
+                height: 250px;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            .producer-info-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            /* Products Section */
+            .producer-products-section {
+                padding: 80px 20px;
+                background: white;
+            }
+            
+            .producer-products-title {
+                font-family: 'Playfair Display', serif;
+                font-size: 42px;
+                font-weight: 400;
+                text-align: center;
+                letter-spacing: 2px;
+                margin-bottom: 60px;
+                color: #593232;
+                text-transform: uppercase;
+            }
+            
+            .producer-products-grid {
+                max-width: 1000px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+                perspective: 1000px;
+            }
+            
+            .producer-product-card {
+                background: #593232;
+                border-radius: 20px;
+                padding: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                transform: rotateZ(-3deg);
+                transition: all 0.3s ease;
+            }
+            
+            .producer-product-card:nth-child(2) {
+                transform: rotateZ(2deg);
+            }
+            
+            .producer-product-card:nth-child(3) {
+                transform: rotateZ(-1deg);
+            }
+            
+            .producer-product-card:hover {
+                transform: rotateZ(-3deg) translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+            
+            .producer-product-card:nth-child(2):hover {
+                transform: rotateZ(2deg) translateY(-10px);
+            }
+            
+            .producer-product-card:nth-child(3):hover {
+                transform: rotateZ(-1deg) translateY(-10px);
+            }
+            
+            .producer-product-image {
+                background: white;
+                border-radius: 12px;
+                padding: 20px;
+                margin-bottom: 15px;
+                height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .producer-product-image img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+            
+            .producer-product-info {
+                color: white;
+                text-align: center;
+                padding: 10px;
+            }
+            
+            .producer-product-name {
+                font-family: 'Playfair Display', serif;
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 5px;
+                text-transform: uppercase;
+            }
+            
+            .producer-product-producer {
+                font-size: 12px;
+                color: #f0f0f0;
+                margin-bottom: 10px;
+            }
+            
+            .producer-product-price {
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+            
+            .producer-product-button {
+                background: #8b6f6f;
+                color: white;
+                border: none;
+                padding: 10px 25px;
+                border-radius: 20px;
+                font-size: 11px;
+                letter-spacing: 1px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-transform: uppercase;
+                font-weight: 600;
+                width: 100%;
+            }
+            
+            .producer-product-button:hover {
+                background: #7d5454;
+            }
+            
+            .producer-products-explore {
+                text-align: center;
+                margin-top: 50px;
+            }
+            
+            .producer-products-explore-btn {
+                background: #8b6f6f;
+                color: white;
+                border: none;
+                padding: 12px 40px;
+                border-radius: 25px;
+                font-size: 12px;
+                letter-spacing: 1px;
+                cursor: pointer;
+                text-transform: uppercase;
+                font-weight: 600;
+                text-decoration: none;
+                display: inline-block;
+            }
+            
+            .producer-products-explore-btn:hover {
+                background: #7d5454;
+                color: white;
+            }
+
+            @media (max-width: 768px) {
+                .producer-hero h1 {
+                    font-size: 36px;
+                }
+                
+                .producer-info-content {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+                
+                .producer-products-grid {
+                    grid-template-columns: 1fr;
+                    max-width: 400px;
+                }
+                
+                .producer-products-title {
+                    font-size: 32px;
+                }
+            }
+        </style>
+
+        <!-- Hero Section -->
+        <div class="producer-hero" id="producer-hero">
+            <div class="producer-hero-content">
+                <h1 id="producer-name">RUI LOURENÇO</h1>
+                <div class="producer-hero-subtitle">PRODUTOR DE MEL</div>
+                <a href="http://localhost/AlmaNorte/producers.html" class="producer-hero-btn">Explorar Outros Produtores</a>
+            </div>
+        </div>
+
+        <svg class="wave-divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+            <path fill="white" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+        </svg>
+
+        <!-- About Section -->
+        <div class="producer-info-section white">
+            <div class="producer-info-content">
+                <div class="producer-info-text">
+                    <i class="fas fa-user producer-info-icon"></i>
+                    <div class="producer-info-title" id="about-title">RUI LOURENÇO</div>
+                    <div class="producer-info-description" id="about-description">
+                        Rui Lourenço nasceu no Mogadouro, de onde saiu para conhecer o mundo. Em 2010 retornou, dedicando-se à apicultura biológica. Desenvolveu o seu trabalho em Trás-os-Montes com o famoso mel desta região.
                     </div>
                 </div>
-                <div class="col-4 text-center">
-                    <a class="navbar-brand" href="index.html">Alma Norte</a>
-                </div>
-                <div class="col-4">
-                    <!-- Empty for balance -->
+                <div class="producer-info-images">
+                    <div class="producer-info-image">
+                        <img src="http://localhost/AlmaNorte/assets/images/nesperas-da-casa-lourenco-614x1024 1.png" alt="Produtor">
+                    </div>
+                    <div class="producer-info-image">
+                        <img src="http://localhost/AlmaNorte/assets/images/young-farmer-taking-care-his-business 1.png" alt="Trabalho">
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
 
-    <main class="container my-5">
-        <div class="row">
-            <div class="col-md-12 text-center mb-4">
-                <img src="assets/images/gallery/image (1).png" alt="Produtor" class="img-fluid rounded-circle producer-image" style="width: 200px; height: 200px; object-fit: cover;">
-                <h1 class="mt-3">Produtor</h1>
+        <!-- Activity Section -->
+        <div class="producer-info-section brown">
+            <div class="producer-info-content">
+                <div class="producer-info-images">
+                    <div class="producer-info-image">
+                        <img src="http://localhost/AlmaNorte/assets/images/honey-dripping-off-dipper-honneycomb 1.png" alt="Atividade">
+                    </div>
+                    <div class="producer-info-image">
+                        <img src="http://localhost/AlmaNorte/assets/images/male-beekeeper-taking-out-honeycomb-with-bees-from-beehive-his-apiary 1.png" alt="Processo">
+                    </div>
+                </div>
+                <div class="producer-info-text">
+                    <i class="fas fa-seedling producer-info-icon"></i>
+                    <div class="producer-info-title">APICULTURA</div>
+                    <div class="producer-info-description">
+                        A apicultura em Trás-os-Montes beneficia de uma paisagem rica e diversa, essencial para a produção de mel de alta qualidade. Os apicultores da região, como Rui, seguem práticas tradicionais, respeitando o ritmo natural e contribuindo para a preservação do ecossistema local.
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <h2>Sobre o Produtor</h2>
-                <p class="producer-description">DescriÃ§Ã£o do produtor.</p>
-                <p><strong>LocalizaÃ§Ã£o:</strong> <span class="producer-location">Local</span></p>
+
+        <!-- Production Section -->
+        <div class="producer-info-section white">
+            <div class="producer-info-content">
+                <div class="producer-info-text">
+                    <i class="fas fa-jar producer-info-icon"></i>
+                    <div class="producer-info-title">PRODUÇÃO DE MEL</div>
+                    <div class="producer-info-description">
+                        A produção de mel é realizada de forma artesanal, preservando as suas características naturais, desde a colheita até ao envase. Cada frasco traduz um novo dia do ano e provém, com sabores influenciados pela flora característica de Trás-os-Montes.
+                    </div>
+                </div>
+                <div class="producer-info-images">
+                    <div class="producer-info-image">
+                        <img src="http://localhost/AlmaNorte/assets/images/honey-dripping-off-dipper-honneycomb 1.png" alt="Produção">
+                    </div>
+                    <div class="producer-info-image">
+                        <img src="http://localhost/AlmaNorte/assets/images/male-beekeeper-taking-out-honeycomb-with-bees-from-beehive-his-apiary 1.png" alt="Mel">
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <h2 class="mb-3">Produtos do Produtor</h2>
-            <div class="gallery-grid" id="producer-products">
-                <!-- Products will be loaded here -->
+
+        <!-- Products Section -->
+        <div class="producer-products-section">
+            <h2 class="producer-products-title">O QUE NASCE DO<br>SEU TRABALHO?</h2>
+            <div class="producer-products-grid" id="producer-products"></div>
+            <div class="producer-products-explore">
+                <a href="http://localhost/AlmaNorte/products.html" class="producer-products-explore-btn">Explorar outros Produtos</a>
             </div>
         </div>
+
+        <script>
+            // Get producer name from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const producerName = urlParams.get('name') || 'RUI LOURENÇO';
+            
+            // Producer data
+            const producersData = {
+                'RUI LOURENÇO': {
+                    name: 'RUI LOURENÇO',
+                    subtitle: 'PRODUTOR DE MEL',
+                    heroImage: 'http://localhost/AlmaNorte/assets/images/male-beekeeper-taking-out-honeycomb-with-bees-from-beehive-his-apiary 1.png',
+                    about: 'Rui Lourenço nasceu no Mogadouro, de onde saiu para conhecer o mundo. Em 2010 retornou, dedicando-se à apicultura biológica. Desenvolveu o seu trabalho em Trás-os-Montes com o famoso mel desta região.',
+                    activity: {
+                        icon: 'fa-seedling',
+                        title: 'APICULTURA',
+                        description: 'A apicultura em Trás-os-Montes beneficia de uma paisagem rica e diversa, essencial para a produção de mel de alta qualidade. Os apicultores da região, como Rui, seguem práticas tradicionais, respeitando o ritmo natural e contribuindo para a preservação do ecossistema local.'
+                    },
+                    production: {
+                        icon: 'fa-jar',
+                        title: 'PRODUÇÃO DE MEL',
+                        description: 'A produção de mel é realizada de forma artesanal, preservando as suas características naturais, desde a colheita até ao envase. Cada frasco traduz um novo dia do ano e provém, com sabores influenciados pela flora característica de Trás-os-Montes.'
+                    },
+                    products: [
+                        {
+                            name: 'MEL DO BÓ',
+                            producer: 'Produtor Rui Lourenço',
+                            price: '4,95€',
+                            image: 'http://localhost/AlmaNorte/assets/images/MEL.jpeg'
+                        },
+                        {
+                            name: 'MEL DO BÓ',
+                            producer: 'Produtor Rui Lourenço',
+                            price: '4,95€',
+                            image: 'http://localhost/AlmaNorte/assets/images/MEL.jpeg'
+                        },
+                        {
+                            name: 'MEL DO BÓ',
+                            producer: 'Produtor Rui Lourenço',
+                            price: '4,95€',
+                            image: 'http://localhost/AlmaNorte/assets/images/MEL.jpeg'
+                        }
+                    ]
+                }
+            };
+            
+            // Load producer data
+            const producer = producersData[producerName] || producersData['RUI LOURENÇO'];
+            
+            // Update page
+            document.getElementById('producer-name').textContent = producer.name;
+            document.querySelector('.producer-hero-subtitle').textContent = producer.subtitle;
+            document.getElementById('producer-hero').style.backgroundImage = `url('${producer.heroImage}')`;
+            document.getElementById('about-title').textContent = producer.name;
+            document.getElementById('about-description').textContent = producer.about;
+            
+            // Render products
+            const productsContainer = document.getElementById('producer-products');
+            productsContainer.innerHTML = producer.products.map(product => `
+                <div class="producer-product-card">
+                    <div class="producer-product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="producer-product-info">
+                        <div class="producer-product-name">${product.name}</div>
+                        <div class="producer-product-producer">${product.producer}</div>
+                        <div class="producer-product-price">${product.price}</div>
+                        <button class="producer-product-button">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            `).join('');
+        </script>
     </main>
 
-    <footer class="footer" style="background-color: #593232 !important;">
-        <div class="footer-content">
+    <style>
+        footer {
+            background-color: #593232;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-section a:hover {
+            opacity: 0.8;
+        }
+        .footer-section p {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .footer-social a {
+            color: white;
+            font-size: 20px;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+        }
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+
+    <footer>
+        <div class="footer-container">
             <div class="footer-section">
-                <h3>Apoio ao Cliente</h3>
-                <ul class="footer-links">
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Envios</a></li>
-                    <li><a href="#">DevoluÃ§Ãµes</a></li>
+                <h3>APOIO AO CLIENTE</h3>
+                <ul>
+                    <li><a href="#">Ajuda</a></li>
+                    <li><a href="#">Entregas</a></li>
+                    <li><a href="#">Devoluções</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>InformaÃ§Ã£o Legal</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Termos e CondiÃ§Ãµes</a></li>
-                    <li><a href="#">PolÃ­tica de Privacidade</a></li>
+                <h3>INFORMAÇÃO LEGAL</h3>
+                <ul>
+                    <li><a href="#">Política de Envio</a></li>
+                    <li><a href="#">Política de Devolução</a></li>
+                    <li><a href="#">Certificações</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Contactos</h3>
-                <p>Email: info@almanorte.pt</p>
-                <p>Telefone: +351 123 456 789</p>
-            </div>
-            <div class="footer-section">
-                <h3>Redes Sociais</h3>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <h3>CONTACTE-NOS</h3>
+                <p>+351 919 181 919</p>
+                <p>almanorte@gmail.com</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Alma Norte. Todos os direitos reservados.</p>
+            <p>Copyright © 2025 Projeto Web. All right reserved.</p>
+            <p style="margin-top: 10px;">Termos de Uso</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.2.0/mustache.min.js"></script>
-    <script src="assets/js/cart.js"></script>
-    <script>
-        // Sample producers data
-        const producers = [
-            {
-                id: 'rui_lourenco',
-                name: 'Rui LourenÃ§o',
-                image: 'assets/images/gallery/image (1).png',
-                description: 'Rui LourenÃ§o Ã© um produtor dedicado de produtos tradicionais de TrÃ¡s-os-Montes. Com anos de experiÃªncia, ele produz azeites, vinhos e queijos de alta qualidade, utilizando mÃ©todos tradicionais e ingredientes locais.',
-                location: 'Vimioso',
-                products: ['Azeite', 'Vinho Tinto', 'Queijo']
-            },
-            {
-                id: 'maria_santos',
-                name: 'Maria Santos',
-                image: 'assets/images/gallery/image (2).jpg.png',
-                description: 'Maria Santos Ã© uma mestre queixeira com dÃ©cadas de experiÃªncia. Ela produz queijos artesanais premiados, mantendo as tradiÃ§Ãµes seculares de TrÃ¡s-os-Montes.',
-                location: 'BraganÃ§a',
-                products: ['Queijo Artesanal', 'RequeijÃ£o']
-            },
-            {
-                id: 'joao_silva',
-                name: 'JoÃ£o Silva',
-                image: 'assets/images/gallery/image (3).jpg.png',
-                description: 'JoÃ£o Silva Ã© um apicultor apaixonado que produz mel puro de flores silvestres da regiÃ£o de TrÃ¡s-os-Montes, seguindo mÃ©todos tradicionais e sustentÃ¡veis.',
-                location: 'Macedo de Cavaleiros',
-                products: ['Mel', 'Produtos de Abelha']
-            }
-        ];
-
-        function getProducerById(id) {
-            return producers.find(p => p.id === id);
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const producerId = urlParams.get('id') || 'rui_lourenco';
-            const producer = getProducerById(producerId);
-
-            if (producer) {
-                document.querySelector('.producer-image').src = producer.image;
-                document.querySelector('.producer-image').alt = producer.name;
-                document.querySelector('h1').textContent = producer.name;
-                document.querySelector('.producer-description').textContent = producer.description;
-                document.querySelector('.producer-location').textContent = producer.location;
-            }
-
-            // Load products
-            $.getJSON('./api/gallery.php', function (data) {
-                $.get('./assets/templates/gallery.mustache', function (template) {
-                    const rendered = Mustache.render(template, data);
-                    $('#producer-products').html(rendered);
-
-                    $('.gallery-img').on('click', function() {
-                        const url = $(this).data('url');
-                        const caption = $(this).data('caption');
-                        $('#modalImage').attr('src', url);
-                        $('#modalImage').attr('alt', caption);
-                        $('#modalCaption').text(caption);
-                        $('#imageModal').modal('show');
-                    });
-
-                    $('.buy-btn').on('click', function() {
-                        const productCard = $(this).closest('.gallery-item');
-                        const product = {
-                            name: productCard.find('h5').text(),
-                            price: productCard.find('.price').text(),
-                            image: productCard.find('img').attr('src')
-                        };
-                        addToCart(product);
-                    });
-                });
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
 

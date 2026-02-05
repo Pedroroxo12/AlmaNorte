@@ -655,7 +655,7 @@
             }
 
             function viewProducerDetails(producerName) {
-                alert('Ver detalhes de ' + producerName);
+                window.location.href = `http://localhost/AlmaNorte/producer.html?name=${encodeURIComponent(producerName)}`;
             }
 
             function handleSubmit(event) {
