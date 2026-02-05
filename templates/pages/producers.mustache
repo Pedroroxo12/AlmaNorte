@@ -1,4 +1,4 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,168 +23,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <style>
-        .top-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            z-index: 1001;
-            padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            width: 100%;
-        }
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 100%;
-            padding: 0 50px;
-        }
-        .brand-text {
-            font-weight: 300;
-            font-size: 14px;
-            letter-spacing: 2px;
-            color: #333;
-        }
-        .logo-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .logo-center img {
-            height: 80px;
-        }
-        .header-icons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        .header-icons a {
-            color: #333;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        .header-icons a:hover {
-            color: #593232;
-        }
-        .nav-menu {
-            position: fixed;
-            top: 100px;
-            left: 0;
-            right: 0;
-            background: white;
-            border-top: 1px solid #e0e0e0;
-            border-bottom: 1px solid #e0e0e0;
-            z-index: 1000;
-            padding: 10px 0;
-            width: 100%;
-        }
-        .nav-menu .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .nav-menu ul {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-menu ul li a {
-            text-decoration: none;
-            color: #333;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 400;
-        }
-        .nav-menu ul li a:hover {
-            color: #593232;
-        }
-        .nav-menu ul li a.active {
-            font-weight: 700;
-        }
-        main {
-            margin-top: 160px;
-        }
-        
-        @media (max-width: 768px) {
-            .header-content {
-                padding: 0 15px;
-            }
-            
-            .brand-text {
-                font-size: 11px;
-                letter-spacing: 1px;
-            }
-            
-            .logo-center img {
-                height: 50px;
-            }
-            
-            .header-icons {
-                gap: 12px;
-            }
-            
-            .header-icons a {
-                font-size: 14px;
-            }
-            
-            .nav-menu {
-                top: 70px;
-                padding: 8px 0;
-            }
-            
-            .nav-menu ul {
-                flex-wrap: wrap;
-                gap: 15px;
-                padding: 5px;
-            }
-            
-            .nav-menu ul li a {
-                font-size: 11px;
-            }
-            
-            main {
-                margin-top: 130px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .brand-text {
-                font-size: 10px;
-            }
-            
-            .logo-center img {
-                height: 40px;
-            }
-            
-            .header-icons {
-                gap: 8px;
-            }
-            
-            .header-icons a {
-                font-size: 13px;
-            }
-            
-            .nav-menu ul {
-                gap: 10px;
-            }
-            
-            .nav-menu ul li a {
-                font-size: 10px;
-            }
-            
-            main {
-                margin-top: 120px;
-            }
-        }
-    </style>
-
     <div class="top-header">
         <div class="header-content">
             <div class="brand-text">ALMANORTE</div>
@@ -209,362 +47,16 @@
                 <li><a href="http://localhost/AlmaNorte/products.html" class="">PRODUTOS</a></li>
                 <li><a href="http://localhost/AlmaNorte/blog/index.html" class="">BLOG</a></li>
                 <li><a href="http://localhost/AlmaNorte/producers.html" class="active">PRODUTORES</a></li>
-                <li><a href="http://localhost/AlmaNorte/about/index.html" class="">SOBRE N√ìS</a></li>
+                <li><a href="http://localhost/AlmaNorte/about/index.html" class="">SOBRE N”S</a></li>
             </ul>
         </div>
     </div>
          
     <main>
-        <style>
-            .producers-page {
-                background: white;
-            }
-
-            .producers-hero {
-                background: #593232;
-                color: white;
-                padding: 80px 0 60px;
-                text-align: center;
-                position: relative;
-            }
-
-            .producers-hero h1 {
-                font-family: 'Playfair Display', serif;
-                font-size: 48px;
-                font-weight: 400;
-                letter-spacing: 2px;
-                margin: 0;
-            }
-
-            .producers-hero p {
-                font-size: 13px;
-                letter-spacing: 1px;
-                margin-top: 20px;
-                font-weight: 300;
-                margin-bottom: 0;
-            }
-
-            .wave-divider {
-                margin-top: -1px;
-            }
-
-            /* Producer Cards Grid */
-            .producers-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 50px;
-                max-width: 1200px;
-                margin: 80px auto;
-                padding: 0 40px;
-                perspective: 1000px;
-            }
-
-            .producer-card {
-                background: #593232;
-                border-radius: 20px;
-                overflow: hidden;
-                border: 8px solid #593232;
-                transition: all 0.3s ease;
-                cursor: pointer;
-                display: flex;
-                flex-direction: column;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                transform: rotateZ(-2deg);
-            }
-
-            .producer-card:nth-child(2) {
-                transform: rotateZ(0deg);
-            }
-
-            .producer-card:nth-child(3) {
-                transform: rotateZ(2deg);
-            }
-
-            .producer-card:nth-child(4) {
-                transform: rotateZ(1.5deg);
-            }
-
-            .producer-card:nth-child(5) {
-                transform: rotateZ(-1.5deg);
-            }
-
-            .producer-card:nth-child(6) {
-                transform: rotateZ(-0.5deg);
-            }
-
-            .producer-card:hover {
-                transform: rotateZ(-2deg) translateY(-10px);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            }
-
-            .producer-card:nth-child(2):hover {
-                transform: rotateZ(0deg) translateY(-10px);
-            }
-
-            .producer-card:nth-child(3):hover {
-                transform: rotateZ(2deg) translateY(-10px);
-            }
-
-            .producer-card:nth-child(4):hover {
-                transform: rotateZ(1.5deg) translateY(-10px);
-            }
-
-            .producer-card:nth-child(5):hover {
-                transform: rotateZ(-1.5deg) translateY(-10px);
-            }
-
-            .producer-card:nth-child(6):hover {
-                transform: rotateZ(-0.5deg) translateY(-10px);
-            }
-
-            .producer-card-image {
-                width: 100%;
-                height: 220px;
-                overflow: hidden;
-                position: relative;
-                background: white;
-                margin: 15px;
-                border-radius: 12px;
-                border: 4px solid white;
-                box-sizing: border-box;
-            }
-
-            .producer-card-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .producer-card-overlay {
-                display: none;
-            }
-
-            .producer-card-info {
-                padding: 20px 15px 15px;
-                color: white;
-                text-align: center;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-
-            .producer-card-name {
-                font-family: 'Playfair Display', serif;
-                font-size: 16px;
-                font-weight: 700;
-                letter-spacing: 0.5px;
-                margin-bottom: 8px;
-                text-transform: uppercase;
-            }
-
-            .producer-card-description {
-                font-size: 12px;
-                line-height: 1.5;
-                color: #f0f0f0;
-                margin-bottom: 15px;
-                flex: 1;
-            }
-
-            .producer-card-button {
-                background: #8b6f6f;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 20px;
-                font-size: 11px;
-                letter-spacing: 0.5px;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                text-transform: uppercase;
-                font-weight: 600;
-            }
-
-            .producer-card-button:hover {
-                background: #7d5454;
-                transform: scale(1.05);
-            }
-
-            /* Collaboration Section */
-            .collaboration-section {
-                background: #593232;
-                padding: 100px 20px;
-            }
-
-            .collaboration-box {
-                background: white;
-                color: #333;
-                max-width: 480px;
-                margin: 0 auto;
-                padding: 50px 40px;
-                border-radius: 20px;
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            }
-
-            .collaboration-box h2 {
-                font-family: 'Georgia', serif;
-                font-size: 28px;
-                text-align: center;
-                margin-bottom: 12px;
-                letter-spacing: 2px;
-                font-weight: 400;
-                line-height: 1.2;
-                text-transform: uppercase;
-                color: #333;
-            }
-
-            .collaboration-box > p {
-                text-align: center;
-                font-size: 11px;
-                margin-bottom: 25px;
-                color: #888;
-                letter-spacing: 0.5px;
-                line-height: 1.5;
-            }
-
-            .form-group {
-                margin-bottom: 15px;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                width: 100%;
-                padding: 12px 15px;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                font-size: 12px;
-                font-family: Arial, sans-serif;
-                background: white;
-                color: #333;
-            }
-
-            .form-group input::placeholder,
-            .form-group textarea::placeholder {
-                color: #999;
-                text-transform: uppercase;
-                font-weight: 400;
-                font-size: 11px;
-            }
-
-            .form-group textarea {
-                min-height: 100px;
-                resize: vertical;
-            }
-
-            .submit-btn {
-                background: #8b6f6f;
-                color: white;
-                border: none;
-                padding: 12px 40px;
-                border-radius: 20px;
-                font-size: 11px;
-                letter-spacing: 1px;
-                cursor: pointer;
-                display: block;
-                margin: 25px auto 0;
-                transition: background 0.3s;
-                text-transform: uppercase;
-                font-weight: 600;
-            }
-
-            .submit-btn:hover {
-                background: #7d5454;
-            }
-
-            @media (max-width: 1024px) {
-                .producers-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 40px;
-                    padding: 0 30px;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .producers-hero h1 {
-                    font-size: 32px;
-                }
-
-                .producers-grid {
-                    grid-template-columns: 1fr;
-                    gap: 30px;
-                    padding: 0 20px;
-                    margin: 50px auto;
-                }
-
-                .producer-card-image {
-                    height: 180px;
-                }
-
-                .producer-card-info {
-                    padding: 15px 12px 12px;
-                }
-
-                .producer-card-name {
-                    font-size: 14px;
-                }
-
-                .producer-card-description {
-                    font-size: 11px;
-                }
-
-                .collaboration-section {
-                    padding: 50px 15px;
-                }
-
-                .collaboration-box {
-                    padding: 40px 25px;
-                }
-            }
-
-            @media (max-width: 480px) {
-                .producers-grid {
-                    gap: 25px;
-                    padding: 0 15px;
-                }
-
-                .producer-card {
-                    border: 6px solid #593232;
-                }
-
-                .producer-card-image {
-                    height: 150px;
-                    margin: 12px;
-                    border: 3px solid white;
-                }
-
-                .producer-card-info {
-                    padding: 12px 10px 10px;
-                }
-
-                .producer-card-name {
-                    font-size: 13px;
-                    margin-bottom: 6px;
-                }
-
-                .producer-card-description {
-                    font-size: 10px;
-                    margin-bottom: 12px;
-                }
-
-                .producer-card-button {
-                    padding: 8px 16px;
-                    font-size: 10px;
-                }
-
-                .collaboration-box {
-                    padding: 30px 20px;
-                }
-
-                .collaboration-box h2 {
-                    font-size: 22px;
-                }
-            }
-        </style>
-
         <div class="producers-page">
             <div class="producers-hero">
                 <h1>OS NOSSOS PRODUTORES</h1>
-                <p>AQUELES EM QUEM CONFIAMOS PARA LEVAR AT√â SI O MELHOR DE TR√ÅS-OS-MONTES</p>
+                <p>AQUELES EM QUEM CONFIAMOS PARA LEVAR AT… SI O MELHOR DE TR¡S-OS-MONTES</p>
             </div>
 
             <svg class="wave-divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
@@ -578,7 +70,7 @@
             <div class="collaboration-section">
                 <div class="collaboration-box">
                     <h2>DESEJA COLABORAR CONNOSCO?</h2>
-                    <p>Entre em contacto com a nossa equipa e vire parte do nosso cat√°logo como produtor!</p>
+                    <p>Entre em contacto com a nossa equipa e vire parte do nosso cat·logo como produtor!</p>
                     
                     <form onsubmit="handleSubmit(event)">
                         <div class="form-group">
@@ -599,33 +91,33 @@
         <script>
             const producersData = [
                 {
-                    name: "RUI LOUREN√áO",
-                    description: "Rui Louren√ßo √© um apicultor dedicado da regi√£o de Tr√°s-os-Montes, com mais de 30 anos de experi√™ncia na produ√ß√£o de mel.",
+                    name: "RUI LOUREN«O",
+                    description: "Rui LourenÁo È um apicultor dedicado da regi„o de Tr·s-os-Montes, com mais de 30 anos de experiÍncia na produÁ„o de mel.",
                     image: "/assets/images/apicultor.jpg"
                 },
                 {
-                    name: "ANT√ìNIO PINTO",
-                    description: "Ant√≥nio Pinto √© o produtor de vinho Trovisco, um dos nossos produtos mais conceituados da regi√£o transmontana.",
+                    name: "ANT”NIO PINTO",
+                    description: "AntÛnio Pinto È o produtor de vinho Trovisco, um dos nossos produtos mais conceituados da regi„o transmontana.",
                     image: "/assets/images/produtores vinho.jpg"
                 },
                 {
-                    name: "AM√âLIA SANTOS",
-                    description: "Am√©lia Santos √© do√ßaria mais celebrada fazendo past√©is, queijadas, broas e outros doces regionais.",
+                    name: "AM…LIA SANTOS",
+                    description: "AmÈlia Santos È doÁaria mais celebrada fazendo pastÈis, queijadas, broas e outros doces regionais.",
                     image: "/assets/images/produtores vinho.jpg"
                 },
                 {
                     name: "PEDRO BARBOSA",
-                    description: "Pedro Barbosa √© produtor dos queijos mais apreciados da regi√£o com tradi√ß√£o de v√°rias gera√ß√µes.",
+                    description: "Pedro Barbosa È produtor dos queijos mais apreciados da regi„o com tradiÁ„o de v·rias geraÁıes.",
                     image: "/assets/images/produtores vinho.jpg"
                 },
                 {
                     name: "MARIA FERNANDA",
-                    description: "A Maria Fernanda √© tradi√ß√£o viva de do√ßaria e conservas, cozinhando os doces mais tradicionais.",
+                    description: "A Maria Fernanda È tradiÁ„o viva de doÁaria e conservas, cozinhando os doces mais tradicionais.",
                     image: "/assets/images/produtores vinho.jpg"
                 },
                 {
                     name: "MANUELA SILVA",
-                    description: "Temporeira e experiente, Manuela Silva √© quem em produ√ß√£o de mel em Tr√°s-os-Montes a qualidade.",
+                    description: "Temporeira e experiente, Manuela Silva È quem em produÁ„o de mel em Tr·s-os-Montes a qualidade.",
                     image: "/assets/images/produtores vinho.jpg"
                 }
             ];
@@ -660,7 +152,7 @@
 
             function handleSubmit(event) {
                 event.preventDefault();
-                alert('Formul√°rio enviado com sucesso!');
+                alert('Formul·rio enviado com sucesso!');
                 event.target.reset();
             }
 
@@ -668,101 +160,6 @@
         </script>
     </main>
 
-    <style>
-        footer {
-            background-color: #593232;
-            color: white;
-            padding: 60px 20px 30px;
-        }
-        .footer-section h3 {
-            font-size: 16px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-        .footer-section a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .footer-section a:hover {
-            opacity: 0.8;
-        }
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .footer-social a {
-            color: white;
-            font-size: 20px;
-        }
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.3);
-            margin-top: 40px;
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-        }
-        
-        @media (max-width: 768px) {
-            footer {
-                padding: 40px 15px 20px;
-            }
-            
-            .footer-section {
-                margin-bottom: 30px;
-                text-align: center;
-            }
-            
-            .footer-section h3 {
-                font-size: 14px;
-            }
-            
-            .footer-section a {
-                font-size: 13px;
-            }
-            
-            .footer-social {
-                justify-content: center;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-                font-size: 11px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            footer {
-                padding: 30px 10px 15px;
-            }
-            
-            .footer-section h3 {
-                font-size: 12px;
-            }
-            
-            .footer-section a {
-                font-size: 12px;
-            }
-            
-            .footer-social a {
-                font-size: 18px;
-            }
-        }
-    </style>
-    
     <footer>
         <div class="container">
             <div class="row">
@@ -771,14 +168,14 @@
                     <ul>
                         <li><a href="#">Ajuda</a></li>
                         <li><a href="#">Entregas</a></li>
-                        <li><a href="#">Devolu√ß√µes</a></li>
+                        <li><a href="#">DevoluÁıes</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 footer-section">
-                    <h3>INFORMA√á√ÉO LEGAL</h3>
+                    <h3>INFORMA«√O LEGAL</h3>
                     <ul>
-                        <li><a href="#">Pol√≠tica de Envio</a></li>
-                        <li><a href="#">Pol√≠tica de Devolu√ß√£o</a></li>
+                        <li><a href="#">PolÌtica de Envio</a></li>
+                        <li><a href="#">PolÌtica de DevoluÁ„o</a></li>
                         <li><a href="#">Certificados</a></li>
                         <li><a href="#">Termos de Privacidade</a></li>
                     </ul>
@@ -795,7 +192,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <div>Copyright ¬© 2025. Projeto Web. All right reserved.</div>
+                <div>Copyright © 2025. Projeto Web. All right reserved.</div>
                 <div><a href="#" style="color: white; text-decoration: none;">Termos de Uso</a></div>
             </div>
         </div>
@@ -811,93 +208,6 @@
             <!-- Favoritos carregados aqui -->
         </div>
     </div>
-    
-    <style>
-        .offcanvas {
-            width: 350px !important;
-        }
-        .offcanvas-header {
-            background: #593232;
-            color: white;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .offcanvas-header h5 {
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        .offcanvas-header .btn-close {
-            filter: brightness(0) invert(1);
-        }
-        .favorite-item {
-            display: flex;
-            gap: 12px;
-            padding: 16px;
-            border-bottom: 1px solid #e0e0e0;
-            align-items: flex-start;
-        }
-        .favorite-item img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            background: #f5f5f5;
-            border-radius: 4px;
-        }
-        .favorite-item-info {
-            flex: 1;
-        }
-        .favorite-item-name {
-            font-size: 13px;
-            font-weight: 600;
-            color: #2d1c1c;
-            margin-bottom: 4px;
-        }
-        .favorite-item-producer {
-            font-size: 11px;
-            color: #888;
-            margin-bottom: 8px;
-        }
-        .favorite-item-price {
-            font-size: 12px;
-            font-weight: 600;
-            color: #593232;
-            margin-bottom: 10px;
-        }
-        .favorite-item-button {
-            width: 100%;
-            padding: 8px;
-            background: #8b6f6f;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 11px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        .favorite-item-button:hover {
-            background: #765d5d;
-        }
-        .favorite-item-close {
-            background: none;
-            border: none;
-            color: #999;
-            cursor: pointer;
-            font-size: 16px;
-            padding: 0;
-            align-self: flex-start;
-        }
-        .favorite-item-close:hover {
-            color: #333;
-        }
-        .favorites-empty {
-            padding: 40px 20px;
-            text-align: center;
-            color: #999;
-            font-size: 13px;
-        }
-    </style>
     
     <script>
         function loadFavoritesOffcanvas() {
