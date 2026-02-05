@@ -4,6 +4,12 @@
 let cart = [];
 let favorites = [];
 
+// Sample products for testing
+const sampleProducts = [
+    { name: 'MEL DO BÓ', price: '12.50€', image: 'http://localhost/AlmaNorte/assets/images/gallery/MEL.jpeg', quantity: 1 },
+    { name: 'Mel de Acácia', price: '15.00€', image: 'http://localhost/AlmaNorte/assets/images/gallery/MEL.jpeg', quantity: 1 }
+];
+
 // Function to load cart from server
 function loadCart() {
     $.getJSON('./api/load_cart.php', function(data) {
@@ -13,6 +19,13 @@ function loadCart() {
     }).fail(function() {
         // Fallback to localStorage if server fails
         cart = JSON.parse(localStorage.getItem('almaNorteCart')) || [];
+        
+        // Add sample products if cart is empty (for testing)
+        if (cart.length === 0) {
+            cart = JSON.parse(JSON.stringify(sampleProducts));
+            localStorage.setItem('almaNorteCart', JSON.stringify(cart));
+        }
+        
         updateCartCount();
         if (typeof renderCart === 'function') renderCart();
     });
@@ -106,20 +119,24 @@ function updateCartCount() {
 // Function to render cart on cart page
 function renderCart() {
     const cartItems = document.getElementById('cart-items');
+    const cartSubtotal = document.getElementById('cart-subtotal');
     const cartTotal = document.getElementById('cart-total');
-    if (!cartItems || !cartTotal) return;
+    if (!cartItems || !cartTotal || !cartSubtotal) return;
 
     cartItems.innerHTML = '';
     if (cart.length === 0) {
         cartItems.innerHTML = '<tr><td colspan="6">Carrinho vazio</td></tr>';
-        cartTotal.textContent = '0.00€';
+        cartSubtotal.textContent = '0.00 €';
+        cartTotal.textContent = '0.00 €';
         return;
     }
 
+    let subtotal = 0;
     cart.forEach((item, index) => {
         const row = document.createElement('tr');
         const itemPrice = parseFloat(item.price.replace('€', '').replace(',', '.'));
         const itemTotal = (itemPrice * item.quantity).toFixed(2);
+        subtotal += itemPrice * item.quantity;
         row.innerHTML = `
             <td data-label="Imagem"><img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;"></td>
             <td data-label="Nome">${item.name}</td>
@@ -132,7 +149,8 @@ function renderCart() {
         `;
         cartItems.appendChild(row);
     });
-    cartTotal.textContent = getTotal() + '€';
+    cartSubtotal.textContent = subtotal.toFixed(2) + ' €';
+    cartTotal.textContent = subtotal.toFixed(2) + ' €';
 }
 
 // Function to add to favorites
