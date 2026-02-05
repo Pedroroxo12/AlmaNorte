@@ -48,6 +48,12 @@
     </header>
 
     <main class="container my-5" style="padding-top: 80px; padding-bottom: 80px;">
+        <!-- Breadcrumb -->
+        <div style="margin-bottom: 30px;">
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: #666; margin: 0;">
+                <a href="products.html" style="color: #333; text-decoration: none; font-weight: 500;">Produtos</a> /
+            </p>
+        </div>
         <div class="row align-items-start">
             <!-- Product Image -->
             <div class="col-md-4">
@@ -183,28 +189,31 @@
     <script>
         // Get product data from URL or localStorage
         const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('id');
+        let productId = urlParams.get('id') || 'mel-do-bo';
+        
+        // Decode URL-encoded parameter
+        productId = decodeURIComponent(productId);
         
         // Sample product data (in real app, this would come from a database/API)
         const products = {
             'mel-do-bo': {
-                name: 'MEL DO BÃ”',
-                producer: 'Produtor Rui LorenÃ§o',
-                price: '8,95â‚¬',
+                name: 'MEL DO BÓ',
+                producer: 'Produtor Rui Lourenço',
+                price: '8,95€',
                 image: 'assets/images/MEL.jpeg',
-                description: 'Mel artesanal produzido em TrÃ¡s-os-Montes, recolhido de forma sustentÃ¡vel e sem adiÃ§Ã£o de aÃ§Ãºcares. Sabor intenso e natural. Ideal para consumo diÃ¡rio ou para acompanhar receitas tradicionais.',
-                about: 'O Mel do BÃ´ Ã© um mel artesanal produzido em TrÃ¡s-os-Montes, obtido a partir do nÃ©ctar das flores silvestres da regiÃ£o. Apresenta uma textura suave e um sabor equilibrado, com notas naturais que variam consoante a floraÃ§Ã£o da Ã©poca de colheita.\n\nNÃ£o Ã© sujeito a processos industriais nem a aditivos, preservando todas as suas caracterÃ­sticas naturais. Ideal para consumo diÃ¡rio, pode ser utilizado para adoÃ§ar bebidas, acompanhar queijos, enriquecer receitas ou simplesmente ser apreciado ao natural.',
-                history: 'NÃ£o existe descriÃ§Ã£o de histÃ³ria para este produto.',
+                description: 'Mel artesanal produzido em Trás-os-Montes, recolhido de forma sustentável e sem adição de açúcares. Sabor intenso e natural. Ideal para consumo diário ou para acompanhar receitas tradicionais.',
+                about: 'O Mel do Bó é um mel artesanal produzido em Trás-os-Montes, obtido a partir do néctar das flores silvestres da região. Apresenta uma textura suave e um sabor equilibrado, com notas naturais que variam consoante a floração da época de colheita.\n\nNão é sujeito a processos industriais nem a aditivos, preservando todas as suas características naturais. Ideal para consumo diário, pode ser utilizado para adoçar bebidas, acompanhar queijos, enriquecer receitas ou simplesmente ser apreciado ao natural.',
+                history: 'Não existe descrição de história para este produto.',
                 hasSizes: true
             },
             'vinho-trovisco': {
                 name: 'VINHO TROVISCO',
-                producer: 'Produtor AntÃ³nio Barbosa',
-                price: '45,95â‚¬',
+                producer: 'Produtor António Barbosa',
+                price: '45,95€',
                 image: 'assets/images/vinhos.jpeg',
-                description: 'Vinho tinto encorpado da regiÃ£o do Douro. Notas frutadas e amadeiradas. Ideal para acompanhar carnes vermelhas e queijos curados.',
-                about: 'O Vinho Trovisco Ã© um vinho tinto da regiÃ£o do Douro, produzido a partir de uvas cuidadosamente selecionadas. Apresenta um sabor encorpado com notas frutadas e amadeiradas.',
-                history: 'Produzido pela famÃ­lia Barbosa hÃ¡ mais de 3 geraÃ§Ãµes, este vinho representa a tradiÃ§Ã£o vinÃ­cola portuguesa.',
+                description: 'Vinho tinto encorpado da região do Douro. Notas frutadas e amadeiradas. Ideal para acompanhar carnes vermelhas e queijos curados.',
+                about: 'O Vinho Trovisco é um vinho tinto da região do Douro, produzido a partir de uvas cuidadosamente selecionadas. Apresenta um sabor encorpado com notas frutadas e amadeiradas.',
+                history: 'Produzido pela família Barbosa há mais de 3 gerações, este vinho representa a tradição vinícola portuguesa.',
                 hasSizes: false
             }
         };
