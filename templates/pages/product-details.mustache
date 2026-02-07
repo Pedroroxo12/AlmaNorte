@@ -18,13 +18,13 @@
                     <a href="index.html" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: #333; text-decoration: none; letter-spacing: 2px;">ALMANORTE</a>
                 </div>
                 <div class="col-4 text-center">
-                    <a class="navbar-brand" href="http://localhost/AlmaNorte/index.html" style="display:inline-block;">
-                        <img src="http://localhost/AlmaNorte/assets/images/Logotipo.png" alt="AlmaNorte" style="height:60px;">
+                    <a class="navbar-brand" href="/index.html" style="display:inline-block;">
+                        <img src="/assets/images/Logotipo.png" alt="AlmaNorte" style="height:60px;">
                     </a>
                 </div>
                 <div class="col-4">
                     <div class="d-flex justify-content-end gap-3">
-                        <a href="http://localhost/AlmaNorte/products.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-search"></i></a>
+                        <a href="/products.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-search"></i></a>
                         <a href="account.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-user"></i></a>
                         <a href="#" class="icon-link" style="color: #333; font-size: 18px;" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas"><i class="fas fa-heart"></i></a>
                         <a href="cart.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-shopping-cart"></i></a>
@@ -197,23 +197,23 @@
         // Sample product data (in real app, this would come from a database/API)
         const products = {
             'mel-do-bo': {
-                name: 'MEL DO BÓ',
-                producer: 'Produtor Rui Lourenço',
-                price: '8,95€',
+                name: 'MEL DO Bï¿½',
+                producer: 'Produtor Rui Lourenï¿½o',
+                price: '8,95ï¿½',
                 image: 'assets/images/MEL.jpeg',
-                description: 'Mel artesanal produzido em Trás-os-Montes, recolhido de forma sustentável e sem adição de açúcares. Sabor intenso e natural. Ideal para consumo diário ou para acompanhar receitas tradicionais.',
-                about: 'O Mel do Bó é um mel artesanal produzido em Trás-os-Montes, obtido a partir do néctar das flores silvestres da região. Apresenta uma textura suave e um sabor equilibrado, com notas naturais que variam consoante a floração da época de colheita.\n\nNão é sujeito a processos industriais nem a aditivos, preservando todas as suas características naturais. Ideal para consumo diário, pode ser utilizado para adoçar bebidas, acompanhar queijos, enriquecer receitas ou simplesmente ser apreciado ao natural.',
-                history: 'Não existe descrição de história para este produto.',
+                description: 'Mel artesanal produzido em Trï¿½s-os-Montes, recolhido de forma sustentï¿½vel e sem adiï¿½ï¿½o de aï¿½ï¿½cares. Sabor intenso e natural. Ideal para consumo diï¿½rio ou para acompanhar receitas tradicionais.',
+                about: 'O Mel do Bï¿½ ï¿½ um mel artesanal produzido em Trï¿½s-os-Montes, obtido a partir do nï¿½ctar das flores silvestres da regiï¿½o. Apresenta uma textura suave e um sabor equilibrado, com notas naturais que variam consoante a floraï¿½ï¿½o da ï¿½poca de colheita.\n\nNï¿½o ï¿½ sujeito a processos industriais nem a aditivos, preservando todas as suas caracterï¿½sticas naturais. Ideal para consumo diï¿½rio, pode ser utilizado para adoï¿½ar bebidas, acompanhar queijos, enriquecer receitas ou simplesmente ser apreciado ao natural.',
+                history: 'Nï¿½o existe descriï¿½ï¿½o de histï¿½ria para este produto.',
                 hasSizes: true
             },
             'vinho-trovisco': {
                 name: 'VINHO TROVISCO',
-                producer: 'Produtor António Barbosa',
-                price: '45,95€',
+                producer: 'Produtor Antï¿½nio Barbosa',
+                price: '45,95ï¿½',
                 image: 'assets/images/vinhos.jpeg',
-                description: 'Vinho tinto encorpado da região do Douro. Notas frutadas e amadeiradas. Ideal para acompanhar carnes vermelhas e queijos curados.',
-                about: 'O Vinho Trovisco é um vinho tinto da região do Douro, produzido a partir de uvas cuidadosamente selecionadas. Apresenta um sabor encorpado com notas frutadas e amadeiradas.',
-                history: 'Produzido pela família Barbosa há mais de 3 gerações, este vinho representa a tradição vinícola portuguesa.',
+                description: 'Vinho tinto encorpado da regiï¿½o do Douro. Notas frutadas e amadeiradas. Ideal para acompanhar carnes vermelhas e queijos curados.',
+                about: 'O Vinho Trovisco ï¿½ um vinho tinto da regiï¿½o do Douro, produzido a partir de uvas cuidadosamente selecionadas. Apresenta um sabor encorpado com notas frutadas e amadeiradas.',
+                history: 'Produzido pela famï¿½lia Barbosa hï¿½ mais de 3 geraï¿½ï¿½es, este vinho representa a tradiï¿½ï¿½o vinï¿½cola portuguesa.',
                 hasSizes: false
             }
         };
@@ -311,7 +311,7 @@
                     id: productId,
                     name: currentProduct.name,
                     price: currentProduct.price,
-                    image: 'http://localhost/AlmaNorte/' + currentProduct.image,
+                    image: currentProduct.image,
                     producer: currentProduct.producer
                 });
                 localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
