@@ -18,13 +18,13 @@
                     <a href="index.html" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: #333; text-decoration: none; letter-spacing: 2px;">ALMANORTE</a>
                 </div>
                 <div class="col-4 text-center">
-                    <a class="navbar-brand" href="http://localhost/AlmaNorte/index.html" style="display:inline-block;">
-                        <img src="http://localhost/AlmaNorte/assets/images/Logotipo.png" alt="AlmaNorte" style="height:60px;">
+                    <a class="navbar-brand" href="https://almanorte.infinityfreeapp.com/index.html" style="display:inline-block;">
+                        <img src="https://almanorte.infinityfreeapp.com/assets/images/Logotipo.png" alt="AlmaNorte" style="height:60px;">
                     </a>
                 </div>
                 <div class="col-4">
                     <div class="d-flex justify-content-end gap-3">
-                        <a href="http://localhost/AlmaNorte/products.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-search"></i></a>
+                        <a href="https://almanorte.infinityfreeapp.com/products.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-search"></i></a>
                         <a href="account.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-user"></i></a>
                         <a href="#" class="icon-link" style="color: #333; font-size: 18px;" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas"><i class="fas fa-heart"></i></a>
                         <a href="cart.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-shopping-cart"></i></a>
@@ -311,7 +311,7 @@
                     id: productId,
                     name: currentProduct.name,
                     price: currentProduct.price,
-                    image: 'http://localhost/AlmaNorte/' + currentProduct.image,
+                    image: '/' + currentProduct.image,
                     producer: currentProduct.producer
                 });
                 localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
@@ -432,4 +432,5 @@
     </script>
 </body>
 </html>
+
 

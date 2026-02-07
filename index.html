@@ -20,25 +20,201 @@
         <meta name="twitter:image" content="">
     <!-- Latest compiled and minified CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    
-    <link rel="stylesheet" href="http://localhost/AlmaNorte/assets/css/styles.css">
+    <link rel="stylesheet" href="https://almanorte.infinityfreeapp.com/assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
 <body>
+    <style>
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 1001;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 100%;
+            padding: 0 50px;
+        }
+        .brand-text {
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #333;
+        }
+        .logo-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .logo-center img {
+            height: 80px;
+        }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .header-icons a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .header-icons a:hover {
+            color: #593232;
+        }
+        .nav-menu {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 1000;
+            padding: 10px 0;
+            width: 100%;
+        }
+        .nav-menu .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-menu ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        .nav-menu ul li a:hover {
+            color: #593232;
+        }
+        .nav-menu ul li a.active {
+            font-weight: 700;
+        }
+        main {
+            margin-top: 160px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 12px;
+            }
+            
+            .brand-text {
+                font-size: 9px;
+                letter-spacing: 0.5px;
+            }
+            
+            .logo-center img {
+                height: 45px;
+            }
+            
+            .header-icons {
+                gap: 10px;
+            }
+            
+            .header-icons a {
+                font-size: 13px;
+            }
+            
+            .nav-menu {
+                top: 65px;
+                padding: 6px 0;
+            }
+            
+            .nav-menu ul {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 4px;
+            }
+            
+            .nav-menu ul li a {
+                font-size: 9px;
+                letter-spacing: 0.3px;
+            }
+            
+            main {
+                margin-top: 120px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .top-header {
+                padding: 8px 0;
+            }
+            
+            .header-content {
+                padding: 0 8px;
+            }
+            
+            .brand-text {
+                font-size: 7px;
+            }
+            
+            .logo-center img {
+                height: 35px;
+            }
+            
+            .header-icons {
+                gap: 8px;
+            }
+            
+            .header-icons a {
+                font-size: 12px;
+            }
+            
+            .nav-menu {
+                top: 55px;
+                padding: 5px 0;
+            }
+            
+            .nav-menu ul {
+                gap: 8px;
+            }
+            
+            .nav-menu ul li a {
+                font-size: 7px;
+            }
+            
+            main {
+                margin-top: 105px !important;
+            }
+        }
+    </style>
+    
     <div class="top-header">
         <div class="header-content">
             <div class="brand-text">ALMANORTE</div>
             <div class="logo-center">
-                <a href="http://localhost/AlmaNorte/index.html">
-                    <img src="http://localhost/AlmaNorte/assets/images/Logotipo.png" alt="AlmaNorte">
+                <a href="https://almanorte.infinityfreeapp.com/index.html">
+                    <img src="https://almanorte.infinityfreeapp.com/assets/images/Logotipo.png" alt="AlmaNorte">
                 </a>
             </div>
             <div class="header-icons">
-                <a href="http://localhost/AlmaNorte/products.html"><i class="fas fa-search"></i></a>
-                <a href="http://localhost/AlmaNorte/account.html"><i class="fas fa-user"></i></a>
+                <a href="https://almanorte.infinityfreeapp.com/products.html"><i class="fas fa-search"></i></a>
+                <a href="https://almanorte.infinityfreeapp.com/account.html"><i class="fas fa-user"></i></a>
                 <a href="#" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" aria-controls="favoritesOffcanvas"><i class="fas fa-heart"></i></a>
-                <a href="http://localhost/AlmaNorte/cart.html"><i class="fas fa-shopping-cart"></i></a>
+                <a href="https://almanorte.infinityfreeapp.com/cart.html"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </div>
     </div>
@@ -46,14 +222,15 @@
     <div class="nav-menu">
         <div class="container">
             <ul>
-                <li><a href="http://localhost/AlmaNorte/index.html" class="active">HOME</a></li>
-                <li><a href="http://localhost/AlmaNorte/products.html" class="">PRODUTOS</a></li>
-                <li><a href="http://localhost/AlmaNorte/blog/index.html" class="">BLOG</a></li>
-                <li><a href="http://localhost/AlmaNorte/producers.html" class="">PRODUTORES</a></li>
-                <li><a href="http://localhost/AlmaNorte/about/index.html" class="">SOBRE NÓS</a></li>
+                <li><a href="https://almanorte.infinityfreeapp.com/index.html" class="active">HOME</a></li>
+                <li><a href="https://almanorte.infinityfreeapp.com/products.html" class="">PRODUTOS</a></li>
+                <li><a href="https://almanorte.infinityfreeapp.com/blog/index.html" class="">BLOG</a></li>
+                <li><a href="https://almanorte.infinityfreeapp.com/producers.html" class="">PRODUTORES</a></li>
+                <li><a href="https://almanorte.infinityfreeapp.com/about/index.html" class="">SOBRE NÓS</a></li>
             </ul>
         </div>
     </div>
+     
          
     <main>
         
@@ -98,7 +275,7 @@
             Cada produto no AlmaNorte carrega consigo gerações de conhecimento, 
             tradições transmitidas de pais para filhos, e o amor pela terra que nos sustenta.
         </p>
-        <a href="http://localhost/AlmaNorte/products.html" class="btn-primary-custom">Conheça a Nossa Rota de Produtos</a>
+        <a href="https://almanorte.infinityfreeapp.com/products.html" class="btn-primary-custom">Conheça a Nossa Rota de Produtos</a>
     </div>
     <div class="split-right">
         <h3 class="split-title">NORTE</h3>
@@ -128,7 +305,7 @@
 <section class="producers-partners-section">
     <div class="producer-block light">
         <div class="producer-image-container">
-            <img src="http://localhost/AlmaNorte/assets/images/young-farmer-taking-care-his-business 1.png" alt="Produtores">
+            <img src="https://almanorte.infinityfreeapp.com/assets/images/young-farmer-taking-care-his-business 1.png" alt="Produtores">
         </div>
         <div class="producer-content-block">
             <h3 class="producer-block-title">MAIS QUE SÓ<br>PRODUTORES</h3>
@@ -136,7 +313,7 @@
                 São famílias, são histórias, são mãos que trabalham a terra com dedicação. 
                 Conheça as pessoas por trás dos produtos que levam o sabor autêntico de Trás-os-Montes à sua mesa.
             </p>
-            <a href="http://localhost/AlmaNorte/producers.html" class="btn-outline-custom">Conhecer Produtores</a>
+            <a href="https://almanorte.infinityfreeapp.com/producers.html" class="btn-outline-custom">Conhecer Produtores</a>
         </div>
     </div>
     <div class="producer-block dark">
@@ -146,10 +323,10 @@
                 Uma rede de confiança construída com quem partilha a nossa visão: 
                 valorizar o produto local, preservar tradições e garantir qualidade superior em cada entrega.
             </p>
-            <a href="http://localhost/AlmaNorte/producers.html" class="btn-outline-white">Ver Parceiros</a>
+            <a href="https://almanorte.infinityfreeapp.com/producers.html" class="btn-outline-white">Ver Parceiros</a>
         </div>
         <div class="producer-image-container">
-            <img src="http://localhost/AlmaNorte/assets/images/Cabaz.png" alt="Parceiros">
+            <img src="https://almanorte.infinityfreeapp.com/assets/images/Cabaz.png" alt="Parceiros">
         </div>
     </div>
 </section>
@@ -300,6 +477,102 @@
 
     </main>
     
+    <style>
+        footer {
+            background-color: #593232;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-section a:hover {
+            opacity: 0.8;
+        }
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .footer-social a {
+            color: white;
+            font-size: 20px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.3);
+            margin-top: 40px;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            footer {
+                padding: 40px 15px 20px;
+            }
+            
+            .footer-section {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            
+            .footer-section h3 {
+                font-size: 14px;
+            }
+            
+            .footer-section a {
+                font-size: 13px;
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                font-size: 11px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            footer {
+                padding: 30px 10px 15px;
+            }
+            
+            .footer-section h3 {
+                font-size: 12px;
+            }
+            
+            .footer-section a {
+                font-size: 12px;
+            }
+            
+            .footer-social a {
+                font-size: 18px;
+            }
+        }
+    </style>
+    
     <footer>
         <div class="container">
             <div class="row">
@@ -337,6 +610,157 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Offcanvas Favoritos -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas" aria-labelledby="favoritesLabel">
+        <div class="offcanvas-header">
+            <h5 id="favoritesLabel">FAVORITOS (<span id="favorites-count">0</span>)</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" id="favorites-container">
+            <!-- Favoritos carregados aqui -->
+        </div>
+    </div>
+    
+    <style>
+        .offcanvas {
+            width: 350px !important;
+        }
+        .offcanvas-header {
+            background: #593232;
+            color: white;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .offcanvas-header h5 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .offcanvas-header .btn-close {
+            filter: brightness(0) invert(1);
+        }
+        .favorite-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            border-bottom: 1px solid #e0e0e0;
+            align-items: flex-start;
+        }
+        .favorite-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+        .favorite-item-info {
+            flex: 1;
+        }
+        .favorite-item-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2d1c1c;
+            margin-bottom: 4px;
+        }
+        .favorite-item-producer {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .favorite-item-price {
+            font-size: 12px;
+            font-weight: 600;
+            color: #593232;
+            margin-bottom: 10px;
+        }
+        .favorite-item-button {
+            width: 100%;
+            padding: 8px;
+            background: #8b6f6f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .favorite-item-button:hover {
+            background: #765d5d;
+        }
+        .favorite-item-close {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 0;
+            align-self: flex-start;
+        }
+        .favorite-item-close:hover {
+            color: #333;
+        }
+        .favorites-empty {
+            padding: 40px 20px;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+        }
+    </style>
+    
+    <script>
+        function loadFavoritesOffcanvas() {
+            const favoritesStr = localStorage.getItem('almaNorteFavorites');
+            const favorites = favoritesStr ? JSON.parse(favoritesStr) : [];
+            const container = document.getElementById('favorites-container');
+            const countEl = document.getElementById('favorites-count');
+            
+            countEl.textContent = favorites.length;
+            
+            if (favorites.length === 0) {
+                container.innerHTML = '<div class="favorites-empty">Nenhum favorito adicionado</div>';
+                return;
+            }
+            
+            container.innerHTML = favorites.map(item => `
+                <div class="favorite-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="favorite-item-info">
+                        <div class="favorite-item-name">${item.name}</div>
+                        <div class="favorite-item-producer">${item.producer}</div>
+                        <div class="favorite-item-price">${item.price}</div>
+                        <button class="favorite-item-button" onclick="addToCart('${item.name}', '${item.price}', '${item.image}')">Adicionar ao Carrinho</button>
+                    </div>
+                    <button class="favorite-item-close" onclick="removeFavorite('${item.name}')">&times;</button>
+                </div>
+            `).join('');
+        }
+        
+        function removeFavorite(productName) {
+            const favoritesStr = localStorage.getItem('almaNorteFavorites');
+            let favorites = favoritesStr ? JSON.parse(favoritesStr) : [];
+            favorites = favorites.filter(item => item.name !== productName);
+            localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
+            loadFavoritesOffcanvas();
+        }
+        
+        function addToCart(name, price, image) {
+            const cartStr = localStorage.getItem('almaNorteCart');
+            let cart = cartStr ? JSON.parse(cartStr) : [];
+            cart.push({ name, price, image, quantity: 1 });
+            localStorage.setItem('almaNorteCart', JSON.stringify(cart));
+            alert('Produto adicionado ao carrinho!');
+        }
+        
+        // Carregar favoritos quando o offcanvas abre
+        document.addEventListener('DOMContentLoaded', function() {
+            const favoritesOffcanvas = document.getElementById('favoritesOffcanvas');
+            if (favoritesOffcanvas) {
+                favoritesOffcanvas.addEventListener('show.bs.offcanvas', loadFavoritesOffcanvas);
+            }
+        });
+    </script>
     
     <!-- Offcanvas Favoritos -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas" aria-labelledby="favoritesLabel">
@@ -405,8 +829,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.0/mustache.min.js"></script>
-    <script src="http://localhost/AlmaNorte/assets/js/main.js"></script>
+    <script src="https://almanorte.infinityfreeapp.com/assets/js/main.js"></script>
        
       
    </body>
 </html>
+

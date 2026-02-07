@@ -9,42 +9,211 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     </head>
 <body>
-    <header class="header">
-        <div class="container-fluid">
-            <!-- Top header with logo and icons -->
-            <div class="row align-items-center py-3" style="border-bottom: 1px solid #ddd;">
-                <div class="col-4">
-                    <a href="index.html" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: #333; text-decoration: none; letter-spacing: 2px;">ALMANORTE</a>
-                </div>
-                <div class="col-4 text-center">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="http://localhost/AlmaNorte/assets/images/Logotipo.png" alt="AlmaNorte" style="height: 60px;">
-                    </a>
-                </div>
-                <div class="col-4">
-                    <div class="d-flex justify-content-end gap-3">
-                        <a href="http://localhost/AlmaNorte/products.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-search"></i></a>
-                        <a href="account.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-user"></i></a>
-                        <a href="#" class="icon-link" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" style="color: #333; font-size: 18px;"><i class="fas fa-heart"></i></a>
-                        <a href="cart.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge bg-danger" style="display: none;">0</span></a>
-                    </div>
-                </div>
-            </div>
+    <style>
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 1001;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 100%;
+            padding: 0 50px;
+        }
+        .brand-text {
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #333;
+        }
+        .logo-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .logo-center img {
+            height: 80px;
+        }
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .header-icons a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .header-icons a:hover {
+            color: #593232;
+        }
+        .nav-menu {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 1000;
+            padding: 10px 0;
+            width: 100%;
+        }
+        .nav-menu .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-menu ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        .nav-menu ul li a:hover {
+            color: #593232;
+        }
+        .nav-menu ul li a.active {
+            font-weight: 700;
+        }
+        main {
+            margin-top: 160px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 12px;
+            }
             
-            <!-- Navigation menu -->
-            <nav class="row align-items-center py-3" style="border-bottom: 1px solid #ddd;">
-                <div class="col-12 text-center">
-                    <div style="display: flex; justify-content: center; gap: 40px; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1px;">
-                        <a href="index.html" style="color: #333; text-decoration: none;">HOME</a>
-                        <a href="products.html" style="color: #333; text-decoration: none;">PRODUTOS</a>
-                        <a href="blog/index.html" style="color: #333; text-decoration: none;">BLOG</a>
-                        <a href="producers.html" style="color: #333; text-decoration: none;">PRODUTORES</a>
-                        <a href="about/index.html" style="color: #333; text-decoration: none;">SOBRE NÓS</a>
-                    </div>
-                </div>
-            </nav>
+            .brand-text {
+                font-size: 9px;
+                letter-spacing: 0.5px;
+            }
+            
+            .logo-center img {
+                height: 45px;
+            }
+            
+            .header-icons {
+                gap: 10px;
+            }
+            
+            .header-icons a {
+                font-size: 13px;
+            }
+            
+            .nav-menu {
+                top: 65px;
+                padding: 6px 0;
+            }
+            
+            .nav-menu ul {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 4px;
+            }
+            
+            .nav-menu ul li a {
+                font-size: 9px;
+                letter-spacing: 0.3px;
+            }
+            
+            main {
+                margin-top: 120px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .top-header {
+                padding: 8px 0;
+            }
+            
+            .header-content {
+                padding: 0 8px;
+            }
+            
+            .brand-text {
+                font-size: 7px;
+            }
+            
+            .logo-center img {
+                height: 35px;
+            }
+            
+            .header-icons {
+                gap: 8px;
+            }
+            
+            .header-icons a {
+                font-size: 12px;
+            }
+            
+            .nav-menu {
+                top: 55px;
+                padding: 5px 0;
+            }
+            
+            .nav-menu ul {
+                gap: 8px;
+            }
+            
+            .nav-menu ul li a {
+                font-size: 7px;
+            }
+            
+            main {
+                margin-top: 105px !important;
+            }
+        }
+    </style>
+    
+    <div class="top-header">
+        <div class="header-content">
+            <div class="brand-text">ALMANORTE</div>
+            <div class="logo-center">
+                <a href="https://almanorte.infinityfreeapp.com/index.html">
+                    <img src="https://almanorte.infinityfreeapp.com/assets/images/Logotipo.png" alt="AlmaNorte">
+                </a>
+            </div>
+            <div class="header-icons">
+                <a href="https://almanorte.infinityfreeapp.com/products.html"><i class="fas fa-search"></i></a>
+                <a href="https://almanorte.infinityfreeapp.com/account.html"><i class="fas fa-user"></i></a>
+                <a href="#" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" aria-controls="favoritesOffcanvas"><i class="fas fa-heart"></i></a>
+                <a href="https://almanorte.infinityfreeapp.com/cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
         </div>
-    </header>
+    </div>
+    
+    <div class="nav-menu">
+        <div class="container">
+            <ul>
+                <li><a href="https://almanorte.infinityfreeapp.com/index.html" class="">HOME</a></li>
+                <li><a href="https://almanorte.infinityfreeapp.com/products.html" class="">PRODUTOS</a></li>
+                <li><a href="https://almanorte.infinityfreeapp.com/blog/index.html" class="">BLOG</a></li>
+                <li><a href="https://almanorte.infinityfreeapp.com/producers.html" class="">PRODUTORES</a></li>
+                <li><a href="https://almanorte.infinityfreeapp.com/about/index.html" class="">SOBRE NÓS</a></li>
+            </ul>
+        </div>
+    </div>
+     
 
     <main class="container my-5" style="margin-top: 180px; margin-bottom: 100px; padding-top: 20px;">
         <!-- ACCOUNT DASHBOARD (Hidden by default, shown when logged in) -->
@@ -287,8 +456,6 @@
             </div>
         </div>
         </div>
-    </main>
-
     <footer class="footer" style="background-color: #593232 !important;">
         <div class="footer-content">
             <div class="footer-section">
@@ -320,10 +487,292 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Alma Norte. Todos os direitos reservados.</p>
+    </footer>
+
+    <style>
+        footer {
+            background-color: #593232;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        .footer-section h3 {
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-section a:hover {
+            opacity: 0.8;
+        }
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .footer-social a {
+            color: white;
+            font-size: 20px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.3);
+            margin-top: 40px;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            footer {
+                padding: 40px 15px 20px;
+            }
+            
+            .footer-section {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            
+            .footer-section h3 {
+                font-size: 14px;
+            }
+            
+            .footer-section a {
+                font-size: 13px;
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                font-size: 11px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            footer {
+                padding: 30px 10px 15px;
+            }
+            
+            .footer-section h3 {
+                font-size: 12px;
+            }
+            
+            .footer-section a {
+                font-size: 12px;
+            }
+            
+            .footer-social a {
+                font-size: 18px;
+            }
+        }
+    </style>
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-section">
+                    <h3>APOIO AO CLIENTE</h3>
+                    <ul>
+                        <li><a href="#">Ajuda</a></li>
+                        <li><a href="#">Entregas</a></li>
+                        <li><a href="#">Devoluções</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-section">
+                    <h3>INFORMAÇÃO LEGAL</h3>
+                    <ul>
+                        <li><a href="#">Política de Envio</a></li>
+                        <li><a href="#">Política de Devolução</a></li>
+                        <li><a href="#">Certificados</a></li>
+                        <li><a href="#">Termos de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-section">
+                    <h3>CONTACTE-NOS</h3>
+                    <p>+351 919 191 919</p>
+                    <p>almanorte@gmail.com</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>Copyright © 2025. Projeto Web. All right reserved.</div>
+                <div><a href="#" style="color: white; text-decoration: none;">Termos de Uso</a></div>
+            </div>
         </div>
     </footer>
+    
+    <!-- Offcanvas Favoritos -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas" aria-labelledby="favoritesLabel">
+        <div class="offcanvas-header">
+            <h5 id="favoritesLabel">FAVORITOS (<span id="favorites-count">0</span>)</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" id="favorites-container">
+            <!-- Favoritos carregados aqui -->
+        </div>
+    </div>
+    
+    <style>
+        .offcanvas {
+            width: 350px !important;
+        }
+        .offcanvas-header {
+            background: #593232;
+            color: white;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .offcanvas-header h5 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .offcanvas-header .btn-close {
+            filter: brightness(0) invert(1);
+        }
+        .favorite-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            border-bottom: 1px solid #e0e0e0;
+            align-items: flex-start;
+        }
+        .favorite-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+        .favorite-item-info {
+            flex: 1;
+        }
+        .favorite-item-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2d1c1c;
+            margin-bottom: 4px;
+        }
+        .favorite-item-producer {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .favorite-item-price {
+            font-size: 12px;
+            font-weight: 600;
+            color: #593232;
+            margin-bottom: 10px;
+        }
+        .favorite-item-button {
+            width: 100%;
+            padding: 8px;
+            background: #8b6f6f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .favorite-item-button:hover {
+            background: #765d5d;
+        }
+        .favorite-item-close {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 0;
+            align-self: flex-start;
+        }
+        .favorite-item-close:hover {
+            color: #333;
+        }
+        .favorites-empty {
+            padding: 40px 20px;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+        }
+    </style>
+    
+    <script>
+        function loadFavoritesOffcanvas() {
+            const favoritesStr = localStorage.getItem('almaNorteFavorites');
+            const favorites = favoritesStr ? JSON.parse(favoritesStr) : [];
+            const container = document.getElementById('favorites-container');
+            const countEl = document.getElementById('favorites-count');
+            
+            countEl.textContent = favorites.length;
+            
+            if (favorites.length === 0) {
+                container.innerHTML = '<div class="favorites-empty">Nenhum favorito adicionado</div>';
+                return;
+            }
+            
+            container.innerHTML = favorites.map(item => `
+                <div class="favorite-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="favorite-item-info">
+                        <div class="favorite-item-name">${item.name}</div>
+                        <div class="favorite-item-producer">${item.producer}</div>
+                        <div class="favorite-item-price">${item.price}</div>
+                        <button class="favorite-item-button" onclick="addToCart('${item.name}', '${item.price}', '${item.image}')">Adicionar ao Carrinho</button>
+                    </div>
+                    <button class="favorite-item-close" onclick="removeFavorite('${item.name}')">&times;</button>
+                </div>
+            `).join('');
+        }
+        
+        function removeFavorite(productName) {
+            const favoritesStr = localStorage.getItem('almaNorteFavorites');
+            let favorites = favoritesStr ? JSON.parse(favoritesStr) : [];
+            favorites = favorites.filter(item => item.name !== productName);
+            localStorage.setItem('almaNorteFavorites', JSON.stringify(favorites));
+            loadFavoritesOffcanvas();
+        }
+        
+        function addToCart(name, price, image) {
+            const cartStr = localStorage.getItem('almaNorteCart');
+            let cart = cartStr ? JSON.parse(cartStr) : [];
+            cart.push({ name, price, image, quantity: 1 });
+            localStorage.setItem('almaNorteCart', JSON.stringify(cart));
+            alert('Produto adicionado ao carrinho!');
+        }
+        
+        // Carregar favoritos quando o offcanvas abre
+        document.addEventListener('DOMContentLoaded', function() {
+            const favoritesOffcanvas = document.getElementById('favoritesOffcanvas');
+            if (favoritesOffcanvas) {
+                favoritesOffcanvas.addEventListener('show.bs.offcanvas', loadFavoritesOffcanvas);
+            }
+        });
+    </script>
 
     <!-- Favorites Offcanvas -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas" style="width: 400px;">
