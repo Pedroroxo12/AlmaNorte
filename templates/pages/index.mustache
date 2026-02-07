@@ -26,34 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
 <body>
-    <div class="top-header">
-        <div class="header-content">
-            <div class="brand-text">ALMANORTE</div>
-            <div class="logo-center">
-                <a href="http://localhost/AlmaNorte/index.html">
-                    <img src="http://localhost/AlmaNorte/assets/images/Logotipo.png" alt="AlmaNorte">
-                </a>
-            </div>
-            <div class="header-icons">
-                <a href="http://localhost/AlmaNorte/products.html"><i class="fas fa-search"></i></a>
-                <a href="http://localhost/AlmaNorte/account.html"><i class="fas fa-user"></i></a>
-                <a href="#" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" aria-controls="favoritesOffcanvas"><i class="fas fa-heart"></i></a>
-                <a href="http://localhost/AlmaNorte/cart.html"><i class="fas fa-shopping-cart"></i></a>
-            </div>
-        </div>
-    </div>
-    
-    <div class="nav-menu">
-        <div class="container">
-            <ul>
-                <li><a href="http://localhost/AlmaNorte/index.html" class="active">HOME</a></li>
-                <li><a href="http://localhost/AlmaNorte/products.html" class="">PRODUTOS</a></li>
-                <li><a href="http://localhost/AlmaNorte/blog/index.html" class="">BLOG</a></li>
-                <li><a href="http://localhost/AlmaNorte/producers.html" class="">PRODUTORES</a></li>
-                <li><a href="http://localhost/AlmaNorte/about/index.html" class="">SOBRE NÓS</a></li>
-            </ul>
-        </div>
-    </div>
+    {{> header}}
          
     <main>
         
@@ -300,43 +273,7 @@
 
     </main>
     
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 footer-section">
-                    <h3>APOIO AO CLIENTE</h3>
-                    <ul>
-                        <li><a href="#">Ajuda</a></li>
-                        <li><a href="#">Entregas</a></li>
-                        <li><a href="#">Devoluções</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 footer-section">
-                    <h3>INFORMAÇÃO LEGAL</h3>
-                    <ul>
-                        <li><a href="#">Política de Envio</a></li>
-                        <li><a href="#">Política de Devolução</a></li>
-                        <li><a href="#">Certificados</a></li>
-                        <li><a href="#">Termos de Privacidade</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 footer-section">
-                    <h3>CONTACTE-NOS</h3>
-                    <p>+351 919 191 919</p>
-                    <p>almanorte@gmail.com</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div>Copyright © 2025. Projeto Web. All right reserved.</div>
-                <div><a href="#" style="color: white; text-decoration: none;">Termos de Uso</a></div>
-            </div>
-        </div>
-    </footer>
+    {{> footer}}
     
     <!-- Offcanvas Favoritos -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas" aria-labelledby="favoritesLabel">

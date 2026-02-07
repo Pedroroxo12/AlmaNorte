@@ -9,42 +9,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     </head>
 <body>
-    <header class="header">
-        <div class="container-fluid">
-            <!-- Top header with logo and icons -->
-            <div class="row align-items-center py-3" style="border-bottom: 1px solid #ddd;">
-                <div class="col-4">
-                    <a href="index.html" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: #333; text-decoration: none; letter-spacing: 2px;">ALMANORTE</a>
-                </div>
-                <div class="col-4 text-center">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="http://localhost/AlmaNorte/assets/images/Logotipo.png" alt="AlmaNorte" style="height: 60px;">
-                    </a>
-                </div>
-                <div class="col-4">
-                    <div class="d-flex justify-content-end gap-3">
-                        <a href="http://localhost/AlmaNorte/products.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-search"></i></a>
-                        <a href="account.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-user"></i></a>
-                        <a href="#" class="icon-link" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" style="color: #333; font-size: 18px;"><i class="fas fa-heart"></i></a>
-                        <a href="cart.html" class="icon-link" style="color: #333; font-size: 18px;"><i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge bg-danger" style="display: none;">0</span></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Navigation menu -->
-            <nav class="row align-items-center py-3" style="border-bottom: 1px solid #ddd;">
-                <div class="col-12 text-center">
-                    <div style="display: flex; justify-content: center; gap: 40px; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1px;">
-                        <a href="index.html" style="color: #333; text-decoration: none;">HOME</a>
-                        <a href="products.html" style="color: #333; text-decoration: none;">PRODUTOS</a>
-                        <a href="blog/index.html" style="color: #333; text-decoration: none;">BLOG</a>
-                        <a href="producers.html" style="color: #333; text-decoration: none;">PRODUTORES</a>
-                        <a href="about/index.html" style="color: #333; text-decoration: none;">SOBRE NÃ“S</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+    {{> header}}
 
     <main class="container my-5" style="margin-top: 180px; margin-bottom: 100px; padding-top: 20px;">
         <!-- ACCOUNT DASHBOARD (Hidden by default, shown when logged in) -->
@@ -139,12 +104,12 @@
                     <div style="background: #593232; color: white; border-radius: 15px; padding: 30px; min-height: 200px;">
                         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
                             <i class="fas fa-exchange-alt" style="font-size: 32px;"></i>
-                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Trocas e Devoluções</h3>
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Trocas e Devoluï¿½ï¿½es</h3>
                         </div>
-                        <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; margin-bottom: 20px;">Gerir devoluções</p>
-                        <p style="font-size: 12px; margin-bottom: 20px;">Sem Devoluções Pendentes</p>
-                        <p style="font-size: 11px;">Todos os seus pedidos estão em ótimo estado</p>
-                        <button class="btn w-100 mt-3" style="background: transparent; color: white; border: 1px solid white; font-size: 11px; padding: 8px;">Política de Devoluções</button>
+                        <p style="font-family: 'Montserrat', sans-serif; font-size: 13px; margin-bottom: 20px;">Gerir devoluï¿½ï¿½es</p>
+                        <p style="font-size: 12px; margin-bottom: 20px;">Sem Devoluï¿½ï¿½es Pendentes</p>
+                        <p style="font-size: 11px;">Todos os seus pedidos estï¿½o em ï¿½timo estado</p>
+                        <button class="btn w-100 mt-3" style="background: transparent; color: white; border: 1px solid white; font-size: 11px; padding: 8px;">Polï¿½tica de Devoluï¿½ï¿½es</button>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
@@ -287,8 +252,6 @@
             </div>
         </div>
         </div>
-    </main>
-
     <footer class="footer" style="background-color: #593232 !important;">
         <div class="footer-content">
             <div class="footer-section">
@@ -296,14 +259,14 @@
                 <ul class="footer-links">
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">Envios</a></li>
-                    <li><a href="#">Devoluções</a></li>
+                    <li><a href="#">Devoluï¿½ï¿½es</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Informação Legal</h3>
+                <h3>Informaï¿½ï¿½o Legal</h3>
                 <ul class="footer-links">
-                    <li><a href="#">Termos e Condições</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos e Condiï¿½ï¿½es</a></li>
+                    <li><a href="#">Polï¿½tica de Privacidade</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -320,10 +283,9 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Alma Norte. Todos os direitos reservados.</p>
-        </div>
     </footer>
+
+    {{> footer}}
 
     <!-- Favorites Offcanvas -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="favoritesOffcanvas" style="width: 400px;">
