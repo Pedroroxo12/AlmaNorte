@@ -3293,6 +3293,11 @@ footer {
 .payment-icons img {
     height: 16px;
 }
+.payment-instruction {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
 .summary-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
