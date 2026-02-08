@@ -126,7 +126,7 @@ body {
 }
 .nav-menu {
     position: fixed;
-    top: 100px;
+    top: 51px;
     left: 0;
     right: 0;
     background: white;
@@ -987,7 +987,7 @@ main {
 }
 .nav-menu {
     position: fixed;
-    top: 100px;
+    top: 51px;
     left: 0;
     right: 0;
     background: white;
@@ -1046,7 +1046,7 @@ main {
         font-size: 14px;
     }
     .nav-menu {
-        top: 70px;
+        top: 23px;
         padding: 8px 0;
     }
     .nav-menu ul {
