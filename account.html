@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/AlmaNorte/assets/css/styles.css">
     </head>
-<body>
+<body class="account-page auth-only">
     <style>
         .top-header {
             position: fixed;
@@ -57,7 +57,7 @@
         }
         .nav-menu {
             position: fixed;
-            top: 51px;
+            top: 35px;
             left: 0;
             right: 0;
             background: white;
@@ -184,7 +184,7 @@
             }
         }
     </style>
-    
+
     <div class="top-header">
         <div class="header-content">
             <div class="brand-text">ALMANORTE</div>
@@ -213,7 +213,7 @@
             </ul>
         </div>
     </div>
-     
+    
     <main class="container my-5" style="margin-top: 180px; margin-bottom: 100px; padding-top: 20px;">
         <!-- ACCOUNT DASHBOARD (Hidden by default, shown when logged in) -->
         <div id="accountDashboard" style="display: none;">
@@ -882,6 +882,7 @@
         function showDashboard(userData) {
             document.getElementById('authForms').style.display = 'none';
             document.getElementById('accountDashboard').style.display = 'block';
+            document.body.classList.remove('auth-only');
             
             // Update user info
             document.getElementById('welcomeMessage').textContent = `OLÁ ${userData.firstName.toUpperCase()}`;
@@ -907,6 +908,7 @@
             document.getElementById('accountDashboard').style.display = 'none';
             document.getElementById('authForms').style.display = 'block';
             document.getElementById('loginForm').reset();
+            document.body.classList.add('auth-only');
         }
 
         // Check if user is already logged in
@@ -914,6 +916,8 @@
             const userData = JSON.parse(localStorage.getItem('almaNorteUser'));
             if (userData && userData.loggedIn) {
                 showDashboard(userData);
+            } else {
+                document.body.classList.add('auth-only');
             }
         });
 

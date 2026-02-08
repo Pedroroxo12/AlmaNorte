@@ -283,6 +283,15 @@ main {
     margin-top: 80px;
 }
 
+/* Account page: hide header/nav on login/register */
+.account-page.auth-only .top-header,
+.account-page.auth-only .nav-menu {
+    display: none;
+}
+.account-page.auth-only main {
+    margin-top: 40px !important;
+}
+
 /* Page header */
 .page-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
