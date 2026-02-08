@@ -1087,12 +1087,13 @@ footer {
 .hero-section {
     position: relative;
     height: 600px;
-    background-image: url('http://localhost/AlmaNorte/assets/images/tras-os-montes.jpg');
+    background-image: url('../images/Foto de capa.jpeg');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 .hero-overlay {
     position: absolute;
@@ -1100,13 +1101,18 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, rgba(89, 50, 50, 0.6) 0%, rgba(89, 50, 50, 0.4) 100%);
+    z-index: 1;
 }
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     text-align: center;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .hero-title {
     font-size: 72px;
@@ -1115,12 +1121,17 @@ footer {
     text-transform: uppercase;
     margin: 0;
     font-family: 'Playfair Display', serif;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 .wave-divider {
     width: 100%;
-    height: 80px;
+    height: 50px;
     background: white;
     position: relative;
+    background-image: url('../images/mdi_wave.png');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    background-position: 0 center;
 }
 .wave-divider svg {
     position: absolute;
@@ -1128,11 +1139,13 @@ footer {
     left: 0;
     width: 100%;
     height: 80px;
+    display: none;
 }
 .almanorte-section {
     background: white;
-    padding: 100px 20px;
+    padding: 120px 20px 100px;
     text-align: center;
+    position: relative;
 }
 .almanorte-title {
     font-size: 64px;
@@ -1362,9 +1375,13 @@ footer {
 }
 .wave-top {
     width: 100%;
-    height: 60px;
+    height: 50px;
     background: white;
     position: relative;
+    background-image: url('../images/mdi_wave.png');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    background-position: 0 center;
 }
 .wave-top svg {
     position: absolute;
@@ -1372,6 +1389,7 @@ footer {
     left: 0;
     width: 100%;
     height: 60px;
+    display: none;
 }
 .values-content {
     padding: 60px 20px;
@@ -1424,9 +1442,14 @@ footer {
 }
 .wave-bottom {
     width: 100%;
-    height: 60px;
+    height: 50px;
     background: #e8e8e8;
     position: relative;
+    background-image: url('../images/mdi_wave.png');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    background-position: 0 center;
+    transform: scaleY(-1);
 }
 .wave-bottom svg {
     position: absolute;
@@ -1434,6 +1457,7 @@ footer {
     left: 0;
     width: 100%;
     height: 60px;
+    display: none;
 }
 .testimonials-section {
     background-color: #593232;
