@@ -3090,6 +3090,13 @@ footer {
 }
 
 /* Page: 404 */
+.error-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: 60vh;
+}
 .error-card {
     background: white;
     color: #333;
