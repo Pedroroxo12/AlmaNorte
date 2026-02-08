@@ -19,7 +19,7 @@
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/AlmaNorte/assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -27,15 +27,15 @@
         <div class="header-content">
             <div class="brand-text">ALMANORTE</div>
             <div class="logo-center">
-                <a href="/index.html">
-                    <img src="/assets/images/Logotipo.png" alt="AlmaNorte">
+                <a href="/AlmaNorte/index.html">
+                    <img src="/AlmaNorte/assets/images/Logotipo.png" alt="AlmaNorte">
                 </a>
             </div>
             <div class="header-icons">
-                <a href="/products.html"><i class="fas fa-search"></i></a>
-                <a href="/account.html"><i class="fas fa-user"></i></a>
+                <a href="/AlmaNorte/products.html"><i class="fas fa-search"></i></a>
+                <a href="/AlmaNorte/account.html"><i class="fas fa-user"></i></a>
                 <a href="#" data-bs-toggle="offcanvas" data-bs-target="#favoritesOffcanvas" aria-controls="favoritesOffcanvas"><i class="fas fa-heart"></i></a>
-                <a href="/cart.html"><i class="fas fa-shopping-cart"></i></a>
+                <a href="/AlmaNorte/cart.html"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </div>
     </div>
@@ -43,11 +43,11 @@
     <div class="nav-menu">
         <div class="container">
             <ul>
-                <li><a href="/index.html" class="">HOME</a></li>
-                <li><a href="/products.html" class="active">PRODUTOS</a></li>
-                <li><a href="/blog/index.html" class="">BLOG</a></li>
-                <li><a href="/producers.html" class="">PRODUTORES</a></li>
-                <li><a href="/about/index.html" class="">SOBRE NÓS</a></li>
+                <li><a href="/AlmaNorte/index.html" class="">HOME</a></li>
+                <li><a href="/AlmaNorte/products.html" class="active">PRODUTOS</a></li>
+                <li><a href="/AlmaNorte/blog/index.html" class="">BLOG</a></li>
+                <li><a href="/AlmaNorte/producers.html" class="">PRODUTORES</a></li>
+                <li><a href="/AlmaNorte/about/index.html" class="">SOBRE NÓS</a></li>
             </ul>
         </div>
     </div>
@@ -108,49 +108,49 @@
 
 <script>
   const featuredProducts = [
-    { name: "VINHO TROVISCO", producer: "Produtor António Barbosa", price: "45,95€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor Casa da Prisca", price: "15,95€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
-    { name: "MEL DO BÔ", producer: "Produtor Rui Lourenço", price: "4,95€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
-    { name: "AZEITE EXTRA VIRGEM", producer: "Produtor Gotinha Dourada", price: "9,95€", image: "/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" }
+    { name: "VINHO TROVISCO", producer: "Produtor António Barbosa", price: "45,95€", image: "/AlmaNorte/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor Casa da Prisca", price: "15,95€", image: "/AlmaNorte/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
+    { name: "MEL DO BÔ", producer: "Produtor Rui Lourenço", price: "4,95€", image: "/AlmaNorte/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
+    { name: "AZEITE EXTRA VIRGEM", producer: "Produtor Gotinha Dourada", price: "9,95€", image: "/AlmaNorte/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" }
   ];
 
   const catalogProducts = [
     // Página 1
-    { name: "VINHO TINTO MONT'ALEGRE", producer: "Produtor Superior", price: "14,90€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "AZEITE PORCA DE MURÇA", producer: "Produtor Cobrançosa", price: "6,78€", image: "/assets/images/azeite-removebg-preview 1.png", category: "Azeite", link: "/products/product1.html" },
-    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor Coalho", price: "25,65€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
-    { name: "MEL DA TERRA QUENTE", producer: "Produtor Tradições Gourmet", price: "6,00€", image: "/assets/images/mel-foto1_thumb-removebg-preview 1.png", category: "Mel", link: "/products/product1.html" },
-    { name: "CHOURIÇA DE BÍSARO", producer: "Produtor Gimonde", price: "3,40€", image: "/assets/images/chouriça-removebg-preview 1.png", category: "Fumeiro", link: "/products/product1.html" },
-    { name: "COMPOTA DE FIGO", producer: "Produtor Rui Lourenço", price: "5,00€", image: "/assets/images/FIGO-6-removebg-preview 1.png", category: "Doçaria", link: "/products/product1.html" },
-    { name: "ROSMANINHO", producer: "Produtor Casa Pestana", price: "6,00€", image: "/assets/images/6b6eeb9-140619-rosmaninho 1.png", category: "Ervas Aromáticas", link: "/products/product1.html" },
-    { name: "AZEITE EXTRA VIRGEM", producer: "Produtor Gotinha Dourada", price: "9,95€", image: "/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" },
+    { name: "VINHO TINTO MONT'ALEGRE", producer: "Produtor Superior", price: "14,90€", image: "/AlmaNorte/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "AZEITE PORCA DE MURÇA", producer: "Produtor Cobrançosa", price: "6,78€", image: "/AlmaNorte/assets/images/azeite-removebg-preview 1.png", category: "Azeite", link: "/products/product1.html" },
+    { name: "QUEIJO DE CABRA TRANSMONTANO", producer: "Produtor Coalho", price: "25,65€", image: "/AlmaNorte/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
+    { name: "MEL DA TERRA QUENTE", producer: "Produtor Tradições Gourmet", price: "6,00€", image: "/AlmaNorte/assets/images/mel-foto1_thumb-removebg-preview 1.png", category: "Mel", link: "/products/product1.html" },
+    { name: "CHOURIÇA DE BÍSARO", producer: "Produtor Gimonde", price: "3,40€", image: "/AlmaNorte/assets/images/chouriça-removebg-preview 1.png", category: "Fumeiro", link: "/products/product1.html" },
+    { name: "COMPOTA DE FIGO", producer: "Produtor Rui Lourenço", price: "5,00€", image: "/AlmaNorte/assets/images/FIGO-6-removebg-preview 1.png", category: "Doçaria", link: "/products/product1.html" },
+    { name: "ROSMANINHO", producer: "Produtor Casa Pestana", price: "6,00€", image: "/AlmaNorte/assets/images/6b6eeb9-140619-rosmaninho 1.png", category: "Ervas Aromáticas", link: "/products/product1.html" },
+    { name: "AZEITE EXTRA VIRGEM", producer: "Produtor Gotinha Dourada", price: "9,95€", image: "/AlmaNorte/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" },
     // Página 2
-    { name: "VINHO BRANCO RESERVA", producer: "Produtor Quinta dos Ventos", price: "18,50€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "AZEITE VIRGEM EXTRA BIO", producer: "Produtor Olival Dourado", price: "12,90€", image: "/assets/images/azeite-removebg-preview 1.png", category: "Azeite", link: "/products/product1.html" },
-    { name: "QUEIJO SERRA DA ESTRELA", producer: "Produtor Serra Alta", price: "32,00€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
-    { name: "MEL DE ROSMANINHO", producer: "Produtor Apícola Trás-os-Montes", price: "8,50€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
-    { name: "PRESUNTO DE BARRANCOS", producer: "Produtor Tradicional", price: "42,00€", image: "/assets/images/chouriça-removebg-preview 1.png", category: "Fumeiro", link: "/products/product1.html" },
-    { name: "BOLO DE MEL", producer: "Produtor Doçaria Regional", price: "7,50€", image: "/assets/images/FIGO-6-removebg-preview 1.png", category: "Doçaria", link: "/products/product1.html" },
-    { name: "TOMILHO SELVAGEM", producer: "Produtor Ervas da Terra", price: "4,20€", image: "/assets/images/6b6eeb9-140619-rosmaninho 1.png", category: "Ervas Aromáticas", link: "/products/product1.html" },
-    { name: "AZEITE PRIMEIRA PRENSA", producer: "Produtor Oliveira Centenária", price: "15,00€", image: "/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" },
+    { name: "VINHO BRANCO RESERVA", producer: "Produtor Quinta dos Ventos", price: "18,50€", image: "/AlmaNorte/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "AZEITE VIRGEM EXTRA BIO", producer: "Produtor Olival Dourado", price: "12,90€", image: "/AlmaNorte/assets/images/azeite-removebg-preview 1.png", category: "Azeite", link: "/products/product1.html" },
+    { name: "QUEIJO SERRA DA ESTRELA", producer: "Produtor Serra Alta", price: "32,00€", image: "/AlmaNorte/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
+    { name: "MEL DE ROSMANINHO", producer: "Produtor Apícola Trás-os-Montes", price: "8,50€", image: "/AlmaNorte/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
+    { name: "PRESUNTO DE BARRANCOS", producer: "Produtor Tradicional", price: "42,00€", image: "/AlmaNorte/assets/images/chouriça-removebg-preview 1.png", category: "Fumeiro", link: "/products/product1.html" },
+    { name: "BOLO DE MEL", producer: "Produtor Doçaria Regional", price: "7,50€", image: "/AlmaNorte/assets/images/FIGO-6-removebg-preview 1.png", category: "Doçaria", link: "/products/product1.html" },
+    { name: "TOMILHO SELVAGEM", producer: "Produtor Ervas da Terra", price: "4,20€", image: "/AlmaNorte/assets/images/6b6eeb9-140619-rosmaninho 1.png", category: "Ervas Aromáticas", link: "/products/product1.html" },
+    { name: "AZEITE PRIMEIRA PRENSA", producer: "Produtor Oliveira Centenária", price: "15,00€", image: "/AlmaNorte/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" },
     // Página 3
-    { name: "VINHO TINTO RESERVA", producer: "Produtor Adega Premium", price: "28,90€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "AZEITE GOURMET", producer: "Produtor Seleção Especial", price: "19,50€", image: "/assets/images/azeite-removebg-preview 1.png", category: "Azeite", link: "/products/product1.html" },
-    { name: "QUEIJO AZEITÃO", producer: "Produtor Artesanal", price: "18,00€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
-    { name: "MEL DE CASTANHEIRO", producer: "Produtor Mel Puro", price: "9,90€", image: "/assets/images/mel-foto1_thumb-removebg-preview 1.png", category: "Mel", link: "/products/product1.html" },
-    { name: "ALHEIRA DE MIRANDELA", producer: "Produtor Casa do Norte", price: "5,80€", image: "/assets/images/chouriça-removebg-preview 1.png", category: "Fumeiro", link: "/products/product1.html" },
-    { name: "QUEIJADAS DE SINTRA", producer: "Produtor Pastelaria Tradicional", price: "6,50€", image: "/assets/images/FIGO-6-removebg-preview 1.png", category: "Doçaria", link: "/products/product1.html" },
-    { name: "ORÉGÃOS SECOS", producer: "Produtor Horta Natural", price: "3,90€", image: "/assets/images/6b6eeb9-140619-rosmaninho 1.png", category: "Ervas Aromáticas", link: "/products/product1.html" },
-    { name: "AZEITE COM ALHO", producer: "Produtor Sabores Únicos", price: "11,20€", image: "/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" },
+    { name: "VINHO TINTO RESERVA", producer: "Produtor Adega Premium", price: "28,90€", image: "/AlmaNorte/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "AZEITE GOURMET", producer: "Produtor Seleção Especial", price: "19,50€", image: "/AlmaNorte/assets/images/azeite-removebg-preview 1.png", category: "Azeite", link: "/products/product1.html" },
+    { name: "QUEIJO AZEITÃO", producer: "Produtor Artesanal", price: "18,00€", image: "/AlmaNorte/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
+    { name: "MEL DE CASTANHEIRO", producer: "Produtor Mel Puro", price: "9,90€", image: "/AlmaNorte/assets/images/mel-foto1_thumb-removebg-preview 1.png", category: "Mel", link: "/products/product1.html" },
+    { name: "ALHEIRA DE MIRANDELA", producer: "Produtor Casa do Norte", price: "5,80€", image: "/AlmaNorte/assets/images/chouriça-removebg-preview 1.png", category: "Fumeiro", link: "/products/product1.html" },
+    { name: "QUEIJADAS DE SINTRA", producer: "Produtor Pastelaria Tradicional", price: "6,50€", image: "/AlmaNorte/assets/images/FIGO-6-removebg-preview 1.png", category: "Doçaria", link: "/products/product1.html" },
+    { name: "ORÉGÃOS SECOS", producer: "Produtor Horta Natural", price: "3,90€", image: "/AlmaNorte/assets/images/6b6eeb9-140619-rosmaninho 1.png", category: "Ervas Aromáticas", link: "/products/product1.html" },
+    { name: "AZEITE COM ALHO", producer: "Produtor Sabores Únicos", price: "11,20€", image: "/AlmaNorte/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" },
     // Página 4
-    { name: "VINHO ROSÉ", producer: "Produtor Vinhas do Sul", price: "12,90€", image: "/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
-    { name: "AZEITE BIOLÓGICO", producer: "Produtor Bio Premium", price: "22,00€", image: "/assets/images/azeite-removebg-preview 1.png", category: "Azeite", link: "/products/product1.html" },
-    { name: "REQUEIJÃO FRESCO", producer: "Produtor Quinta da Montanha", price: "8,50€", image: "/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
-    { name: "MEL DE EUCALIPTO", producer: "Produtor Colmeias do Vale", price: "7,20€", image: "/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
-    { name: "MORCELA DE ARROZ", producer: "Produtor Fumeiro Artesanal", price: "4,50€", image: "/assets/images/chouriça-removebg-preview 1.png", category: "Fumeiro", link: "/products/product1.html" },
-    { name: "PASTÉIS DE NATA", producer: "Produtor Confeitaria Lisboa", price: "9,00€", image: "/assets/images/FIGO-6-removebg-preview 1.png", category: "Doçaria", link: "/products/product1.html" },
-    { name: "ALFAZEMA", producer: "Produtor Jardim Aromático", price: "5,50€", image: "/assets/images/6b6eeb9-140619-rosmaninho 1.png", category: "Ervas Aromáticas", link: "/products/product1.html" },
-    { name: "AZEITE TRUFA", producer: "Produtor Delicatessen", price: "28,90€", image: "/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" }
+    { name: "VINHO ROSÉ", producer: "Produtor Vinhas do Sul", price: "12,90€", image: "/AlmaNorte/assets/images/vinhos.jpeg", category: "Vinho", link: "/products/product1.html" },
+    { name: "AZEITE BIOLÓGICO", producer: "Produtor Bio Premium", price: "22,00€", image: "/AlmaNorte/assets/images/azeite-removebg-preview 1.png", category: "Azeite", link: "/products/product1.html" },
+    { name: "REQUEIJÃO FRESCO", producer: "Produtor Quinta da Montanha", price: "8,50€", image: "/AlmaNorte/assets/images/Queijo.jpeg", category: "Queijo", link: "/products/product1.html" },
+    { name: "MEL DE EUCALIPTO", producer: "Produtor Colmeias do Vale", price: "7,20€", image: "/AlmaNorte/assets/images/MEL.jpeg", category: "Mel", link: "/products/product1.html" },
+    { name: "MORCELA DE ARROZ", producer: "Produtor Fumeiro Artesanal", price: "4,50€", image: "/AlmaNorte/assets/images/chouriça-removebg-preview 1.png", category: "Fumeiro", link: "/products/product1.html" },
+    { name: "PASTÉIS DE NATA", producer: "Produtor Confeitaria Lisboa", price: "9,00€", image: "/AlmaNorte/assets/images/FIGO-6-removebg-preview 1.png", category: "Doçaria", link: "/products/product1.html" },
+    { name: "ALFAZEMA", producer: "Produtor Jardim Aromático", price: "5,50€", image: "/AlmaNorte/assets/images/6b6eeb9-140619-rosmaninho 1.png", category: "Ervas Aromáticas", link: "/products/product1.html" },
+    { name: "AZEITE TRUFA", producer: "Produtor Delicatessen", price: "28,90€", image: "/AlmaNorte/assets/images/azeite-removebg-preview 2.png", category: "Azeite", link: "/products/product1.html" }
   ];
 
   function slugify(text) {
@@ -413,7 +413,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.0/mustache.min.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="/AlmaNorte/assets/js/main.js"></script>
    </body>
 </html>
+
 
